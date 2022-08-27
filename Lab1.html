@@ -4,14 +4,27 @@
 <head>
    <style type="text/css">a, label{vertical-align:top}</style>
    <style type="text/css">hr{border: solid 1px #9999}</style>
+   <style type="text/css">
+     table{
+        border: 1px solid gray;
+        border-spacing: 30px 0;
+        width:100%
+    }
+</style>
 </head>
+<!-- Body  -->
 <body style="margin:30px">
+    <!-- title tag affects the tab -->
+    <title>Resume</title>
 <!-- Header section that has profile photo and contact information -->
-    <header style="margin-bottom:50px">
+    <header>
         <h1>Malee Seechan</h1>
         <div class="row" style="display:flex">
             <div>
-                <img src="profile_photo.png" width="150px" alt="Photo of Malee Seechan">
+                <figure>
+                    <img src="profile_photo.png" width="150px" alt="Photo of Malee Seechan">
+                </figure>
+                <figcaption style="text-align:center ">It's me!</figcaption>
             </div>
             <div style="align-items:flex-end">
                 <!-- Contact information list-->
@@ -32,7 +45,12 @@
                         <li>
                             <img src="location-svgrepo-com.svg" width="20px" alt="location icon">
                             <label>123 Fake Street Fresno, CA 93722</label>
-                        </li>  
+                        </li>
+                        <li>
+                            <sub>
+                                updated <datetime>8/26/22 <time>1:56</time></datetime>pm
+                            </sub>
+                        </li>
                     </address>
                 </ul>
             </div>
@@ -40,17 +58,14 @@
     </header>
 <!-- Education information section -->
     <section>
-        <h2>Education</h2>
+        <h3>Education</h3>
         <hr>
-        <table style="width:100%">
+        <table>
             <tr>
-                <td>
-                    <b style="margin-left:10px" >California State University, Fresno</b>
-                    <ul>
-                        <li>Pursuing Bachelor of Science, Computer Science (GPA: 3.60)</li>
-                </td>
-                <td style="text-align:end; vertical-align: text-top">
-                    Projected Graduation Fall 2022
+                <td><b><abbr title="California State University">CSU</abbr> Fresno</b></td>
+                <td>Pursuing Bachelor of Science, Computer Science (GPA: 3.60)</td>
+                <td style="vertical-align:text-top; text-align: right; ">
+                    <mark>Projected Graduation Fall 2022</mark>
                 </td>
             </tr>
         </table>
@@ -60,11 +75,10 @@
     <section>
         <h3>Courses/Projects</h3>
         <hr>
-
         <table>
             <tr>
                 <td>
-                    <b style="margin-left:10px">Data Structures and Algorithms</b><br>
+                    <b>Data Structures and Algorithms</b>
                     <ul>
                         <li>Utilized C++ to implement data structures and sorting algorithms</li>
                         <li>Collected runtime data and analyzed actual growth rates vs expected growth rates</li>
@@ -73,7 +87,7 @@
             </tr>
             <tr>
                 <td>
-                    <b style="margin-left:10px">Intro Software Engineering</b>
+                    <b>Intro Software Engineering</b>
                     <ul>
                         <li><a href="https://github.com/FS-CSCI150-F21/FS-CSCI150-F21-Team10">Rumii Website</a></li>
                         <li>Collaborated in a team to create a bill management web app</li>
@@ -84,7 +98,7 @@
             </tr>
             <tr>
                 <td>
-                    <b style="margin-left:10px">Software Engineering</b>
+                    <b>Software Engineering</b>
                     <ul>
                         <li><a href="https://github.com/Spring2022-CSCI152/Team4">Facial Recognition: Most Wanted</a></li>
                         <li>Mirco-service based reporting system with facial recognition detection</li>
@@ -94,23 +108,49 @@
                 <td>video</td>
             </tr>
         </table>
-
-
-
-
-
-
-
-
-       
-        
-    
     </section>
     <br>
 <!-- Skills section -->
     <section>
-        <h3>Skills</h3>
-        <hr>
+    <h3>Skills</h3>
+    <hr>
+    <div class="row" style="display:flex">
+        <div style="margin-right: 20px;"> 
+            <table>
+                <tr>
+                    <th colspan="2" style="text-align:left">Programming Languages</th>
+                </tr>
+                <tr>
+                    <td>C++</td>
+                    <td>Javascript</td>
+                </tr>
+                <tr>
+                    <td>Python</td>
+                    <td>HTML / CSS</td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <th colspan="2" style="text-align:left">Tools \ Libraries</th>
+                </tr>
+                <tr>
+                    <td>Github</td>
+                    <td>React</td>
+                </tr>
+                <tr>
+                    <td>NodeJs</td>
+                    <td>Bootstrap</td>
+                </tr>
+                <tr>
+                    <td>Tkinter</td>
+                    <td>Cloud Firestore</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+<!-- Experience information section -->
     </section>
     <section>
         <h3>Experience</h3>
