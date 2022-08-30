@@ -4,59 +4,60 @@
 <head>
     <!-- scripts -->
     <style type="text/css">td, table{
-        border: solid 1px black;
+        /* border: solid 1px black; */
     }</style>
 </head>
 <!-- Body  -->
 <body>
     <!-- title tag affects the tab name -->
     <title>Resume</title>
-<!-- The header of a section that has profile photo and contact information -->
+<!-- The header of a section that has profile photo and contact information and a nav at the end-->
     <header id="header_id">
+        <h1>Malee Seechan</h1>
         <table>
             <tr>
-                <th colspan="5">
-                    <h1>Malee Seechan</h1>
+                <th>
                     <!-- Profile photo-->
                     <figure>
                         <img src="https://media-exp1.licdn.com/dms/image/C5603AQHs0AeIAtODDw/profile-displayphoto-shrink_400_400/0/1645332913719?e=1666828800&v=beta&t=LQUUjEoRhhJPgDxVIDUEOnX90V3B0Ciqa8PpMQ8igmY" style="border-radius:50%" width="100px" alt="Photo of Malee Seechan">
-                        <figcaption><q>It's me!</q> -<cite>me</cite></figcaption>
+                        <figcaption><q>It's me!</q> -<cite>Malee</cite></figcaption>
                     </figure>
-                    <sub>Updated <time>2022-27-08 14:00</time> pm</sub>
                 </th>
             </tr>
-            <tr>  
-                <!-- Contact information nested table-->
-                <td>
-                    <img src="https://cdn-icons-png.flaticon.com/128/61/61109.png" width="20px" alt="linkedin icon">
-                    <a href="www.linkedin.com/in/malee-seechan">Linkedin</a>
-                </td>
-                <td>
-                    <img src="https://cdn-icons-png.flaticon.com/128/95/95645.png" width="20px" alt="email icon">
-                    <a href="mailto:m.seechan@gmail.com">m.seechan@gmail.com</a>
-                </td>
-                <td>
-                    <img src="https://cdn-icons-png.flaticon.com/128/1/1257.png" width="20px" alt="phone icon">
-                    <a href="tele:+15591234567">(559)123-4567</a>
-                </td>
-                <td>
-                    <img src="https://cdn-icons-png.flaticon.com/128/3177/3177361.png" width="20px" alt="location icon">
-                    <label>Fresno, CA 93722</label>
-                </td>
+            <!-- Contact information nested table-->
+            <tr>
+                <td><a href="www.linkedin.com/in/malee-seechan">Linkedin</a></td>
+            </tr>
+            <tr>
+                <td><a href="mailto:m.seechan@gmail.com">m.seechan@gmail.com</a></td>
+            </tr>
+            <track>
+                <td><a href="tele:+15591234567">(559)123-4567</a></td>
+            </tr>
+            <tr>
+                <td><label>Fresno, CA 93722</label></td>
+            </tr>
+            <tr>
+                <td><sup>Updated <time>2022-27-08 14:00</time>pm</sup></td>
             </tr>
         </table>
-  
+        <nav role="navigation">
+            <ul>
+                <li><a href="#education_id">Education</a></li>
+                <li><a href="#courses_id">Courses</a></li>
+                <li><a href="#skills_id">Skils</a></li>
+                <li><a href="#experience_id">Experience</a></li>
+            </ul>
+        </nav>
     </header>
 <!-- Education information section and grad date -->
-    <section>
-        <h3>Education</h3>
+    <section id="education_id">
         <hr>
-        <table>
+        <strong>Education</strong>
+        <table width="100%">
             <tr>
-                <td><b><abbr title="California State University">CSU</abbr> Fresno</b></td>
-                <td style="vertical-align:text-top; text-align: right; ">
-                    <em>Projected Graduation Fall <time>2022</time></em>
-                </td>
+                <td><em><abbr title="California State University">CSU</abbr> Fresno</em></td>
+                <td><em>Projected Graduation Fall <time>2022</time></em></td>
             </tr>
             <tr>
                 <td>Pursuing Bachelor of Science, Computer Science <sub>(GPA: 3.60)</sub></td>
@@ -65,14 +66,14 @@
     </section>
     <br>
 <!-- Courses/Projects information section: table with unordered lists inside -->
-    <section>
-        <h3>Courses/Projects</h3>
+    <section id="courses_id">
         <hr>
-        <table>
+        <strong>Courses/Projects</strong>
+        <table width="100%">
         <!-- courses row 1 -->
             <tr>
                 <td>
-                    <b>Data Structures and Algorithms</b>
+                    <em>Data Structures and Algorithms</em>
                     <ul>
                         <li>Utilized C++ to implement data structures and sorting algorithms</li>
                         <li>Collected runtime data and analyzed actual growth rates vs expected growth rates</li>
@@ -82,7 +83,7 @@
         <!-- courses row 2 -->
             <tr>
                 <td>
-                    <b>Intro Software Engineering</b>
+                    <em>Intro Software Engineering</em>
                     <ul>
                         <li><a href="https://github.com/FS-CSCI150-F21/FS-CSCI150-F21-Team10">Rumii Website</a></li>
                         <li>Collaborated in a team to create a bill management web app</li>
@@ -90,13 +91,13 @@
                     </ul>
                 </td>
                 <td>
-                    <a href="https://youtu.be/Yct3Ni0olcc"><img src="https://cdn-icons-png.flaticon.com/128/3128/3128210.png" width="50px"></a>
+                    <iframe width="200" height="100" src="https://www.youtube.com/embed/Yct3Ni0olcc" title="CSCI 150 Team 10 - RUMII (HIPS + 15 minutes)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </td>
             </tr>
         <!-- courses row 3 -->
             <tr>
                 <td>
-                    <b>Software Engineering</b>
+                    <em>Software Engineering</em>
                     <ul>
                         <li><a href="https://github.com/Spring2022-CSCI152/Team4">Facial Recognition: Most Wanted</a></li>
                         <li>Mirco-service based reporting system with facial recognition detection</li>
@@ -104,67 +105,64 @@
                     </ul>
                 </td>
                 <td>
-                    <a href="https://youtu.be/J2aWw7V6Pbs"><img src="https://cdn-icons-png.flaticon.com/128/3128/3128210.png" width="50px"></a>
+                    <iframe width="200" height="100" src="https://www.youtube.com/embed/J2aWw7V6Pbs" title="Video ID# 93181, Business Reporting System Enhanced With Facial Recognition, HIPS Spring 2022" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </td>
             </tr>
         </table>
     </section>
     <br>
 <!-- Skills information section: This part has 2 columns to show 2 tables in the same row. -->
-    <section>
-    <h3>Skills</h3>
-    <hr>
-        <table>
-            <thead>
-                <tr>
-                    <th>Programming Languages</th>
-                    <th>Tools / Libraries</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <ul style="list-style: none;">
-                            <li>C++</li>
-                            <li>Javascript</li>
-                            <li>Python</li>
-                            <li>HTML / CSS</li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul style="list-style:none">
-                            <li>Github</li>
-                            <li>React</li>
-                            <li>NodeJs</li>
-                            <li>Tkinter</li>
-                            <li>Cloud Firestore</li>
-                        </ul>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-     
+    <section id="skills_id">
+        <hr>
+        <strong>Skills</strong>
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">Programming Languages</th>
+                        <th colspan="2">Tools and Libraries</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>C++</td>
+                        <td>Javascript</td>
         
-          
-       
+                        <td>Github</td>
+                        <td>Tkinter</td>
+                    </tr>
+                    <tr>
+                        <td>Python</td>
+                        <td>HTML / CSS</td>
+                        <td>React</td>
+                        <td>NodeJs</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>Tkinter</td>
+                        <td>Cloud Firestore</td>
+                    </tr>
+                </tbody>
+            </table>
     </section>
 <!-- Experience information section -->
-    <section>
-        <h3>Experience</h3>
+    <section id="experience_id">
         <hr>
-        <table>
+        <strong>Experience</strong>
+        <table width="100%">
         <!-- experience row 1 -->
             <tr>
+                <td><img src="https://www.voltagemultipliers.com/wp-content/uploads/2018/05/voltage-multipliers-logo.png" width="75px" alt="VMI logo"></td>
                 <td>
-                    <img src="https://www.voltagemultipliers.com/wp-content/uploads/2018/05/voltage-multipliers-logo.png" width="75px" alt="VMI logo">
-                </td>
-                <td>
-                    <b>Design Engineer Tech</b>
+                    <em>Design Engineer Tech</em>
+                    <br>
+                    <a href="https://www.voltagemultipliers.com/">https://www.voltagemultipliers.com/</a>
                     <p>Developed MVC model gui using Python and Tkinter to monitor power supply serial communications. UI includes real-time graphing with matplotlib</p>
+                    <br>
                 </td>
-                <td style="text-align:right; width:150px">
+                <td>
                     <time>2022-05</time> to Present
-                </td>
+                </td> 
             </tr>
         <!-- experience row 2 -->
             <tr>
@@ -172,14 +170,13 @@
                     <img src="https://cdn-teams-slug.flaticon.com/google.jpg" width="50px" alt="Google logo">
                 </td>
                 <td>
-                    <b>Google Camp Participant</b>
-                    <p>
-                        <a href="https://colab.research.google.com/">https://colab.research.google.com/</a>
-                        <br>
-                        Campus and Google collaboration program to research the accuracy of recurrent neural network models LSTM and ARIMA in predicting stock prices
-                    </p>
+                    <em>Google Camp Participant</em>
+                    <br>
+                    <a href="https://colab.research.google.com/">https://colab.research.google.com/</a>
+                    <p>Campus and Google collaboration program to research the accuracy of recurrent neural network models LSTM and ARIMA in predicting stock prices</p>
+                    <br>
                 </td>
-                <td style="text-align:right; width:150px">
+                <td>
                     <time>2021-03</time> to <time>2021-04</time> 
                 </td>
             </tr>
@@ -190,25 +187,21 @@
                 </td>
                 <td>
                 <!-- Ordered list of google sps projects -->
-                    <b>Google Software Product Sprint Participant</b>
+                    <em>Google Software Product Sprint Participant</em>
                     <ol>
                         <li>
-                            <p>
-                                <a href="https://github.com/MSeechan/sps-project">https://github.com/MSeechan/sps-project</a>
-                                <br>
-                                Worked on a 3 member team to create a workout routine web app using Github, Google Cloud Shell Editor, Google Datastore,  Java,  Javascript, Jetty Servers, Maven, and Servlets. Responsibilities included creating a login system using Rest API and backend datastore
-                            </p>
+                            <a href="https://github.com/MSeechan/sps-project">https://github.com/MSeechan/sps-project</a>
+                            <br>
+                            <p>Worked on a 3 member team to create a workout routine web app using Github, Google Cloud Shell Editor, Google Datastore,  Java,  Javascript, Jetty Servers, Maven, and Servlets. Responsibilities included creating a login system using Rest API and backend datastore</p>
                         </li>
                         <li>
-                            <p>
-                                <a href="https://github.com/MSeechan/My-Portfolio">https://github.com/MSeechan/My-Portfolio</a>
-                                <br>
-                                Created an interactive website that responds to real-time user generated data
-                            </p>
+                            <a href="https://github.com/MSeechan/My-Portfolio">https://github.com/MSeechan/My-Portfolio</a>
+                            <br>
+                            <p>Created an interactive website that responds to real-time user generated data</p>
                         </li>
                     </ol>
                 </td>
-                <td style="text-align:right; width:150px">
+                <td>
                     <time>2021-06</time> to <time>2021-08</time>
                 </td>
             </tr>
