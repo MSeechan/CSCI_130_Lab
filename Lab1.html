@@ -1,57 +1,51 @@
 <!DOCTYPE html>
 <html lang="en" style="font: normal 12px Tahoma, Verdana, Arial, sans-serif">
-
+<!-- html head -->
 <head>
-   <style type="text/css">a{vertical-align:top}</style>
-   <style type="text/css">h3{margin-block-end: 0em;}</style>
-   <style type="text/css">p{margin-block-start: 0em; margin-left: 20px;}</style>
-   <style type="text/css">table{
-        border-spacing: 30px 0;
-        width:100%
+    <!-- scripts -->
+    <style type="text/css">td, table{
+        border: solid 1px black;
     }</style>
 </head>
 <!-- Body  -->
-<body style="margin:30px">
-    <!-- title tag affects the tab -->
+<body>
+    <!-- title tag affects the tab name -->
     <title>Resume</title>
-<!-- Header section that has profile photo and contact information -->
+<!-- The header of a section that has profile photo and contact information -->
     <header id="header_id">
-        <h1>Malee Seechan</h1>
-        <div class="row" style="display:flex">
-            <div>
-                <!-- Profile photo-->
-                <figure>
-                    <img src="https://media-exp1.licdn.com/dms/image/C5603AQHs0AeIAtODDw/profile-displayphoto-shrink_400_400/0/1645332913719?e=1666828800&v=beta&t=LQUUjEoRhhJPgDxVIDUEOnX90V3B0Ciqa8PpMQ8igmY" style="border-radius:50%; width:100px" alt="Photo of Malee Seechan">
-                    <figcaption style="text-align:center ">It's me!</figcaption>
-                </figure>
-            </div>
-            <div style="align-items:flex-end">
-                <!-- Contact information list-->
-                <ul style="list-style:none; display:flex">
-                    <address style="font-style:normal;">
-                        <li>
-                            <img src="https://cdn-icons-png.flaticon.com/128/61/61109.png" width="20px" alt="linkedin icon">
-                            <a href="www.linkedin.com/in/malee-seechan">Linkedin</a>
-                        </li>
-                        <li>
-                            <img src="https://cdn-icons-png.flaticon.com/128/95/95645.png" width="20px" alt="email icon">
-                            <a href="mailto:m.seechan@gmail.com">m.seechan@gmail.com</a>
-                        </li>
-                        <li>
-                            <img src="https://cdn-icons-png.flaticon.com/128/1/1257.png" width="20px" alt="phone icon">
-                            <a href="tele:+15591234567">(559)123-4567</a>
-                        </li>
-                        <li>
-                            <img src="https://cdn-icons-png.flaticon.com/128/3177/3177361.png" width="20px" alt="location icon">
-                            <label>Fresno, CA 93722</label>
-                        </li>
-                        <li>
-                            <sub>Updated <time>2022-27-08 14:00</time> pm</sub>
-                        </li>
-                    </address>
-                </ul>
-            </div>
-        </div>
+        <table>
+            <tr>
+                <th colspan="5">
+                    <h1>Malee Seechan</h1>
+                    <!-- Profile photo-->
+                    <figure>
+                        <img src="https://media-exp1.licdn.com/dms/image/C5603AQHs0AeIAtODDw/profile-displayphoto-shrink_400_400/0/1645332913719?e=1666828800&v=beta&t=LQUUjEoRhhJPgDxVIDUEOnX90V3B0Ciqa8PpMQ8igmY" style="border-radius:50%" width="100px" alt="Photo of Malee Seechan">
+                        <figcaption><q>It's me!</q> -<cite>me</cite></figcaption>
+                    </figure>
+                    <sub>Updated <time>2022-27-08 14:00</time> pm</sub>
+                </th>
+            </tr>
+            <tr>  
+                <!-- Contact information nested table-->
+                <td>
+                    <img src="https://cdn-icons-png.flaticon.com/128/61/61109.png" width="20px" alt="linkedin icon">
+                    <a href="www.linkedin.com/in/malee-seechan">Linkedin</a>
+                </td>
+                <td>
+                    <img src="https://cdn-icons-png.flaticon.com/128/95/95645.png" width="20px" alt="email icon">
+                    <a href="mailto:m.seechan@gmail.com">m.seechan@gmail.com</a>
+                </td>
+                <td>
+                    <img src="https://cdn-icons-png.flaticon.com/128/1/1257.png" width="20px" alt="phone icon">
+                    <a href="tele:+15591234567">(559)123-4567</a>
+                </td>
+                <td>
+                    <img src="https://cdn-icons-png.flaticon.com/128/3177/3177361.png" width="20px" alt="location icon">
+                    <label>Fresno, CA 93722</label>
+                </td>
+            </tr>
+        </table>
+  
     </header>
 <!-- Education information section and grad date -->
     <section>
@@ -61,7 +55,7 @@
             <tr>
                 <td><b><abbr title="California State University">CSU</abbr> Fresno</b></td>
                 <td style="vertical-align:text-top; text-align: right; ">
-                    <mark>Projected Graduation Fall <time>2022</time></mark>
+                    <em>Projected Graduation Fall <time>2022</time></em>
                 </td>
             </tr>
             <tr>
@@ -120,54 +114,39 @@
     <section>
     <h3>Skills</h3>
     <hr>
-    <div class="row" style="display:flex">
-        <div>
-            <!-- table of languages 2x2 -->
-            <table>
-                <thead>
-                    <tr>
-                        <th colspan="2" style="text-align:left">Programming Languages</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>C++</td>
-                        <td>Javascript</td>
-                    </tr>
-                    <tr>
-                        <td>Python</td>
-                        <td>HTML / CSS</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div>
-            <!-- table of tools/libraries 3x2 -->
-            <table>
-                <!-- table head -->
-                <thead>
-                    <tr>
-                        <th colspan="2" style="text-align:left">Tools \ Libraries</th>
-                    </tr>
-                </thead>
-                <!-- table body -->
-                <tbody>
-                    <tr>
-                        <td>Github</td>
-                        <td>React</td>
-                    </tr>
-                    <tr>
-                        <td>NodeJs</td>
-                        <td>Bootstrap</td>
-                    </tr>
-                    <tr>
-                        <td>Tkinter</td>
-                        <td>Cloud Firestore</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Programming Languages</th>
+                    <th>Tools / Libraries</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <ul style="list-style: none;">
+                            <li>C++</li>
+                            <li>Javascript</li>
+                            <li>Python</li>
+                            <li>HTML / CSS</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul style="list-style:none">
+                            <li>Github</li>
+                            <li>React</li>
+                            <li>NodeJs</li>
+                            <li>Tkinter</li>
+                            <li>Cloud Firestore</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+     
+        
+          
+       
     </section>
 <!-- Experience information section -->
     <section>
