@@ -6,7 +6,6 @@ using namespace std;
 void makeHTML(double matrix[][3]){
     ofstream outfile;
     outfile.open("newfile.html");
-    
     outfile << "<!DOCTYPE html>"<<endl;
     outfile << "<html lang=\"eng\">" << endl;
     outfile << "\t<head></head>" << endl;
