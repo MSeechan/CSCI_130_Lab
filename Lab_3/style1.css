@@ -1,0 +1,104 @@
+.white{color:white}
+
+
+.row{
+    display:flex;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+/* banner styling */
+.banner{
+    display:flex;
+    padding: 10px;
+    background-color: rgb(134, 157, 200);
+}
+
+
+/* only affects a and label tags inside the banner*/
+.banner a, label{
+    vertical-align: top;
+    color:white;
+    padding:5px;
+    font-size: small;
+}
+
+.banner a:hover{ 
+    color:rgb(48, 29, 123);
+}
+
+.banner h1{
+    margin:0 10px 10px;
+}
+
+section h3{
+    margin-bottom:0;
+}
+
+.center-col{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.center-row{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.center-row table{
+    border-spacing: 10px;
+    margin: 0 20px
+}
+
+.center-row td{
+    text-align: center;
+    border-radius: 10px;
+    background-color: rgb(175, 243, 255);
+}
+
+#contact{
+  margin-left:5vw;
+}
+
+ul{list-style: none;}
+
+#nav_id{
+    display:flex;
+    background-color: #eeeeee;
+    margin-bottom: 20px;
+}
+
+#nav_id a{ 
+    padding:10px;
+    text-decoration: none;
+    color: rgb(118, 118, 118);
+    font-size: x-small;
+}
+
+#nav_id a:hover{
+    background-color: #cccccc;
+    color:#000000;
+}
+
+.sect_head{
+    font-size: medium;
+    color:#777777;
+}
+
+.mark{
+    background-color: rgb(175, 243, 255); 
+}
+
+.em{
+    font-style:italic;
+}
+
+.fit-content{
+    text-align: right;
+    min-width: 150px;
+}
+
+
+

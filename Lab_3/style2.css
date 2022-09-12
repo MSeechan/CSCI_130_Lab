@@ -1,0 +1,110 @@
+.white{color:white}
+
+.row{
+    display:flex;
+    justify-content: space-between;
+}
+
+/* banner styling */
+.banner{
+    height:100%;
+    width: 200px;;
+    padding: 10px;
+    background-color:rgb(54, 97, 122);
+}
+
+/* only affects a and label tags inside the banner*/
+.banner a, label{
+    vertical-align: top;
+    color:#ffffff;
+    padding:5px;
+    font-size: small;
+}
+
+.banner a:hover{ 
+    color:#000000
+}
+
+.banner h1{
+    margin:0 10px 10px;
+}
+
+section{
+    padding-left: 20px;
+}
+
+section h3{
+    margin-bottom:0;
+}
+
+.center-col{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* align table in a row in skills section */
+.center-row{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.center-row table{
+    border-spacing: 10px;
+    margin: 0 20px
+}
+
+.center-row td{
+    color:white;
+    text-align: center;
+    height: 20px;
+    width:100px;
+    border-radius: 10px;
+    background-color: #444444;
+}
+
+ul{list-style: none;}
+
+/* nav styling */
+#nav_id{
+    display:flex;
+    background-color: #eeeeee;
+}
+
+#nav_id a{ 
+    padding:10px;
+    text-decoration: none;
+    color: rgb(118, 118, 118);
+    font-size: x-small;
+}
+
+#nav_id a:hover{
+    background-color: #cccccc;
+    color:#000000;
+}
+
+#contact{
+    margin-top: 20px;
+}
+
+.sect_head{
+    font-size: medium;
+    color:#777777;
+}
+
+.mark{
+    background-color: rgb(175, 243, 255); 
+}
+
+.em{
+    font-style:italic;
+}
+
+.fit-content{
+    text-align: right;
+    min-width: 150px;
+}
+
+
+

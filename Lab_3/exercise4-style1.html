@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en" style="font: normal 12px Helvetica, Verdana, Arial, sans-serif">
+<!-- html head -->
+<head>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<!-- Body  -->
+<body>
+    <!-- title tag affects the tab name -->
+    <title>Resume</title>
+<!-- The header of a section that has profile photo and contact information and a nav at the end-->
+    <header id="header_id" class="banner">
+        <!-- Profile -->
+        <div class="center-col white">
+            <h1>Malee Seechan</h1>
+            <img src="https://media-exp1.licdn.com/dms/image/C5603AQHs0AeIAtODDw/profile-displayphoto-shrink_400_400/0/1645332913719?e=1666828800&v=beta&t=LQUUjEoRhhJPgDxVIDUEOnX90V3B0Ciqa8PpMQ8igmY" style="border-radius:50%" width="100px" alt="Photo of Malee Seechan">
+            <figcaption><q>It's me!</q> -Malee</figcaption>
+        </div>
+        <!-- Contact information -->
+        <table id="contact">
+            <tr>
+                <td>
+                    <img src="https://cdn-icons-png.flaticon.com/128/61/61109.png" width="20px" alt="linkedin icon">
+                    <a href="www.linkedin.com/in/malee-seechan">Linkedin</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="https://cdn-icons-png.flaticon.com/128/95/95645.png" width="20px" alt="email icon">
+                    <a href="mailto:m.seechan@gmail.com">m.seechan@gmail.com</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="https://cdn-icons-png.flaticon.com/128/1/1257.png" width="20px" alt="phone icon">
+                    <a  href="tele:+15591234567">(559)123-4567</a>
+                </td>
+            </tr>
+            <tr>
+                <td >
+                    <img src="https://cdn-icons-png.flaticon.com/128/3177/3177361.png" width="20px" alt="location icon">
+                    <label>Fresno, CA 93722</label>
+                </td>
+            </tr>
+            <tr>
+                <td class="white"><sub>Updated <time>2022-09-09 14:00</time> pm</sub></td>  
+            </tr>
+        </table>
+    </header>
+         <!-- Navigation -->
+         <div id="nav_id">
+            <a href=#education_id>Education</a>
+            <a href="#courses_id">Courses</a>
+            <a href="#skills_id">Skills</a>
+            <a href="#experience_id">Experience</a>
+         </div>
+
+<!-- Education information section and grad date -->
+    <section id="education_id">
+        <h3 class="sect_head">Education</h3>
+        <div class="row">
+            <div>
+                <ul>
+                    <li class="em"><abbr title="California State University">CSU</abbr> Fresno</li>
+                        <ul>
+                            <li>Pursuing Bachelor of Science, Computer Science <sub>(GPA: 3.60)</sub></li>
+                        </ul>
+                </ul>
+            </div>
+            <div>
+                <p class="mark em">Projected Graduation Fall <time>2022</time></p>
+            </div>
+        </div>
+    </section>
+    <br>
+
+<!-- Courses/Projects information section: table with unordered lists inside -->
+    <section id="courses_id">
+        <hr>
+        <h3 class="sect_head">Courses/Projects</h3>
+      
+            <div class="row">
+                <ul>
+                    <li class="em">Data Structures and Algorithms</li>
+                    <ul>
+                        <li>Utilized C++ to implement data structures and sorting algorithms</li>
+                        <li>Collected runtime data and analyzed actual growth rates vs expected growth rates</li>
+                    </ul>
+                </ul>
+            </div>
+            <div class="row">
+                <ul>
+                    <li class="em">Intro Software Engineering</li>
+                    <ul>
+                        <li><a href="https://github.com/FS-CSCI150-F21/FS-CSCI150-F21-Team10" rel="external">Rumii Website</a></li>
+                        <li>Collaborated in a team to create a bill management web app</li>
+                        <li>Implemented CRUD processes using NodeJs and Cloud Firestore </li>
+                    </ul>
+                </ul>
+                <div>
+                    <iframe width="150" height="75" src="https://www.youtube.com/embed/Yct3Ni0olcc" title="CSCI 150 Team 10 - RUMII (HIPS + 15 minutes)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="row">
+                <ul>
+                    <li class="em">Software Engineering</li>
+                    <ul>
+                        <li><a href="https://github.com/Spring2022-CSCI152/Team4" rel="external">Facial Recognition: Most Wanted</a></li>
+                        <li>Mirco-service based reporting system with facial recognition detection</li>
+                        <li>Frontend focused using React, NodeJs, and Bootstrap</li>
+                    </ul>
+                </ul>
+                <div>
+                    <iframe width="150" height="75" src="https://www.youtube.com/embed/J2aWw7V6Pbs" title="Video ID# 93181, Business Reporting System Enhanced With Facial Recognition, HIPS Spring 2022" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+
+<!-- Skills information section: This part has 2 columns to show 2 tables in the same row. -->
+    <section id="skills_id">
+        <hr>
+        <h3 class="sect_head">Skills</h3>
+        <div class="center-row">
+            <div>
+                <table> 
+                    <th colspan="2">Programming Languages</th>
+                    <tr>
+                        <td>C++</td>
+                        <td>Javascript</td>
+                    </tr>
+                    <tr>
+                        <td>Python</td>
+                        <td>HTML / CSS</td>
+                    </tr>
+                </table>  
+            </div>
+            <div>
+                <table> 
+                    <th colspan="2">Tools / Libraries</th>
+                    <tr>
+                        <td>Gitbhub</td>
+                        <td>React</td>
+                    </tr>
+                    <tr>
+                        <td>NodeJs</td>
+                        <td>Bootstrap</td>
+                    </tr>
+                    <tr>
+                        <td>Tkinter</td>
+                        <td>Cloud Firestore</td>
+                    </tr>
+                </table>  
+            </div>
+        </div>
+    </section>
+
+<!-- Experience information section -->
+    <section id="experience_id">
+        <hr>
+        <h3 class="sect_head">Experience</h3>
+        <div class="row">
+            <table>
+                <tr>
+                    <td><img src="https://www.voltagemultipliers.com/wp-content/uploads/2018/05/voltage-multipliers-logo.png" width="75px" alt="VMI logo"></td>
+                    <td>
+                        <ul>
+                            <li class="em">Design Engineer Tech</li>
+                            <ul>
+                                <li><a href="https://www.voltagemultipliers.com/" rel="external">https://www.voltagemultipliers.com/</a></li>
+                                <li>Mirco-service based reporting system with facial recognition detection</li>
+                                <li>Frontend focused using React, NodeJs, and Bootstrap</li>
+                            </ul>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+            <div class="fit-content"><time>2022-05</time> to Present  </div>
+        </div>
+        <div class="row">
+            <table>
+                <tr>
+                    <td><img src="https://cdn-teams-slug.flaticon.com/google.jpg" width="75px" alt="Google logo"></td>
+                    <td>
+                        <ul>
+                            <li class="em">Google Camp Participant</li>
+                            <ul>
+                                <li><a href="https://colab.research.google.com/" rel="external">https://colab.research.google.com/</a></li>
+                                <li>Campus and Google collaboration program to research the accuracy of recurrent neural network models LSTM and ARIMA in predicting stock prices</li>
+                            </ul>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+            <div class="fit-content"><time>2021-03</time> to <time>2021-04</time> </div>
+        </div>
+        <div class="row">
+            <table>
+                <tr>
+                    <td><img src="https://cdn-teams-slug.flaticon.com/google.jpg" width="75px" alt="Google logo"></td>
+                    <td>
+                        <ul>
+                            <li class="em">Google Software Product Sprint Participant</li>
+                            <ol>
+                                <li>
+                                    <p>
+                                        <a href="https://github.com/MSeechan/sps-project">https://github.com/MSeechan/sps-project</a>
+                                        <br>
+                                        Worked on a 3 member team to create a workout routine web app using Github, Google Cloud Shell Editor, Google Datastore,  Java,  Javascript, Jetty Servers, Maven, and Servlets. Responsibilities included creating a login system using Rest API and backend datastore
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        <a href="https://github.com/MSeechan/My-Portfolio">https://github.com/MSeechan/My-Portfolio</a>
+                                        <br>
+                                        Created an interactive website that responds to real-time user generated data
+                                    </p>
+                                </li>
+                            </ol>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+            <div class="fit-content"><time>2021-06</time> to <time>2021-08</time></div>
+        </div>
+    </section>
+<!-- footer -->
+    <footer style="text-align:center; margin-top:50px">
+        <nav>
+            <a href="#header_id">Go Back Up</a>
+    </footer>
+</body>
+</html>
