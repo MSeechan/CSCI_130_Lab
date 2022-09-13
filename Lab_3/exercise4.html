@@ -3,60 +3,67 @@
 <!-- html head -->
 <head>
     <link rel="stylesheet" href="style1.css">
+    <!-- <link rel="stylesheet" href="style2.css"> -->
 </head>
 <!-- Body  -->
-<body>
+<body class="body_bg">
     <!-- title tag affects the tab name -->
     <title>Resume</title>
-<!-- The header of a section that has profile photo and contact information and a nav at the end-->
-    <header id="header_id" class="banner">
-        <!-- Profile -->
-        <div class="center-col white">
-            <h1>Malee Seechan</h1>
-            <img src="https://media-exp1.licdn.com/dms/image/C5603AQHs0AeIAtODDw/profile-displayphoto-shrink_400_400/0/1645332913719?e=1666828800&v=beta&t=LQUUjEoRhhJPgDxVIDUEOnX90V3B0Ciqa8PpMQ8igmY" style="border-radius:50%" width="100px" alt="Photo of Malee Seechan">
-            <figcaption><q>It's me!</q> -Malee</figcaption>
-        </div>
-        <!-- Contact information -->
-        <table id="contact">
-            <tr>
-                <td>
-                    <img src="https://cdn-icons-png.flaticon.com/128/61/61109.png" width="20px" alt="linkedin icon">
-                    <a href="www.linkedin.com/in/malee-seechan">Linkedin</a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <img src="https://cdn-icons-png.flaticon.com/128/95/95645.png" width="20px" alt="email icon">
-                    <a href="mailto:m.seechan@gmail.com">m.seechan@gmail.com</a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <img src="https://cdn-icons-png.flaticon.com/128/1/1257.png" width="20px" alt="phone icon">
-                    <a  href="tele:+15591234567">(559)123-4567</a>
-                </td>
-            </tr>
-            <tr>
-                <td >
-                    <img src="https://cdn-icons-png.flaticon.com/128/3177/3177361.png" width="20px" alt="location icon">
-                    <label>Fresno, CA 93722</label>
-                </td>
-            </tr>
-            <tr>
-                <td class="white"><sub>Updated <time>2022-09-09 14:00</time> pm</sub></td>  
-            </tr>
-        </table>
-    </header>
-         <!-- Navigation -->
-         <div id="nav_id">
-            <a href=#education_id>Education</a>
-            <a href="#courses_id">Courses</a>
-            <a href="#skills_id">Skills</a>
-            <a href="#experience_id">Experience</a>
-         </div>
 
+<!-- Navigation -->
+<div id="nav_id" class="top_nav link_wht">
+    <a href=#education_id>Education</a>
+    <a href="#courses_id">Courses</a>
+    <a href="#skills_id">Skills</a>
+    <a href="#experience_id">Experience</a>
+</div>
+
+<div class="row">
+    <div>
+    <!-- The header of a section that has profile photo and contact information and a nav at the end-->
+        <header id="header_id" class="left_col">
+            <!-- Profile -->
+            <div class="center-col">
+                <h1>Malee Seechan</h1>
+                <img src="https://media-exp1.licdn.com/dms/image/C5603AQHs0AeIAtODDw/profile-displayphoto-shrink_400_400/0/1645332913719?e=1666828800&v=beta&t=LQUUjEoRhhJPgDxVIDUEOnX90V3B0Ciqa8PpMQ8igmY" style="border-radius:50%" width="100px" alt="Photo of Malee Seechan">
+                <figcaption class="mt"><q>It's me!</q> -Malee</figcaption>
+            </div>
+        <!-- Contact information -->
+            <table id="contact" class="link_wht mt center-col">
+                <tr>
+                    <td>
+                        <img src="https://iconsplace.com/wp-content/uploads/_icons/ffffff/256/png/linkedin-icon-18-256.png" width="20px" alt="linkedin icon">
+                        <a href="www.linkedin.com/in/malee-seechan">Linkedin</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="https://www.seekpng.com/png/full/82-829985_white-e-mail-icon.png" width="20px" alt="email icon">
+                        <a href="mailto:m.seechan@gmail.com">m.seechan@gmail.com</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="https://iconsplace.com/wp-content/uploads/_icons/ffffff/256/png/phone-icon-18-256.png" width="20px" alt="phone icon">
+                        <a  href="tele:+15591234567">(559)123-4567</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td >
+                        <img src="https://iconsplace.com/wp-content/uploads/_icons/ffffff/256/png/marker-icon-18-256.png" width="20px" alt="location icon">
+                        <label>Fresno, CA 93722</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="white"><sub>Updated <time>2022-09-09 14:00</time> pm</sub></td>  
+                </tr>
+            </table>
+        </header>
+    </div>
+    <div>
+    <div class="right_col">
 <!-- Education information section and grad date -->
-    <section id="education_id">
+    <section id="education_id" class="section_style">
         <h3 class="sect_head">Education</h3>
         <div class="row">
             <div>
@@ -67,18 +74,15 @@
                         </ul>
                 </ul>
             </div>
-            <div>
-                <p class="mark em">Projected Graduation Fall <time>2022</time></p>
-            </div>
+            <div><p class="mark em">Projected Graduation Fall <time>2022</time></p></div>
         </div>
     </section>
     <br>
 
 <!-- Courses/Projects information section: table with unordered lists inside -->
-    <section id="courses_id">
-        <hr>
+    <section id="courses_id" class="link_wht section_style">
+        <hr class="hr_style">
         <h3 class="sect_head">Courses/Projects</h3>
-      
             <div class="row">
                 <ul>
                     <li class="em">Data Structures and Algorithms</li>
@@ -116,8 +120,8 @@
             </div>
 
 <!-- Skills information section: This part has 2 columns to show 2 tables in the same row. -->
-    <section id="skills_id">
-        <hr>
+    <section id="skills_id" class="section_style">
+        <hr class="hr_style">
         <h3 class="sect_head">Skills</h3>
         <div class="center-row">
             <div>
@@ -152,15 +156,13 @@
             </div>
         </div>
     </section>
-
 <!-- Experience information section -->
-    <section id="experience_id">
-        <hr>
+    <section id="experience_id" class="section_style">
+        <hr class="hr_style">
         <h3 class="sect_head">Experience</h3>
-        <div class="row">
-            <table>
+            <table  class="tbl_grow">
                 <tr>
-                    <td><img src="https://www.voltagemultipliers.com/wp-content/uploads/2018/05/voltage-multipliers-logo.png" width="75px" alt="VMI logo"></td>
+                    <td><img src="https://www.voltagemultipliers.com/wp-content/uploads/2018/05/voltage-multipliers-logo.png" class="img_bg" alt="VMI logo"></td>
                     <td>
                         <ul>
                             <li class="em">Design Engineer Tech</li>
@@ -171,14 +173,10 @@
                             </ul>
                         </ul>
                     </td>
+                    <td class="td_r txt_right"><time>2022-05</time> to Present</td>
                 </tr>
-            </table>
-            <div class="fit-content"><time>2022-05</time> to Present  </div>
-        </div>
-        <div class="row">
-            <table>
                 <tr>
-                    <td><img src="https://cdn-teams-slug.flaticon.com/google.jpg" width="75px" alt="Google logo"></td>
+                    <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/36px-Google_%22G%22_Logo.svg.png?20210618182606" alt="Google logo"></td>
                     <td>
                         <ul>
                             <li class="em">Google Camp Participant</li>
@@ -188,14 +186,10 @@
                             </ul>
                         </ul>
                     </td>
+                    <td class="td_r txt_right"><time>2021-03</time> to <time>2021-04</time></td>
                 </tr>
-            </table>
-            <div class="fit-content"><time>2021-03</time> to <time>2021-04</time> </div>
-        </div>
-        <div class="row">
-            <table>
                 <tr>
-                    <td><img src="https://cdn-teams-slug.flaticon.com/google.jpg" width="75px" alt="Google logo"></td>
+                    <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/36px-Google_%22G%22_Logo.svg.png?20210618182606" alt="Google logo"></td>
                     <td>
                         <ul>
                             <li class="em">Google Software Product Sprint Participant</li>
@@ -217,15 +211,22 @@
                             </ol>
                         </ul>
                     </td>
+                    <td class="td_r txt_right"><time>2021-06</time> to <time>2021-08</time></td>
                 </tr>
             </table>
-            <div class="fit-content"><time>2021-06</time> to <time>2021-08</time></div>
-        </div>
+          
+        <!-- footer -->
+        <footer style="text-align:center; margin-top:50px">
+            <nav class="link_wht">
+                <a href="#nav_id">Go Back Up</a>
+            </nav>
+        </footer>
     </section>
-<!-- footer -->
-    <footer style="text-align:center; margin-top:50px">
-        <nav>
-            <a href="#header_id">Go Back Up</a>
-    </footer>
+    </div>
+    </div>
+</div>
+
+
+
 </body>
 </html>

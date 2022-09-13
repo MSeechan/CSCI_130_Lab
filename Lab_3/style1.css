@@ -1,104 +1,147 @@
-.white{color:white}
-
-
-.row{
-    display:flex;
-    padding: 10px;
+.body_bg {
+    background-color: #ffffff;
+  }
+  
+  .img_bg {
+    background-color: #ffffff;
+    width: 75px;
+  }
+  
+  .row {
+    /* display: flex; */
     justify-content: space-between;
-}
-
-/* banner styling */
-.banner{
-    display:flex;
+  }
+  
+  /* banner styling */
+  .left_col {
+    height: 350px;
+    width: 100%;
     padding: 10px;
-    background-color: rgb(134, 157, 200);
-}
-
-
-/* only affects a and label tags inside the banner*/
-.banner a, label{
+    border: 1px solid #2d70ff;
+    border-radius: 10px;
+    background-image: linear-gradient(#2a4580, #000000);
+    color: #ffffff;
+  }
+  
+  /* only affects a and label tags inside the banner*/
+  .left_col a,label {
     vertical-align: top;
-    color:white;
-    padding:5px;
     font-size: small;
-}
+    color:#00cef2
 
-.banner a:hover{ 
-    color:rgb(48, 29, 123);
-}
-
-.banner h1{
-    margin:0 10px 10px;
-}
-
-section h3{
-    margin-bottom:0;
-}
-
-.center-col{
-    display:flex;
+  }
+  
+  .right_col {
+    margin: 0;
+    height: 100%;
+    color: #000000;
+  }
+  
+  .section_style {
+    padding: 0 20px;
+  }
+  
+  .section_style h3 {
+    margin: 0;
+    padding: 10px 0;
+  }
+  
+  .center-col {
+    display: flex;
     flex-direction: column;
-    align-items: center;
-}
-
-.center-row{
-    display:flex;
+    align-items: right;
+  }
+  
+  /* align table in a row in skills section */
+  .center-row {
+    display: flex;
     flex-direction: row;
     justify-content: flex-start;
-}
-
-.center-row table{
+  }
+  
+  .center-row table {
     border-spacing: 10px;
-    margin: 0 20px
-}
-
-.center-row td{
+    margin: 0 20px;
+  }
+  
+  .center-row td {
+    color: white;
     text-align: center;
+    height: 20px;
+    width: 100px;
     border-radius: 10px;
-    background-color: rgb(175, 243, 255);
-}
-
-#contact{
-  margin-left:5vw;
-}
-
-ul{list-style: none;}
-
-#nav_id{
-    display:flex;
-    background-color: #eeeeee;
-    margin-bottom: 20px;
-}
-
-#nav_id a{ 
-    padding:10px;
-    text-decoration: none;
-    color: rgb(118, 118, 118);
-    font-size: x-small;
-}
-
-#nav_id a:hover{
-    background-color: #cccccc;
-    color:#000000;
-}
-
-.sect_head{
+    background-color: #2a4580;
+  }
+  
+  ul {
+    list-style: none;
+  }
+  
+  .mt {
+    margin-top: 20px;
+  }
+  
+  .sect_head {
     font-size: medium;
-    color:#777777;
-}
-
-.mark{
-    background-color: rgb(175, 243, 255); 
-}
-
-.em{
-    font-style:italic;
-}
-
-.fit-content{
+    color: #333333;
+  }
+  
+  .mark {
+    background-color: #00cef2;
+    color: #0e1525;
+    width:20%;
+  }
+  
+  .em {
+    font-style: italic;
+  }
+  
+  .fit-content {
     text-align: right;
     min-width: 150px;
-}
-
-
-
+  }
+  
+  /* nav styling */
+  .top_nav {
+    display: flex;
+    background-color: #ffffff;
+  }
+  
+  .top_nav a {
+    padding: 10px;
+    text-decoration: none;
+    font-size: x-small;
+    font-weight: bold;
+   
+  }
+  .top_nav a:hover {
+    text-decoration: underline;
+    color:#2a4580;
+    
+  }
+  
+  .link_wht a {
+    color: #00cef2;
+  }
+  
+  .link_wht a:hover {
+    font-weight: bold;
+  }
+  
+  .hr_style {
+    border: 2px solid #CCCCCC;
+  }
+  
+  .td_r {
+    vertical-align: top;
+    width: 200px;
+  }
+  
+  .txt_right {
+    text-align: right;
+  }
+  
+  .tbl_grow {
+    width: 100%;
+  }
+  
