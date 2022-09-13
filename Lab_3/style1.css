@@ -14,12 +14,10 @@
   
   /* banner styling */
   .left_col {
-    height: 350px;
+    height: 250px;
     width: 100%;
     padding: 10px;
-    border: 1px solid #2d70ff;
-    border-radius: 10px;
-    background-image: linear-gradient(#2a4580, #000000);
+    background-image: linear-gradient(#84a0df, #404875);
     color: #ffffff;
   }
   
@@ -28,7 +26,6 @@
     vertical-align: top;
     font-size: small;
     color:#00cef2
-
   }
   
   .right_col {
@@ -48,15 +45,17 @@
   
   .center-col {
     display: flex;
-    flex-direction: column;
-    align-items: right;
+    flex-direction: row;
+    align-items:center;
+    justify-content:center;
   }
   
   /* align table in a row in skills section */
   .center-row {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    align-items:center;
+    justify-content:space-evenly;
   }
   
   .center-row table {
@@ -129,7 +128,7 @@
   }
   
   .hr_style {
-    border: 2px solid #CCCCCC;
+    border: 3px dotted #CCCCCC;
   }
   
   .td_r {
