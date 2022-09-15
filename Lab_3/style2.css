@@ -28,6 +28,11 @@
 label {
   vertical-align: top;
   font-size: small;
+  color: #ffffff;
+}
+
+.left_col a:hover {
+  color: #00cef2;
 }
 
 .right_col {
@@ -105,22 +110,23 @@ ul {
   background-color: #3c445c;
 }
 
-.top_nav a:hover {
-  background-color: #4e5569;
-}
-
 .top_nav a {
   padding: 10px;
   text-decoration: none;
   font-size: x-small;
+  color: #00cef2;
 }
 
-.link_wht a {
+.top_nav a:hover {
+  background-color: #4e5569;
   color: #ffffff;
 }
-
-.link_wht a:hover {
+.body_link_color a {
   color: #00cef2;
+}
+
+.body_link_color a:hover {
+  color: #ffffff;
 }
 
 .hr_style {
@@ -136,6 +142,6 @@ ul {
   text-align: right;
 }
 
-.tbl_grow {
+.stretch_w {
   width: 100%;
 }

@@ -1,146 +1,155 @@
 .body_bg {
-    background-color: #ffffff;
-  }
-  
-  .img_bg {
-    background-color: #ffffff;
-    width: 75px;
-  }
-  
-  .row {
-    /* display: flex; */
-    justify-content: space-between;
-  }
-  
-  /* banner styling */
-  .left_col {
-    height: 250px;
-    width: 100%;
-    padding: 10px;
-    background-image: linear-gradient(#84a0df, #404875);
-    color: #ffffff;
-  }
-  
-  /* only affects a and label tags inside the banner*/
-  .left_col a,label {
-    vertical-align: top;
-    font-size: small;
-    color:#00cef2
-  }
-  
-  .right_col {
-    margin: 0;
-    height: 100%;
-    color: #000000;
-  }
-  
-  .section_style {
-    padding: 0 20px;
-  }
-  
-  .section_style h3 {
-    margin: 0;
-    padding: 10px 0;
-  }
-  
-  .center-col {
-    display: flex;
-    flex-direction: row;
-    align-items:center;
-    justify-content:center;
-  }
-  
-  /* align table in a row in skills section */
-  .center-row {
-    display: flex;
-    flex-direction: row;
-    align-items:center;
-    justify-content:space-evenly;
-  }
-  
-  .center-row table {
-    border-spacing: 10px;
-    margin: 0 20px;
-  }
-  
-  .center-row td {
-    color: white;
-    text-align: center;
-    height: 20px;
-    width: 100px;
-    border-radius: 10px;
-    background-color: #2a4580;
-  }
-  
-  ul {
-    list-style: none;
-  }
-  
-  .mt {
-    margin-top: 20px;
-  }
-  
-  .sect_head {
-    font-size: medium;
-    color: #333333;
-  }
-  
-  .mark {
-    background-color: #00cef2;
-    color: #0e1525;
-    width:20%;
-  }
-  
-  .em {
-    font-style: italic;
-  }
-  
-  .fit-content {
-    text-align: right;
-    min-width: 150px;
-  }
-  
-  /* nav styling */
-  .top_nav {
-    display: flex;
-    background-color: #ffffff;
-  }
-  
-  .top_nav a {
-    padding: 10px;
-    text-decoration: none;
-    font-size: x-small;
-    font-weight: bold;
-   
-  }
-  .top_nav a:hover {
-    text-decoration: underline;
-    color:#2a4580;
-    
-  }
-  
-  .link_wht a {
-    color: #00cef2;
-  }
-  
-  .link_wht a:hover {
-    font-weight: bold;
-  }
-  
-  .hr_style {
-    border: 3px dotted #CCCCCC;
-  }
-  
-  .td_r {
-    vertical-align: top;
-    width: 200px;
-  }
-  
-  .txt_right {
-    text-align: right;
-  }
-  
-  .tbl_grow {
-    width: 100%;
-  }
-  
+  background-color: #ffffff;
+}
+
+.img_bg {
+  background-color: #ffffff;
+  width: 75px;
+}
+
+.row {
+  justify-content: space-between;
+}
+
+/* banner styling */
+.left_col {
+  display: flex;
+  width: 100%;
+  padding: 10px;
+  background-image: linear-gradient(#84a0df, #404875);
+  color: #ffffff;
+  align-items: stretch;
+}
+
+/* only affects a and label tags inside the banner*/
+.left_col a,
+label {
+  vertical-align: top;
+  font-size: small;
+  color: #ffffff;
+}
+
+.left_col a:hover {
+  color: #00cef2;
+  font-weight: bold;
+}
+
+.right_col {
+  margin: 0;
+  height: 100%;
+  color: #000000;
+}
+
+.section_style {
+  padding: 0 20px;
+}
+
+.section_style h3 {
+  margin: 0;
+  padding: 10px 0;
+  text-decoration: underline;
+}
+
+.center-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+}
+
+/* align table in a row in skills section */
+.center-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.center-row table {
+  border-spacing: 10px;
+  margin: 0 20px;
+}
+
+.center-row td {
+  text-align: center;
+  height: 20px;
+  width: 100px;
+  border-radius: 10px;
+  background-color: #cbd9fc;
+}
+
+ul {
+  list-style: none;
+}
+
+.mt {
+  margin-top: 20px;
+}
+
+.sect_head {
+  font-size: medium;
+  color: #333333;
+}
+
+.mark {
+  background-color: #00cef2;
+  color: #0e1525;
+  width:200px;
+  text-align: center;
+
+}
+
+.em {
+  font-style: italic;
+}
+
+.fit-content {
+  text-align: right;
+  min-width: 150px;
+}
+
+/* nav styling */
+.top_nav {
+  display: flex;
+  background-color: #ffffff;
+}
+
+.top_nav a {
+  padding: 10px;
+  text-decoration: none;
+  font-size: x-small;
+  color: #999999;
+}
+
+.top_nav a:hover {
+  color: #000000;
+  font-weight: bold;
+}
+
+.body_link_color a {
+  color: #2d70ff;
+}
+
+.body_link_color a:hover {
+  color: #000000;
+  font-weight: bold;
+}
+
+.hr_style {
+  border: 2px solid #dfe9ff;
+  border-radius: 2px;
+}
+
+.td_r {
+  vertical-align: top;
+  width: 200px;
+}
+
+.txt_right {
+  text-align: right;
+}
+
+.stretch_w {
+  width: 100%;
+}
