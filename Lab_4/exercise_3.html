@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="eng" style="font: normal 12px Helvetica, Verdana, Arial, sans-serif">
+
+<head>
+    <link rel="stylesheet" href="ex3_style.css">
+</head>
+
+<body>
+    <header class="form_title">Personal Information</header>
+    <b>required *</b>
+    <form>
+        <ul>
+            <li><label>First Name</label><input type="text"></li>
+            <li><label>Last Name</label><input type="text"></li>
+            <li><label>City</label><input type="text"></li>
+            <li><label>State</label>
+                <select>
+                    <option>California</option>
+                    <option>Nevada</option>
+                    <option>New York</option>
+                    <option>New Mexico</option>
+                    <option>West Virginia</option>
+                </select>
+            </li>
+            <li><label>Zip Code</label><input type="text" placeholder="xxxxx" pattern="[0-9]{5}"></li>
+            <li><label>DOB</label><input type="text" placeholder="dd/mm/yyyy" pattern="[0-1]{1}[0-9]{1}\/[0-3]{1}[0-9]{1}\/[0-9]{4}"></li>
+            <li><label>Phone</label><input type="text" placeholder="x-xxx-xxx-xxxx" pattern="[0-9]{1}-[0-9]{3}-[0-9]{3}-[0-9]{4}"></li>
+            <br>
+            <li><label><b>Credit Card Information</b></label>
+                <ul>
+                    <li><label>Number *</label>
+                        <input type="text" placeholder="xxxx-xxxx-xxxx-xxxx" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}" required></li>
+                    <li><label>month/year * </label><sub>(valid until)</sub><input type="text" placeholder="mm/yy" pattern="[0-9]{2}\/[0-9]{2}" required></li>
+                    <li><label>Security Number * </label><input type="text" placeholder="xxx" pattern="[0-9]{3}" required></li>
+                </ul>
+                <br>
+            <li><input type="submit" id="submit"></li>
+        </ul>
+    </form>
+</body>
+
+</html>
