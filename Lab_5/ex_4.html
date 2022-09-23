@@ -17,6 +17,7 @@
                 let n = getInput();
                 let a = new Array(n);
                 let arr = init(a);
+                display(arr, n);
 
             }
            
@@ -32,15 +33,15 @@
                 a[2]=5;
                 for(let i=1; i<a.length-2; i++){
                     a[2+i] = ((6*i)+1);
-                  
                 }
                 return a;
             }
 
        
-
-            function cal_prime(n){
-                return;
+            function display(arr, n){
+                for(let i=1; i<=n; i++){
+                document.write("<table><tr><td>" + i+' '+arr[i-1]+  "</td></tr></table>");
+                }
             }
 
 
