@@ -1,50 +1,54 @@
 <!DOCTYPE html>
 <html>
-    <head></head>
-    <body>
-        <script>
-            let n=20;
-            let arr= new Array(n);
-            let a = init(arr)
-            //display(arr);
-            avg(a);
-            stdev(a);
+  <head></head>
+  <body>
+    <title>Basic Array</title>
+    <script>
+      let n = 12;
+      let arr = new Array(n);
+      let a = init(arr);
+      // calculate average of array element values
+      avg(a);
+      // calculate standard deviation of array
+      stdev(a);
+      // alert that shows array elements, avg, std
+      display(a);
 
-            
-            function init(a){
-                for(let i=0; i<a.length; i++){
-                    a[i] = Math.round(Math.random()*200);               
-                }
-                return a;
-            }
+      // Fill array with rand nums
+      function init(a) {
+        for (let i = 0; i < a.length; i++) {
+          a[i] = Math.round(Math.random() * 200);
+        }
+        return a;
+      }
 
-            function display(a){
-                for(let i=0; i<a.length; i++){
-                    console.log("index "+ i +": "+ a[i]);
-                }
-            }
-            // Average of all element array values
-            function avg(a){
-                let accum=0;
-                for(let i= 0;i<a.length;i++){
-                    accum += a[i];
-                }
-                return accum/n;
-            }
+      // display avg and std in alert
+      function display(a) {
+        alert('Array: '+a+'\nAverage: '+avg(a)+'\nStandard deviation: '+stdev(a))
+      }
 
-            function stdev(a){
-                let accum=0;
-                for(let i= 0;i<a.length;i++){
-                    accum+=(a[i]-avg(a))**2;
-                   
-                }
-                num = accum/n
-                std=Math.sqrt(num);
-                console.log(num, +'  '+std);
-                
-            }
+      // returns average of all element array values
+      function avg(a) {
+        let accum = 0;
+        for (let i = 0; i < a.length; i++) {
+          accum += a[i];
+        }
+        let avg = Math.round(accum/n);
+        return avg;
+      }
 
-            
-        </script>
-    </body>
+      // returns std of all element array values
+      function stdev(a) {
+        let accum = 0;
+        // numerator = summation of (element - avg)^2
+        for (let i = 0; i < a.length; i++) {
+          accum += (a[i] - avg(a)) ** 2;
+        }
+        // calculate the inside of the squareroot (summation/n)
+        let inner = Math.round(accum/n);
+        let std = Math.round(Math.sqrt(inner));
+        return std;
+      }
+    </script>
+  </body>
 </html>

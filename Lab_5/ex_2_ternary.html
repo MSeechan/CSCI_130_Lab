@@ -2,15 +2,20 @@
 <html>
     <head></head>
     <body>
+        <title>Sign In</title>
         <script>
-            let login = prompt("You are a student or faculty", "");  
+            // Ask user if they are student or faculty
+            let login = prompt("You are a student or faculty", "");
+            // send user input to popup function
             let str = popup(login);
+            // get pop up response and put into an alert
             alert(str);
             document.write("<p>"+str+"</p>")
 
-            function popup(login){ 
-                let str = (login == "student") ? msg="Hi" 
-                : (login == "faculty") ? msg="Greetings" 
+            function popup(login){
+                // ternary logic for 4 cases: student, faculty, empty str, other
+                let str = (login == "student") ? msg="Hi, "+login 
+                : (login == "faculty") ? msg="Greetings, "+login 
                 : (login == "") ? msg="no login"
                 : msg="";
                 return str;
