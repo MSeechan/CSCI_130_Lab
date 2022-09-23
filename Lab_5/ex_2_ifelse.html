@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <script>
+            let login = prompt("You are a student or faculty", "");  
+            let str = popup(login);
+            alert(str);
+            document.write("<p>"+str+"</p>")
+            function popup(login){
+                let msg;
+                if (login == 'student') { 
+                msg = 'Hi'; 
+                } else if (login == 'faculty') { 
+                msg = 'Greetings'; 
+                } else if (login == '') { 
+                msg = 'No login'; 
+                } else { 
+                msg = ''; 
+                } 
+                return msg
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <script>
+            let n=20;
+            let arr= new Array(n);
+            let a = init(arr)
+            //display(arr);
+            avg(a);
+            stdev(a);
+
+            
+            function init(a){
+                for(let i=0; i<a.length; i++){
+                    a[i] = Math.round(Math.random()*200);               
+                }
+                return a;
+            }
+
+            function display(a){
+                for(let i=0; i<a.length; i++){
+                    console.log("index "+ i +": "+ a[i]);
+                }
+            }
+            // Average of all element array values
+            function avg(a){
+                let accum=0;
+                for(let i= 0;i<a.length;i++){
+                    accum += a[i];
+                }
+                return accum/n;
+            }
+
+            function stdev(a){
+                let accum=0;
+                for(let i= 0;i<a.length;i++){
+                    accum+=(a[i]-avg(a))**2;
+                   
+                }
+                num = accum/n
+                std=Math.sqrt(num);
+                console.log(num, +'  '+std);
+                
+            }
+
+            
+        </script>
+    </body>
+</html>

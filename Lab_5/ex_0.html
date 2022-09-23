@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> CSci 130-week5-lab</title>
+    </head>
+    <body>
+        <script>
+            alert("my first w/e");
+            
+                let str="ex9";
+                document.write("<H2>"+str+"</H2>");
+               
+
+                function menu()
+                {
+                    let choice_shape=prompt("Which shape would you like? cirlce(0) rectangle(1) square(2)",0);
+                    let str="";
+                    
+                    if (choice_shape == 0)  //cirlce  
+                    {
+                        let radius=prompt("cirle radius?",0);
+                        console.log(radius);
+                        let choice_oper=prompt("Area(0) or Perimeter(1)");
+                        let str = (choice_oper == 1) ?  "area"+ACircle(radius) : "parameter"+PCirlce(radius);
+                        
+                    }
+                    else if (choice_shape==1)   //rectangle
+                    { 
+                        let len=prompt("length ?",0);
+                        let width=prompt("width ?",0);
+                        console.log(len, width);
+                        let choice_oper=prompt("Area(0) or Perimeter(1)");
+                        let str = (choice_oper == 1) ?  "area" + ARectangle(len,width) : "parameter"+PRectangle(len,width);
+                    }
+                    else if (choice_shape==2)   //square
+                    {
+                        let len=prompt("length ?",0);
+                        let width=prompt("width ?",0);
+                        console.log(len, width);
+                        let choice_oper=prompt("Area(0) or Perimeter(1)");
+                        let str = (choice_oper == 1) ?  "area" + ASquare(len,width) : PSquare(len,width);
+                    }
+                
+                   
+                    function PCirlce(r){    
+                        alert("Circle perimeter: "+2*r*Math.PI);
+                    }
+                    function ACircle(r){
+                        alert("Circle area: "+r*r*Math.PI);
+                    }
+                    function PRectangle(l,w){
+                        alert("Rectangle perimeter: "+2*1+2*w);
+                    }
+                    function ARectangle(l,w){
+                        alert("Rectangle area: "+l*w);
+                    }
+                    function PSquare(l,w){
+                        alert("Square perimeter: "+2*1+2*w);
+                    }
+                    function ASquare(l,w){
+                        alert("Square area: "+l*w);
+                    }
+
+                    document.write("<p>"+str+"</p>")
+                }
+                menu();
+
+        </script>
+        
+    </body>
+</html>
