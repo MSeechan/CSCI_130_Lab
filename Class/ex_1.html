@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="ex_1.css">
+    </head>
+    <body>
+        <div id="calc">
+   
+            <table>
+                <tr><td  colspan="3" id="res ">
+                    <input readonly type="text"></input>
+                </td></tr>
+                <tr><td  colspan="3" id="eval">
+                    <input readonly type="text"></input>
+                </td></tr>
+                <tr>
+                    <td></td>
+                    <td><input type="button" value="SQRT"></input></td>
+                    <td><input type="button" value="CE"></input></td>
+                </tr>
+                <tr>
+                    <td><input type="button" OnClick="setNum(this.value)" value="1"></input></td>
+                    <td><input type="button" OnClick="setNum(this.value)" value="2"></input></td>
+                    <td><input type="button" OnClick="setNum(this.value)" value="3"></input></td>
+                </tr>
+                <tr>
+                    <td><input type="button" OnClick="setNum(this.value)" value="4"></input></td>
+                    <td><input type="button" OnClick="setNum(this.value)" value="5"></input></td>
+                    <td><input type="button" OnClick="setNum(this.value)" value="6"></input></td>
+                </tr>
+                <tr>
+                    <td><input type="button" OnClick="setNum(this.value)" value="7"></input></td>
+                    <td><input type="button" OnClick="setNum(this.value)" value="8"></input></td>
+                    <td><input type="button" OnClick="setNum(this.value)" value="9"></input></td>
+                </tr>
+                <tr>
+                    <td><input type="button" OnClick="setNum(this.value)" value="+"></input></td>
+                    <td><input type="button" OnClick="setNum(7)" value="0"></input></td>
+                    <td><input type="button" OnClick="setNum(7)" value="="></input></td>
+                </tr>
+            </table>
+        </div>
+
+        <script>
+            let exp = document.getElementById("eval");
+
+            function setNum(num){
+                let x = document.getElementById("eval");
+                let currstr = x.innerText
+                let newstr = currstr + num;
+                x.innerText = newstr;
+                
+            }
+           
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,12 @@
+table{
+    border: 1px solid #000000;
+    max-width:100px;
+}
+
+input{
+    width:30px;
+}
+
+#eval{
+    max-width:100px;
+}
