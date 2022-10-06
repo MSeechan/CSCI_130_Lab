@@ -11,8 +11,8 @@
         <input id='expression' readonly type="text" value=""><br>
         <input id='result' readonly type="text" value=""><br>
         
-        <input type="button" value="SQRT">
-        <input type="button" value="CE">
+        <input type="button" OnClick="setNum(this.value)" value="SQRT" id="longBtn">
+        <input type="button" OnClick="clearDisplay()" value="CE">
         <br>
         <input type="button" OnClick="setNum(this.value)" value="7">
         <input type="button" OnClick="setNum(this.value)" value="8">
@@ -27,25 +27,35 @@
         <input type="button" OnClick="setNum(this.value)" value="1">
         <input type="button" OnClick="setNum(this.value)" value="2">
         <input type="button" OnClick="setNum(this.value)" value="3">
-        <input type="button" OnClick="setNum(this.value)" value="X">
+        <input type="button" OnClick="setNum(this.value)" value="*">
         <br>
         <input type="button" OnClick="setNum(this.value)" value="0">
         <input type="button" OnClick="setNum(this.value)" value=".">
         <input type="button" OnClick="setNum(this.value)" value="/">
-        <input type="button" OnClick="eval()" value="=">
+        <input type="button" OnClick="evalExpression()" value="=">
 
     </form>
 
     <script>
+        var exp = document.getElementById("expression");
+        var res = document.getElementById("result");
+
         function setNum(num){
-            let input = document.getElementById("expression").value;
-            document.getElementById("expression").value = input + num;
+            if (num=='SQRT'){
+                exp.value = exp.value + '**.5';
+            }
+            else{
+            exp.value = exp.value + num;}
         }
 
-        function eval(){
-            let answer = document.getElementById("expression").value;
-            document.getElementById("result").value = eval(answer);
+        function clearDisplay(){
+            exp.value = "";
+            res.value = "";
+        }
 
+
+        function evalExpression(){
+            res.value = eval(String(exp.value));
         }
 
     </script>
