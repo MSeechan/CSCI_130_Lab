@@ -1,92 +1,98 @@
 <!DOCTYPE html>
 <html lang="eng" style="font: normal 14px Arial">
-    <head>
-        <style>
-            label{font-weight: bold;}
-            input[type=text]{width:100%; height:20px;}
-            #monthly, #total{border:0px}
 
-        </style>
-    </head>
-    <body>
-        <h2>Mortgage Calculator</h2>
-        <fieldset>
-            <form>
-                <label for="amount">Amount</label>
-                <br>
-                <input type="text" id="amount"></input>
-                <br>
-                <label for="duration">Duration</label>
-                <br>
-                <input type="text" id="duration" placeholder="years"></input>
-                <br>
-                <label for="percent">Percent</label>
-                <br>
-                <input type="text" id="percent" placeholder="%"></input>
-                <br>
-                <br>
-                <input type="button" onClick="main()" value="Calculate"></button>
-                <br>
-            </form>
+<head>
+    <style>
+        label {
+            font-weight: bold;
+        }
+        input[type=text] {
+            width: 100%;
+            height: 20px;
+        }
+        #monthly, #total {
+            border: 0px
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Mortgage Calculator</h2>
+    <fieldset>
+        <form>
+            <label for="amount">Amount</label>
             <br>
-            <label for="monthly">Monthly Rate</label>
+            <input type="text" id="amount"></input>
             <br>
-            <input type="text" id="monthly" disabled></input>
+            <label for="duration">Duration</label>
             <br>
-            <label for="total">Total Payment</label>
+            <input type="text" id="duration" placeholder="years"></input>
             <br>
-            <input type="text" id="total" disabled></input>
+            <label for="percent">Percent</label>
             <br>
-           
-        </fieldset>
+            <input type="text" id="percent" placeholder="%"></input>
+            <br>
+            <br>
+            <input type="button" onClick="main()" value="Calculate"></button>
+            <br>
+        </form>
+        <br>
+        <label for="monthly">Monthly Rate</label>
+        <br>
+        <input type="text" id="monthly" disabled></input>
+        <br>
+        <label for="total">Total Payment</label>
+        <br>
+        <input type="text" id="total" disabled></input>
+    </fieldset>
 
-        <script>
-            var m={}
+    <script>
+        var m = {}
 
-            function main(){
-                getInput();
-                getDec();
-                getRate();
-                getPayments();
-                calcMonthPay();
-                calcTotal();
-              
-                display();
-            }
+        function main() {
+            getInput();
+            getDec();
+            getRate();
+            getPayments();
+            calcMonthPay();
+            calcTotal();
+            display();
+        }
 
-            function getInput(){
-                m.amount = parseInt(document.getElementById("amount").value);
-                m.duration = parseInt(document.getElementById("duration").value);
-                m.percent = parseInt(document.getElementById("percent").value);
-            }
+        function getInput() {
+            m.amount = parseInt(document.getElementById("amount").value);
+            m.duration = parseInt(document.getElementById("duration").value);
+            m.percent = parseInt(document.getElementById("percent").value);
+        }
 
-            function display(){
-                document.getElementById("monthly").value = '$ '+m.monthRate;
-                document.getElementById("total").value =  '$ '+m.total;
-            }
+        function display() {
+            document.getElementById("monthly").value = '$ ' + m.monthRate;
+            document.getElementById("total").value = '$ ' + m.total;
+        }
 
-            function getRate(){
-                m.rate = m.dec/12;
-            }
+        function getRate() {
+            m.rate = m.dec / 12;
+        }
 
-            function getDec(){
-                m.dec = m.percent/100;
-            }
+        function getDec() {
+            m.dec = m.percent / 100;
+        }
 
-            function getPayments(){
-                m.payments = m.duration*12;
-            }
+        function getPayments() {
+            m.payments = m.duration * 12;
+        }
 
-            function calcTotal(){
-                m.total = m.monthRate*m.payments;
-                m.total = m.total.toFixed(2);
-            }
+        function calcTotal() {
+            m.total = m.monthRate * m.payments;
+            m.total = m.total.toFixed(2);
+        }
 
-            function calcMonthPay(){
-                m.monthRate= (m.rate*m.amount)/(1-((1+m.rate))**-m.payments);
-                m.monthRate = m.monthRate.toFixed(2);
-            }
-        </script>
+        function calcMonthPay() {
+            m.monthRate = (m.rate * m.amount) / (1 - ((1 + m.rate)) ** -m.payments);
+            m.monthRate = m.monthRate.toFixed(2);
+        }
+    </script>
 
-    </body>
+</body>
+
 </html>

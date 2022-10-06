@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="calc.css">
+</head>
+
+<body>
+    <form id="calc">
+
+        <input id='expression' readonly type="text" value=""><br>
+        <input id='result' readonly type="text" value=""><br>
+        
+        <input type="button" value="SQRT">
+        <input type="button" value="CE">
+        <br>
+        <input type="button" OnClick="setNum(this.value)" value="7">
+        <input type="button" OnClick="setNum(this.value)" value="8">
+        <input type="button" OnClick="setNum(this.value)" value="9">
+        <input type="button" OnClick="setNum(this.value)" value="+">
+        <br>
+        <input type="button" OnClick="setNum(this.value)" value="4">
+        <input type="button" OnClick="setNum(this.value)" value="5">
+        <input type="button" OnClick="setNum(this.value)" value="6">
+        <input type="button" OnClick="setNum(this.value)" value="-">
+        <br>
+        <input type="button" OnClick="setNum(this.value)" value="1">
+        <input type="button" OnClick="setNum(this.value)" value="2">
+        <input type="button" OnClick="setNum(this.value)" value="3">
+        <input type="button" OnClick="setNum(this.value)" value="X">
+        <br>
+        <input type="button" OnClick="setNum(this.value)" value="0">
+        <input type="button" OnClick="setNum(this.value)" value=".">
+        <input type="button" OnClick="setNum(this.value)" value="/">
+        <input type="button" OnClick="eval()" value="=">
+
+    </form>
+
+    <script>
+        function setNum(num){
+            let input = document.getElementById("expression").value;
+            document.getElementById("expression").value = input + num;
+        }
+
+        function eval(){
+            let answer = document.getElementById("expression").value;
+            document.getElementById("result").value = eval(answer);
+
+        }
+
+    </script>
+
+</body>
+
+</html>
