@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+    <head></head>
+    <body>
+        <script>
+            // str + means all vals after are str
+            // vals + str. left to right eval first then it's all str
+            a1=""+1+0 // 10 str
+            document.write('""+1+0 is ' +a1+' '+ typeof (a1)+'<br>');
+            a2=""-1+0 //-1 num
+            document.write('""-1+0 is ' +a2+' '+ typeof (a2)+'<br>');
+            a3=true + false // 1 num
+            document.write('true + false is ' +a3+' '+ typeof (a3)+'<br>');
+            a4= 6 / "3" // 2 num
+            document.write('6 / "3" is ' +a4+' '+ typeof (a4)+'<br>');
+            a5="2" * "3" // 6 num
+            document.write('"2" * "3" is ' +a5+' '+ typeof (a5)+'<br>');
+            a6= 4 + 5 + "px" // 9px str
+            document.write('4 + 5 + "px" is ' +a6+' '+ typeof (a6)+'<br>');
+            a7="$" + 4 + 5 // $45 str
+            document.write('"$" + 4 + 5 is ' +a7+' '+ typeof (a7)+'<br>');
+            a8= "4" - 2 // 2 num
+            document.write('"4" - 2 is ' +a8+' '+ typeof (a8)+'<br>');
+            a9="4px" - 2 // Nan num
+            document.write('"4px" - 2 is ' +a9+' '+ typeof (a9)+'<br>');
+            a10=7 / 0 // inf num
+            document.write('7 / 0 is ' +a10+' '+ typeof (a10)+'<br>');
+            a11="-9" + 5 //-95 str
+            document.write('"-9\n" + 5 is ' +a11+' '+ typeof (a11)+'<br>');
+            a12="-9" - 5 //-14 num
+            document.write('"-9\n" - 5 is ' +a12+' '+ typeof (a12)+'<br>');
+            a13=null + 1 //1 num
+            document.write('null + 1 is ' +a13+' '+ typeof (a13)+'<br>');
+            a14=undefined + 1 // NaN num
+            document.write('undefined + 1 is ' +a14+' '+ typeof (a14)+'<br>');
+           
+        </script>
+    </body>
+
+</html>

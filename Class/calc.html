@@ -8,56 +8,77 @@
 <body>
     <form id="calc">
 
-        <input id='expression' readonly type="text" value=""><br>
         <input id='result' readonly type="text" value=""><br>
+        <input id='input' readonly type="text" value=""><br>
         
-        <input type="button" OnClick="setNum(this.value)" value="SQRT" id="longBtn">
-        <input type="button" OnClick="clearDisplay()" value="CE">
+        <input type="button" OnClick="setInput(this.value)" value="SQRT" id="longBtn">
+        <input type="button" OnClick="setInput(this.value)" value="CE">
+        <input type="button" OnClick="setInput(this.value)" value="+/-">
         <br>
-        <input type="button" OnClick="setNum(this.value)" value="7">
-        <input type="button" OnClick="setNum(this.value)" value="8">
-        <input type="button" OnClick="setNum(this.value)" value="9">
-        <input type="button" OnClick="setNum(this.value)" value="+">
+        <input type="button" OnClick="setInput(this.value)" value="7">
+        <input type="button" OnClick="setInput(this.value)" value="8">
+        <input type="button" OnClick="setInput(this.value)" value="9">
+        <input type="button" OnClick="setInput(this.value)" value="+">
         <br>
-        <input type="button" OnClick="setNum(this.value)" value="4">
-        <input type="button" OnClick="setNum(this.value)" value="5">
-        <input type="button" OnClick="setNum(this.value)" value="6">
-        <input type="button" OnClick="setNum(this.value)" value="-">
+        <input type="button" OnClick="setInput(this.value)" value="4">
+        <input type="button" OnClick="setInput(this.value)" value="5">
+        <input type="button" OnClick="setInput(this.value)" value="6">
+        <input type="button" OnClick="setInput(this.value)" value="-">
         <br>
-        <input type="button" OnClick="setNum(this.value)" value="1">
-        <input type="button" OnClick="setNum(this.value)" value="2">
-        <input type="button" OnClick="setNum(this.value)" value="3">
-        <input type="button" OnClick="setNum(this.value)" value="*">
+        <input type="button" OnClick="setInput(this.value)" value="1">
+        <input type="button" OnClick="setInput(this.value)" value="2">
+        <input type="button" OnClick="setInput(this.value)" value="3">
+        <input type="button" OnClick="setInput(this.value)" value="*">
         <br>
-        <input type="button" OnClick="setNum(this.value)" value="0">
-        <input type="button" OnClick="setNum(this.value)" value=".">
-        <input type="button" OnClick="setNum(this.value)" value="/">
+        <input type="button" OnClick="setInput(this.value)" value="0">
+        <input type="button" OnClick="setInput(this.value)" value=".">
+        <input type="button" OnClick="setInput(this.value)" value="/">
         <input type="button" OnClick="evalExpression()" value="=">
 
     </form>
 
     <script>
-        var exp = document.getElementById("expression");
-        var res = document.getElementById("result");
+        var resultDisplay = document.getElementById("result");
+        var inputDisplay= document.getElementById("input");
+        var expression="";
 
-        function setNum(num){
-            if (num=='SQRT'){
-                exp.value = exp.value + '**.5';
+        function setInput(input_val){
+            if (input_val=='SQRT'){
+                expression = "("+expression+")**.5 ";
+                inputDisplay.value="";
+                resultDisplay.value='sqrt('+resultDisplay.value+')';
+                evalExpression();
             }
-            else{
-            exp.value = exp.value + num;}
+            else if(input_val=='CE'){
+                inputDisplay.value = "";
+                resultDisplay.value = "";
+                expression="";
+            }
+            else if(input_val=='*' || input_val=='+' || input_val=='-'|| input_val=='%' ){
+                resultDisplay.value = resultDisplay.value+inputDisplay.value+input_val;
+                expression = expression+input_val;
+                inputDisplay.value=""
+            }
+            else if(input_val=="+/-"){
+               if(Math.sign(inputDisplay.value) == 1){
+                inputDisplay.value='-'+inputDisplay.value;
+                expression='-'+inputDisplay.value;
+               }
+               else{
+                inputDisplay.value=inputDisplay.value.slice(1);
+                expression="("+expression+")*-1";
+               }
+            }
+            else {
+            inputDisplay.value = inputDisplay.value+input_val;
+            expression = expression + input_val;}
         }
-
-        function clearDisplay(){
-            exp.value = "";
-            res.value = "";
-        }
-
 
         function evalExpression(){
-            res.value = eval(String(exp.value));
+            console.log(expression)
+            resultDisplay.value=resultDisplay.value+inputDisplay.value;
+            inputDisplay.value = eval(expression);
         }
-
     </script>
 
 </body>

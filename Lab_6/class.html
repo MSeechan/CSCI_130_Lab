@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="eng">
+    <head></head>
+    <body>
+        <script>
+            class fruit{
+                #fruitprice
+                #id
+                fruitname
+               
+                constructor(fname, fprice){
+                    this.fruitname=fname
+                    this.#fruitprice=fprice
+                }
+
+                set fruitprice(fprice){
+                    this.#fruitprice=fprice
+                }
+
+                get fruitprice(){return this.#fruitprice}
+                
+                set fruitname(fname){
+                    this.fruitname=fname
+                }
+                
+                get fruitname(){return this.fruitname}
+
+                static getname(fruit){
+                    return fruit.fruitname
+                }
+            }
+            
+            class apple extends fruit{
+                constructor(fname,fprice,color){
+                    super(fname,fprice)
+                    this.color=color
+                }
+                chkcolor(){return this.color}
+            }
+
+            let fruit1 = new fruit('plum',1.00)
+            fruit1.fruitname="pear"
+            console.log(fruit1.fruitname)
+
+            let redappl= new apple("myapple",1.20,"red")
+            console.log(redappl.chkcolor())
+
+            console.log(fruit.getname(fruit1))
+
+
+        </script>
+    </body>
+</html>

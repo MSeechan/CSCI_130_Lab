@@ -18,8 +18,8 @@
 
 <body>
     <h2>Mortgage Calculator</h2>
-    <fieldset>
         <form>
+            <fieldset>
             <label for="amount">Amount</label>
             <br>
             <input type="text" id="amount"></input>
@@ -35,16 +35,15 @@
             <br>
             <input type="button" onClick="main()" value="Calculate">
             <br>
-        </form>
+        </fieldset>
         <br>
-        <label for="monthly">Monthly Rate</label>
-        <br>
-        <input type="text" id="monthly" disabled></input>
-        <br>
-        <label for="total">Total Payment</label>
-        <br>
+        </fieldset>
+        <label for="monthly">Monthly Rate</label><br>
+        <input type="text" id="monthly" disabled></input><br>
+        <label for="total">Total Payment</label><br>
         <input type="text" id="total" disabled></input>
-    </fieldset>
+        </fieldset>
+        </form>
 
     <script>
         var m = {}
