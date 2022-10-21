@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="eng" style="font: normal 12px Tahoma, Verdana, Arial, sans-serif">
+
+<head>
+   <style type="text/css">a{vertical-align:top}</style>
+   <style type="text/css">h3{margin-block-end: 0em;}</style>
+   <style type="text/css">p{margin-block-start: 0em; margin-left: 20px;}</style>
+   <style type="text/css">table{
+        border-spacing: 30px 0;
+        width:100%
+    }</style>
+</head>
+<!-- Body  -->
+<body style="margin:30px">
+    <!-- title tag affects the tab -->
+    <title>Resume</title>
+<!-- Header section that has profile photo and contact information -->
+    <header id="header_id">
+        <h1>Malee Seechan</h1>
+        <div class="row" style="display:flex">
+            <div>
+                <!-- Profile photo-->
+                <figure>
+                    <img src="https://media-exp1.licdn.com/dms/image/C5603AQHs0AeIAtODDw/profile-displayphoto-shrink_400_400/0/1645332913719?e=1666828800&v=beta&t=LQUUjEoRhhJPgDxVIDUEOnX90V3B0Ciqa8PpMQ8igmY" style="border-radius:50%; width:100px" alt="Photo of Malee Seechan">
+                    <figcaption style="text-align:center ">It's me!</figcaption>
+                </figure>
+            </div>
+            <div style="align-items:flex-end">
+                <!-- Contact information list-->
+                <ul style="list-style:none; display:flex">
+                    <address style="font-style:normal;">
+                        <li>
+                            <img src="https://cdn-icons-png.flaticon.com/128/61/61109.png" width="20px" alt="linkedin icon">
+                            <a href="www.linkedin.com/in/malee-seechan">Linkedin</a>
+                        </li>
+                        <li>
+                            <img src="https://cdn-icons-png.flaticon.com/128/95/95645.png" width="20px" alt="email icon">
+                            <a href="mailto:m.seechan@gmail.com">m.seechan@gmail.com</a>
+                        </li>
+                        <li>
+                            <img src="https://cdn-icons-png.flaticon.com/128/1/1257.png" width="20px" alt="phone icon">
+                            <a href="tele:+15591234567">(559)123-4567</a>
+                        </li>
+                        <li>
+                            <img src="https://cdn-icons-png.flaticon.com/128/3177/3177361.png" width="20px" alt="location icon">
+                            <label>Fresno, CA 93722</label>
+                        </li>
+                        <li>
+                            <sub>Updated <time>2022-27-08 14:00</time> pm</sub>
+                        </li>
+                    </address>
+                </ul>
+            </div>
+        </div>
+    </header>
+<!-- Education information section and grad date -->
+    <section>
+        <h3>Education</h3>
+        <hr>
+        <table>
+            <tr>
+                <td><b><abbr title="California State University">CSU</abbr> Fresno</b></td>
+                <td style="vertical-align:text-top; text-align: right; ">
+                    <mark>Projected Graduation Fall <time>2022</time></mark>
+                </td>
+            </tr>
+            <tr>
+                <td>Pursuing Bachelor of Science, Computer Science <sub>(GPA: 3.60)</sub></td>
+            </tr>
+        </table>
+    </section>
+    <br>
+<!-- Courses/Projects information section: table with unordered lists inside -->
+    <section>
+        <h3>Courses/Projects</h3>
+        <hr>
+        <table>
+        <!-- courses row 1 -->
+            <tr>
+                <td>
+                    <b>Data Structures and Algorithms</b>
+                    <ul>
+                        <li>Utilized C++ to implement data structures and sorting algorithms</li>
+                        <li>Collected runtime data and analyzed actual growth rates vs expected growth rates</li>
+                    </ul>
+                </td>
+            </tr>
+        <!-- courses row 2 -->
+            <tr>
+                <td>
+                    <b>Intro Software Engineering</b>
+                    <ul>
+                        <li><a href="https://github.com/FS-CSCI150-F21/FS-CSCI150-F21-Team10">Rumii Website</a></li>
+                        <li>Collaborated in a team to create a bill management web app</li>
+                        <li>Implemented CRUD processes using NodeJs and Cloud Firestore </li>
+                    </ul>
+                </td>
+                <td>
+                    <a href="https://youtu.be/Yct3Ni0olcc"><img src="https://cdn-icons-png.flaticon.com/128/3128/3128210.png" width="50px"></a>
+                </td>
+            </tr>
+        <!-- courses row 3 -->
+            <tr>
+                <td>
+                    <b>Software Engineering</b>
+                    <ul>
+                        <li><a href="https://github.com/Spring2022-CSCI152/Team4">Facial Recognition: Most Wanted</a></li>
+                        <li>Mirco-service based reporting system with facial recognition detection</li>
+                        <li>Frontend focused using React, NodeJs, and Bootstrap</li>
+                    </ul>
+                </td>
+                <td>
+                    <a href="https://youtu.be/J2aWw7V6Pbs"><img src="https://cdn-icons-png.flaticon.com/128/3128/3128210.png" width="50px"></a>
+                </td>
+            </tr>
+        </table>
+    </section>
+    <br>
+<!-- Skills information section: This part has 2 columns to show 2 tables in the same row. -->
+    <section>
+    <h3>Skills</h3>
+    <hr>
+    <div class="row" style="display:flex">
+        <div>
+            <!-- table of languages 2x2 -->
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="2" style="text-align:left">Programming Languages</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>C++</td>
+                        <td>Javascript</td>
+                    </tr>
+                    <tr>
+                        <td>Python</td>
+                        <td>HTML / CSS</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <!-- table of tools/libraries 3x2 -->
+            <table>
+                <!-- table head -->
+                <thead>
+                    <tr>
+                        <th colspan="2" style="text-align:left">Tools \ Libraries</th>
+                    </tr>
+                </thead>
+                <!-- table body -->
+                <tbody>
+                    <tr>
+                        <td>Github</td>
+                        <td>React</td>
+                    </tr>
+                    <tr>
+                        <td>NodeJs</td>
+                        <td>Bootstrap</td>
+                    </tr>
+                    <tr>
+                        <td>Tkinter</td>
+                        <td>Cloud Firestore</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </section>
+<!-- Experience information section -->
+    <section>
+        <h3>Experience</h3>
+        <hr>
+        <table>
+        <!-- experience row 1 -->
+            <tr>
+                <td>
+                    <img src="https://www.voltagemultipliers.com/wp-content/uploads/2018/05/voltage-multipliers-logo.png" width="75px" alt="VMI logo">
+                </td>
+                <td>
+                    <b>Design Engineer Tech</b>
+                    <p>Developed MVC model gui using Python and Tkinter to monitor power supply serial communications. UI includes real-time graphing with matplotlib</p>
+                </td>
+                <td style="text-align:right; width:150px">
+                    <time>2022-05</time> to Present
+                </td>
+            </tr>
+        <!-- experience row 2 -->
+            <tr>
+                <td>
+                    <img src="https://cdn-teams-slug.flaticon.com/google.jpg" width="50px" alt="Google logo">
+                </td>
+                <td>
+                    <b>Google Camp Participant</b>
+                    <p>
+                        <a href="https://colab.research.google.com/">https://colab.research.google.com/</a>
+                        <br>
+                        Campus and Google collaboration program to research the accuracy of recurrent neural network models LSTM and ARIMA in predicting stock prices
+                    </p>
+                </td>
+                <td style="text-align:right; width:150px">
+                    <time>2021-03</time> to <time>2021-04</time> 
+                </td>
+            </tr>
+        <!-- experience row 3 -->
+             <tr>
+                <td>
+                    <img src="https://cdn-teams-slug.flaticon.com/google.jpg" width="50px" alt="Google logo">
+                </td>
+                <td>
+                <!-- Ordered list of google sps projects -->
+                    <b>Google Software Product Sprint Participant</b>
+                    <ol>
+                        <li>
+                            <p>
+                                <a href="https://github.com/MSeechan/sps-project">https://github.com/MSeechan/sps-project</a>
+                                <br>
+                                Worked on a 3 member team to create a workout routine web app using Github, Google Cloud Shell Editor, Google Datastore,  Java,  Javascript, Jetty Servers, Maven, and Servlets. Responsibilities included creating a login system using Rest API and backend datastore
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="https://github.com/MSeechan/My-Portfolio">https://github.com/MSeechan/My-Portfolio</a>
+                                <br>
+                                Created an interactive website that responds to real-time user generated data
+                            </p>
+                        </li>
+                    </ol>
+                </td>
+                <td style="text-align:right; width:150px">
+                    <time>2021-06</time> to <time>2021-08</time>
+                </td>
+            </tr>
+        </table>
+    </section>
+<!-- footer -->
+    <footer style="text-align:center; margin-top:50px">
+        <nav>
+            <a href="#header_id">Go Back Up</a>
+    </footer>
+</body>
+
+
+</html>

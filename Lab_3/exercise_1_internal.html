@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="eng" style="font: normal 12px Helvetica, Verdana, Arial, sans-serif">
+    <head>
+        <!--Internal styling-->
+        <style>
+            table.data{border-collapse: collapse; width:230px}
+            table.tv_data{border-collapse: collapse; margin: 0 10px 2px 1px}
+            td.datacell{border: 2px solid black; padding:5px;}
+            td.tv_data{border: 1px solid red; padding:5px;}
+            caption{margin: 5px;}
+            .txt-left{text-align: left;}
+            .txt-center{text-align: center;}
+            .bold{font-weight:bold;}
+            .ital{font-style: italic;}
+            .blue_border{border: 2px solid blue}
+            .blue_back{background-color:rgb(173, 216, 230);}
+        </style>
+    </head>
+    <body>
+        <table class="data txt-center">
+            <caption class="bold">Quarterly Financials for 1962-1964 (in Thousands)</caption>
+            <thead>
+                <tr>
+                    <th>Quarter</th>
+                    <td class="bold">1962</td>
+                    <td class="bold">1963</td>
+                    <td class="bold">1964</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Q1</th>
+                    <td class = 'datacell'>$145</td>
+                    <td class = 'datacell'>$167</td>
+                    <td class = 'datacell'>$161</td>
+                </tr>
+                <tr>
+                    <th>Q2</th>
+                    <td class = 'datacell'>$140</td>
+                    <td class = 'datacell'>$159</td>
+                    <td class = 'datacell'>$164</td>
+                </tr>
+            </tbody>
+            <tfoot class="bold ital">
+                <tr>
+                    <th>TOTAL</th>
+                    <td class = 'datacell bold'>$595</td>
+                    <td class = 'datacell'>$648</td>
+                    <td class = 'datacell'>$664</td>
+                </tr>
+            </tfoot>
+        </table>
+        <br>
+
+        <!--table 2-->
+        <table class="margin blue_back txt-left">
+            <tr>
+                <td>
+                    <table class="tv_data blue_border">
+                        <caption class="bold">TV Schedule</caption>
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Mon</th>
+                                <th>Tue</th>
+                                <th>Wed</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>8 pm</th>
+                                <td class = 'tv_data'>Staring Contest </td>
+                                <td class = 'tv_data' colspan="2">Celebrity Hoedown</td>
+                            </tr>
+                            <tr>
+                                <th>9 pm</th>
+                                <td class = 'tv_data'>Hardy, Har, Har</td>
+                                <td class = 'tv_data'>What's for Lunch?</td>
+                                <td class = 'tv_data'rowspan="2">Movie of the Week</td>
+                            </tr>
+                            <tr>
+                                <th>10 pm</th>
+                                <td class = 'tv_data'>Healers, Wheelers, Dealers</td>
+                                <td class = 'tv_data'>It's a Crime</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </body>
+
+</html>

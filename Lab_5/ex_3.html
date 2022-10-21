@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+  <title>Basic Array</title>
+  <script>
+    let n = 12;
+    let arr = new Array(n);
+    let a = init(arr);
+    // calculate average of array element values
+    avg(a);
+    // calculate standard deviation of array
+    stdev(a);
+    // alert that shows array elements, avg, std
+    display(a);
+
+    // Fill array with rand nums
+    function init(a) {
+      for (let i = 0; i < a.length; i++) {
+        a[i] = Math.round(Math.random() * 200);
+      }
+      return a;
+    }
+
+    // display avg and std in alert
+    function display(a) {
+      alert('Array: ' + a + '\nAverage: ' + avg(a) + '\nStandard deviation: ' + stdev(a))
+    }
+
+    // returns average of all element array values using map
+    function avg(a) {
+      let accum = 0;
+      a.map(function (num) {
+        accum += num;
+      }
+      )
+
+      let avg = Math.round(accum / n);
+      return avg;
+    }
+
+    // returns std of all element array values
+    function stdev(a) {
+      let accum = 0;
+      // numerator = summation of (element - avg)^2
+      a.map(function (num) {
+        accum += ((num - avg(a)) ** 2);
+      })
+
+      // calculate the inside of the squareroot (summation/n)
+      let inner = Math.round(accum / n);
+      let std = Math.round(Math.sqrt(inner));
+      return std;
+    }
+  </script>
+</body>
+
+</html>

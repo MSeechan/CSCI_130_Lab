@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="eng" style="font: normal 12px Helvetica, Verdana, Arial, sans-serif">
+<head><link rel="stylesheet" href="form_style.css"></head>
+<body>
+    <fieldset>
+    <legend>Personal Information</legend>
+    <sub>required *</sub>
+        <form class="mt-20">
+            <label>First Name</label><input type="text">
+            <label>Last Name</label><input type="text">
+            <label>City</label><input type="text">
+            <label>State</label>
+            <!-- State drop down -->
+            <select>
+                <option>California</option>
+                <option>Nevada</option>
+                <option>New York</option>
+                <option>New Mexico</option>
+                <option>West Virginia</option>
+            </select>
+            <label>Zip Code *</label><input type="text" placeholder="xxxxx" pattern="[0-9]{5}" required>
+            <span class="validity"></span>
+            <label>DOB *</label><input type="text" placeholder="dd/mm/yyyy" pattern="[0-1]{1}[0-9]{1}\/[0-3]{1}[0-9]{1}\/[0-9]{4}" required>
+            <span class="validity"></span>
+            <label>Phone *</label><input type="tel" placeholder="x-xxx-xxx-xxxx" pattern="[0-9]{1}-[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+            <span class="validity"></span>
+        </form>
+        <!-- credit card Info -->
+        <form class="mt-20">
+            <strong >Credit Card Information</strong>
+            <label>Number *</label><input type="text" placeholder="xxxx-xxxx-xxxx-xxxx" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}" required>
+            <span class="validity"></span>
+            <label>month/year * <sup>(valid until)</sup></label><input type="text" placeholder="mm/yy" pattern="[0-9]{2}\/[0-9]{2}" required>
+            <span class="validity"></span>
+            <label>Security Number * </label><input type="text" placeholder="xxx" pattern="[0-9]{3}" required>
+            <span class="validity"></span> 
+        </form>
+        <!-- submit button -->
+            <input class="mt-20" type="submit" id="submit">
+    </form>
+</fieldset>
+</body>
+
+</html>
