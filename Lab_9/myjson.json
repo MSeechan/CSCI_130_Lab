@@ -3,36 +3,40 @@
         "title": "titlevar1",
         "year": 1990,
         "length": "1:23",
-        "rating": "this movie is about",
-        "description": 1,
+        "rating": 1,
+        "description": "this movie is about",
         "recommended": false
     },
     {
         "title": "titlevar2",
         "year": 1991,
         "length": "1:23",
-        "rating": "this movie is about",
-        "description": 0.8
+        "rating": 0.8,
+        "description": "this movie is about",
+        "recommended": true
     },
     {
         "title": "titlevar3",
         "year": 1992,
         "length": "1:23",
-        "rating": "this movie is about",
-        "description": 0.6
+        "rating": 0.6,
+        "description": "this movie is about",
+        "recommended": false
     },
     {
         "title": "titlevar4",
         "year": 1993,
         "length": "1:23",
-        "rating": "this movie is about",
-        "description": 0.4
+        "rating": 0.4,
+        "description": "this movie is about",
+        "recommended": true
     },
     {
         "title": "titlevar5",
         "year": 1994,
         "length": "1:23",
-        "rating": "this movie is about",
-        "description": 0.2
+        "rating": 0.2,
+        "description": "this movie is about",
+        "recommended": true
     }
 ]

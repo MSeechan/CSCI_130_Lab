@@ -1,173 +1,178 @@
 <!DOCTYPE html>
 <html>
-    <head></head>
-    <body>
-        <header>header</header>
-        <section>
-            <p id="myjson"></p>
-        </section>
-        <section>
-            <!-- filter section-->
-            <form>
-                <fieldset>
-                    <label for="title">title</label>
-                    <input type="text" id="title"><br>
 
-                    <label for="year">year</label>
-                    <input type="text" id="year"><br>
+<head></head>
 
-                    <label for="length">length</label>
-                    <input type="text" id="length"><br>
+<body onload="initArr()">
+    <header>header</header>
 
-                    <label for="rating">rating</label>
-                    <input type="text" id="rating"><br>
+    <section>
+        <!-- filter section-->
+        <form>
+            <fieldset>
+                <label for="title">title</label>
+                <input type="text" id="title"><br>
 
-                    <label for="description">description</label>
-                    <input type="text" id="description"><br>
+                <label for="year">year</label>
+                <input type="text" id="year"><br>
 
-                    <label for="recommended">recommended</label>
-                    <input type="text" id="recommended"><br><br>
+                <label for="length">length</label>
+                <input type="text" id="length"><br>
 
-                    <p id="info"></p><br>
-                    <input type="button" value="First" onclick='goFirst()'>
-                    <input type="button" value="Prev" onclick='goPrev()'>
-                    <input type="button" value="Next" onclick='goNext()'>
-                    <input type="button" value="Last" onclick='goLast()'>
-                    <input type="button" value="search">
-                </fieldset>
-            </form>
-          
-            
-        </section>
-        <script>
-           
-            
-            class SGmovie{
-                // title;
-                // year;
-                // length;
-                // rating;
-                // description;
-                // recommended;
+                <label for="rating">rating</label>
+                <input type="text" id="rating"><br>
 
-                constructor(title, year, rating, length, description, recommended){
-                    this.title = title;
-                    this.year = year;
-                    this.length =length;
-                    this.rating = rating;
-                    this.description = description;
-                    this.recommended = recommended;
-                }
+                <label for="description">description</label>
+                <input type="text" id="description"><br>
+
+                <label for="recommended">recommended</label>
+                <input type="text" id="recommended"><br><br>
+
+                <p id="info"></p><br>
+                <input id='firstBtn' type="button" value="First" onclick='goFirst()'>
+                <input id='prevBtn' type="button" value="Prev" onclick='goPrev()'>
+                <input id='nextBtn' type="button" value="Next" onclick='goNext()'>
+                <input id='lastBtn' type="button" value="Last" onclick='goLast()'>
+                <input id='searchBtn' type="button" value="search">
+            </fieldset>
+            <div id="printout"></div>
+        </form>
+    </section>
+    
+   
+    <script>
+
+        
+        class SGmovie {
+            // title;
+            // year;
+            // length;
+            // rating;
+            // description;
+            // recommended;
+
+            constructor(title, year, rating, length, description, recommended) {
+                this.title = title;
+                this.year = year;
+                this.length = length;
+                this.rating = rating;
+                this.description = description;
+                this.recommended = recommended;
             }
+        }
 
-            
-            var myJSON;
 
-            function initArr(){
+        var myJSON;
+
+        function initArr() {
             var movieArr = [];
 
-            var SGmovie1 = new SGmovie("titlevar1", 1990, 5/5, "1:23","this movie is about", false);
-            var SGmovie2 = new SGmovie("titlevar2", 1991, 4/5, "1:23","this movie is about", true);
-            var SGmovie3 = new SGmovie("titlevar3", 1992, 3/5, "1:23","this movie is about", false);
-            var SGmovie4 = new SGmovie("titlevar4", 1993, 2/5, "1:23","this movie is about",true);
-            var SGmovie5 = new SGmovie("titlevar5", 1994, 1/5, "1:23","this movie is about", true);
+            var SGmovie1 = new SGmovie("titlevar1", 1990, 5, "1:23", "this movie is about", false);
+            var SGmovie2 = new SGmovie("titlevar2", 1991, 4, "1:23", "this movie is about", true);
+            var SGmovie3 = new SGmovie("titlevar3", 1992, 3, "1:23", "this movie is about", false);
+            var SGmovie4 = new SGmovie("titlevar4", 1993, 2, "1:23", "this movie is about", true);
+            var SGmovie5 = new SGmovie("titlevar5", 1994, 1, "1:23", "this movie is about", true);
 
             movieArr[0] = SGmovie1;
             movieArr[1] = SGmovie2;
             movieArr[2] = SGmovie3;
             movieArr[3] = SGmovie4;
             movieArr[4] = SGmovie5;
-        
-            
+
             myJSON = JSON.stringify(movieArr);
-            document.getElementById("myjson").innerHTML=myJSON;
-            }
+            document.getElementById('printout').innerHTML=myJSON
 
-            function displayObj(obj){
-                document.getElementById('title').value = obj.title;
-                document.getElementById('year').value = obj.year;
-                document.getElementById('length').value = obj.length;
-                document.getElementById('rating').value = obj.rating;
-                document.getElementById('description').value = obj.description;
-                document.getElementById('recommended').value = obj.recommended;
-        
-            }
 
-            function displayInfo(){
-              document.getElementById("info").innerHTML =  "Results " + (currIndex+1) + "/" + allMoviesArr.length;
+        }
 
-            }
+        function displayObj(obj) {
+            document.getElementById('title').value = obj.title;
+            document.getElementById('year').value = obj.year;
+            document.getElementById('length').value = obj.length;
+            document.getElementById('rating').value = obj.rating;
+            document.getElementById('description').value = obj.description;
+            document.getElementById('recommended').value = obj.recommended;
+            document.getElementById("printout").value = myJSON;
+        }
 
-            var allMoviesArr;
-            var currIndex=0; //curr index of displayed movie 
-            var httpRequest;
+        function displayPageNum() {
+            document.getElementById("info").innerHTML = "Results " + (currIndex + 1) + "/" + allMoviesArr.length;
+        }
 
-            function goNext(){
-            if (currIndex == allMoviesArr.length-1){
+        var allMoviesArr;
+        var currIndex = 0; //curr index of displayed movie 
+        var httpRequest;
+
+        function goNext() {
+            if (currIndex == allMoviesArr.length - 1) {
                 return;
             }
-            else{
-                currIndex+=1;
-                displayInfo();
+            else {
+                currIndex += 1;
+                displayPageNum();
             }
             displayObj(allMoviesArr[currIndex]);
         }
 
-        function goPrev(){
-            if (currIndex == 0){
+        function goPrev() {
+            if (currIndex == 0) {
                 return;
             }
-            else{
-                currIndex-=1;
-                displayInfo();
+            else {
+                currIndex -= 1;
+                displayPageNum();
             }
             displayObj(allMoviesArr[currIndex]);
         }
-        
-        function goFirst(){
+
+        function goFirst() {
             displayObj(allMoviesArr[0]);
-            displayInfo();
+            displayPageNum();
         }
 
-        function goLast(){
-            currIndex = allMoviesArr.length-1;
+        function goLast() {
+            currIndex = allMoviesArr.length - 1;
             displayObj(allMoviesArr[currIndex]);
-            displayInfo();
+            displayPageNum();
         }
 
         //---------------
-            function loadJSON() {
-                httpRequest = new XMLHttpRequest(); // create the object
-                if (!httpRequest) { // check if the object was properly created
-                    // issues with the browser, example: old browser
-                    alert('Cannot create an XMLHTTP instance');
-                    return false;
-                }
-                httpRequest.onreadystatechange = alertContents; // we assign a function to the property onreadystatechange (callback function)
-                httpRequest.open('GET','myjson.json'); // Use a file in reference to the page where you are!
-                httpRequest.send(); // GET = send with no parameter !
+        function loadJSON() {
+            httpRequest = new XMLHttpRequest(); // create the object
+            if (!httpRequest) { // check if the object was properly created
+                // issues with the browser, example: old browser
+                alert('Cannot create an XMLHTTP instance');
+                return false;
             }
+            httpRequest.onreadystatechange = alertContents; // we assign a function to the property onreadystatechange (callback function)
+            httpRequest.open('GET', 'myjson.json'); // Use a file in reference to the page where you are!
+            httpRequest.send(); // GET = send with no parameter !
+        }
 
-            function alertContents() {
-                try {
-                    if (httpRequest.readyState === XMLHttpRequest.DONE) {
-                        if (httpRequest.status === 200) {      
-                                let str = httpRequest.responseText;
-                                allMoviesArr =  JSON.parse(str);    // str to Obj
-                                displayObj(allMoviesArr[currIndex]);
-                                displayInfo(currIndex);
-                        } else {
-                            alert('There was a problem with the request.');
-                        }
+        function alertContents() {
+            try {
+                if (httpRequest.readyState === XMLHttpRequest.DONE) {
+                    if (httpRequest.status === 200) {
+                        let str = httpRequest.responseText;
+                        alert(str)
+                        allMoviesArr = JSON.parse(str);    // str to Obj
+                        displayObj(allMoviesArr[currIndex]);
+                        displayPageNum(currIndex);
+                    } else {
+                        alert('There was a problem with the request.');
                     }
                 }
-                catch( e ) { // Always deal with what can happen badly, client-server applications --> there is always something that can go wrong on one end of the connection
-                    alert('Caught Exception: ' + e.description);
-                }
             }
-            loadJSON();
-        </script>
-        
-        <footer>footer</footer>
-    </body>
+            catch (e) { // Always deal with what can happen badly, client-server applications --> there is always something that can go wrong on one end of the connection
+                alert('Caught Exception: ' + e.description);
+            }
+        }
+        loadJSON();
+    
+    </script>
+
+
+    <footer>footer</footer>
+</body>
+
 </html>
