@@ -1,42 +1,42 @@
 [
     {
-        "title": "titlevar1",
-        "year": 1990,
-        "length": "1:23",
-        "rating": 1,
-        "description": "this movie is about",
+        "title": "Spirited Away",
+        "year": 2001,
+        "length": "2h 5m",
+        "rating": "PG",
+        "Synopsis": "10-year-old Chihiro and her parents stumble upon a seemingly abandoned amusement park. After her mother and father are turned into giant pigs, Chihiro meets the mysterious Haku, who explains that the park is a resort for supernatural beings who need a break from their time spent in the earthly realm, and that she must work there to free herself and her parents.",
         "recommended": false
     },
     {
-        "title": "titlevar2",
-        "year": 1991,
-        "length": "1:23",
-        "rating": 0.8,
-        "description": "this movie is about",
+        "title": "Kiki's Delivery Service",
+        "year": 1989,
+        "length": "1h 43m",
+        "rating": "G",
+        "Synopsis": "This is the story of a young witch, named Kiki who is now 13 years old. But she is still a little green and plenty headstrong, but also resourceful, imaginative, and determined. With her trusty wisp of a talking cat named Jiji by her side she's ready to take on the world, or at least the quaintly European seaside village she's chosen as her new home.",
         "recommended": true
     },
     {
-        "title": "titlevar3",
-        "year": 1992,
-        "length": "1:23",
-        "rating": 0.6,
-        "description": "this movie is about",
+        "title": "My Neighbor Totoro",
+        "year": 1988,
+        "length": "1h 26m",
+        "rating": "G",
+        "Synopsis": "Two young girls, 10-year-old Satsuki and her 4-year-old sister Mei, move into a house in the country with their father to be closer to their hospitalized mother. Satsuki and Mei discover that the nearby forest is inhabited by magical creatures called Totoros (pronounced toe-toe-ro). They soon befriend these Totoros, and have several magical adventures.",
         "recommended": false
     },
     {
-        "title": "titlevar4",
-        "year": 1993,
-        "length": "1:23",
-        "rating": 0.4,
-        "description": "this movie is about",
+        "title": "Howl's Moving Castle",
+        "year": 2004,
+        "length": "1h 59m",
+        "rating": "PG",
+        "Synopsis": "A love story between an 18-year-old girl named Sophie, cursed by a witch into an old woman's body, and a magician named Howl. Under the curse, Sophie sets out to seek her fortune, which takes her to Howl's strange moving castle. In the castle, Sophie meets Howl's fire demon, named Karishifâ. Seeing that she is under a curse, the demon makes a deal with Sophie--if she breaks the contract he is under with Howl, then Karushifâ will lift the curse that Sophie is under, and she will return to her 18-year-old shape.",
         "recommended": true
     },
     {
-        "title": "titlevar5",
-        "year": 1994,
-        "length": "1:23",
-        "rating": 0.2,
-        "description": "this movie is about",
+        "title": "Ponyo",
+        "year": 2008,
+        "length": "1h 41m",
+        "rating": "G",
+        "Synopsis": "A five-year-old boy develops a relationship with Ponyo, a young goldfish princess who longs to become a human after falling in love with him.",
         "recommended": true
     }
 ]
