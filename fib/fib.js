@@ -6,10 +6,15 @@ function main() {
     create_tbl();
 }
 
+// gen array of non-repeating fib sequence
 function gen_fib(input) {
     let n1 = 0, n2 = 1, nextTerm;
     for (let i = 1; i <= input; i++) {
-        arr.push(n1);
+       
+        if(!arr.includes(n1)){
+            arr.push(n1);
+        }
+          
         nextTerm = n1 + n2;
         n1 = n2;
         n2 = nextTerm;
@@ -18,9 +23,12 @@ function gen_fib(input) {
 }
 
 function create_tbl() {
+    // make tbl and attach to div in html
     let div = document.getElementById("fib_div")
     let tbl = document.createElement("TABLE");
     div.appendChild(tbl);
+
+    //add row to tbl
     for (i = 0; i < arr.length; i++) {
         let row1 = tbl.insertRow();
         let td1_1 = row1.insertCell();
@@ -28,5 +36,4 @@ function create_tbl() {
         td1_1.innerText = i + 1;
         td1_2.innerText = arr[i];
     }
-    console.log(tbl)
 }

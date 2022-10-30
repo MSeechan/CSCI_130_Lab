@@ -1,26 +1,30 @@
+//tbl with 1 long dynamic row
 function genArray(){
     var n = document.getElementById("arrayN").value;
-    let str = "";
+    let td_str = "";
+    // gen long str to make dynamic n number of empty td's. each have id v<n>
     for (let i = 0; i < n; i++){
-        str += '<td><input type="text" id="v' + (i) + '"></td>';
-
+        td_str += '<td><input type="text" id="v' + (i) + '"></td>';
     }
-    document.getElementById("row").innerHTML = str;
-    let arr = randomList();
-    arrToForm(arr);
+    // put long td str in row
+    document.getElementById("row").innerHTML = td_str;
+    //gen rand arr
+    let rand_arr = gen_rand_arr(n);
+    //fill empty td's w/rand_arr's values
+    arrToForm(rand_arr);
 }
-function randomList(){
-    let n = document.getElementById("arrayN").value;
-    var arr = new Array();
+function gen_rand_arr(n){
+    let arr = new Array();
+    // gen rand btwn 1-100
     for (let i = 0; i < n; i++){
-        arr[i] = Math.round(Math.random()*10);
+        arr[i] = Math.round(Math.random()*100);
     }
     return arr;
 }
-function arrToForm(arr){
-    let n = document.getElementById("arrayN").value;
-    for (let i = 0; i < n; i++){
-        document.getElementById("v" + i).value = arr[i];
+function arrToForm(rand_arr){
+    // get all empty td's made by their id's and put arr vals into them
+    for (let i = 0; i < rand_arr.length; i++){
+        document.getElementById("v" + i).value = rand_arr[i];
     }
 }
 function formToArr(arr){
