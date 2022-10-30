@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head><meta charshet="UTF-8"></head>
+    <body>
+        <form>
+            <fieldset>
+                <label for="n_input">n:</label>
+                <input type="text" id="n_input" name="n_input">
+                <input type="button" onclick="main()" value="OK">
+                <input type="button" onclick="send_arr()" value="SEND"> 
+            </fieldset>
+        </form>
+        <div id="tbl_div"></div>
+
+        <script>
+            var tbl_div = document.getElementById("tbl_div");
+            var n_arr=[]
+
+            function main(){
+                genRandArr()
+                display()
+            }
+
+            function genRandArr(){
+                let n = parseInt(document.getElementById("n_input").value)
+                for(i=1;i<=n;i++){
+                    n_arr.push(Math.round(Math.random()*100))
+                }
+            }
+
+            function display(){
+                var tbl = document.createElement("TABLE");
+                var tr = document.createElement("TR");
+                var tr2 = document.createElement("TR");
+                tbl.border = '1';
+                tbl.style.borderCollapse = 'collapse';
+                tbl_div.appendChild(tbl)
+                tbl.appendChild(tr2)
+                tbl.appendChild(tr)
+              
+                for(i=0;i<n_arr.length;i++){
+                    let td2 = document.createElement("TD")
+                    td2.innerText = i+1;
+                    tr2.appendChild(td2);
+
+                    let td = document.createElement("TD")
+                    //td.innerText = n_arr[i];
+                    td.innerHTML= '<input type="Text" id="v' +i+ '" value='+n_arr[i]+'>'
+                    tr.appendChild(td);
+                } 
+            }
+
+            function send_arr(){
+                let arr=[]
+                for(i=0; i<n_arr.length;i++){
+                    arr.push(document.getElementById("v"+i).value);
+                }
+                var json_arr =JSON.stringify(arr)
+                console.log(json_arr)
+                //need to send this
+          
+                httpRequest = new XMLHttpRequest();
+                if (!httpRequest) { 
+                alert('Cannot create an XMLHTTP instance');
+                return false;
+                }
+                httpRequest.onreadystatechange = alert; 
+                httpRequest.open('POST','procArr.php', true); 
+                httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                httpRequest.send(json_arr);
+            }
+
+
+
+
+
+            function procRes(){
+                let str=""
+                str + reponse.Min
+                +reponse.Max
+                +reponse.Med
+                +reponse.Std
+                console.log(str)
+
+             }
+        </script>
+
+    </body>
+</html>
