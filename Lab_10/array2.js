@@ -27,39 +27,39 @@ function arrToForm(rand_arr){
         document.getElementById("v" + i).value = rand_arr[i];
     }
 }
-function formToArr(arr){
-    let n = document.getElementById("arrayN").value;
+/*-----------------------------*/
+function formToArr(arr, n){
     for (let i = 0; i < n; i++){
         arr[i] =  document.getElementById("v" + i).value;
     }
 }
+
 var httpRequest;
 function sendArr(){
-    let arr = new Array();
-    formToArr(arr);
-    let strArr = JSON.stringify(arr);
-    console.log(arr);
+    var n = document.getElementById("arrayN").value;
+    // new arr to fill w/strs
+    let form_arr = new Array();
+    // fill new arr w/ id V# values
+    formToArr(form_arr, n);
+    //stringify arr ["#","#",...n]
+    let str_arr = JSON.stringify(form_arr);
 
-    httpRequest = new XMLHttpRequest(); // create the object
+    httpRequest = new XMLHttpRequest(); // create the req object
     if (!httpRequest) { // check if the object was properly created
-        // issues with the browser, example: old browser
-        alert('Cannot create an XMLHTTP instance');
+        alert('Cannot create an XMLHTTP instance');  // issues with the browser, example: old browser
         return false;
     }
-    httpRequest.onreadystatechange = getArrResponse;  // we assign a function to the property onreadystatechange (callback function)
-    httpRequest.open('POST','processArr.php');  // ACTION + (string containing address of the file + parameters if needed)       
+    httpRequest.onreadystatechange = getArrResponse();  // assign a callback function to the property onreadystatechange
+    httpRequest.open('POST','processArr.php');  // GET/POST ACTION + php where req is going     
     httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    httpRequest.send('Array=' + strArr); // POST = send with parameter (the string with the relevant information)
-}
+    httpRequest.send('Array=' + str_arr); // {Array key = str val} sent
+  }
+
 function getArrResponse() {
     try {
       if (httpRequest.readyState === XMLHttpRequest.DONE) {
-        if (httpRequest.status === 200) {      
-              // We retrieve a piece of text corresponding to some JSON
-              // now you have a nice object in the response, you can access its properties and values to populate the different fields of your form
-              // the next stages will be about the creation of this JSON from the PHP side, in relation to some data that we extracted from a database
-              alert(httpRequest.responseText); // If you have a bug, use an alert of what is given back from the server (for textual content)
-              // if you return something that cannot be converted to an object, then debug the PHP side !
+        if (httpRequest.status === 200) {
+              // get response obj back and process it
               var response = JSON.parse(httpRequest.responseText);
               processResponse(response);
         } 
@@ -73,6 +73,8 @@ function getArrResponse() {
       alert('Caught Exception: ' + e.description);
     }
   }
+
+  // process obj
   function processResponse(response){
     var str = "";
     str += "Mean: " + response.mean + "<br>";

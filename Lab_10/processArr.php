@@ -1,5 +1,5 @@
 <?php
-// Get Input
+// Get Input w/Array key and decode str to get array back
 if (isset($_POST["Array"])){
     $arr = json_decode($_POST["Array"]);
 }
@@ -16,7 +16,7 @@ $maxVal = max($arr);
 $medianVal = 0;
 $meanVal = array_sum($arr) / count($arr);
 $stdVal = 0;
-// Return Response
+// Return Response str
 $response = ['min' => $minVal, 'max' => $maxVal, 'median' => $medianVal, 'mean' => $meanVal, 'std' => $stdVal];
 echo json_encode($response);
 ?>
