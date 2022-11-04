@@ -46,25 +46,25 @@
         <img src="./Studio_Ghibli_logo.svg" width="200">
         <section>
             <!-- filter section-->
-            <form>
+            <form id="movie_form" action="update_item.php" method="post">
                 <fieldset>
                     <label for="title">Title:</label>
-                    <input type="text" id="title"><br>
+                    <input type="text" id="title" name="title"><br>
 
                     <label for="year">Year:</label>
-                    <input type="text" id="year"><br>
+                    <input type="text" id="year"  name="year"><br>
 
                     <label for="length">Length:</label>
-                    <input type="text" id="length"><br>
+                    <input type="text" id="length"  name="length"><br>
 
                     <label for="rating">Rating:</label>
-                    <input type="text" id="rating"><br>
+                    <input type="text" id="rating"  name="rating"><br>
 
                     <label for="recommended">Recommended:</label>
-                    <input type="text" id="recommended"><br>
+                    <input type="text" id="recommended"  name="recommended"><br>
 
                     <label for="Synopsis">Synopsis:</label><br>
-                    <textarea id="Synopsis"></textarea><br><br>
+                    <textarea id="Synopsis"  name="Synopsis"></textarea><br><br>
 
                     <p id="info"></p><br>
                     <input id='firstBtn' type="button" value="First" onclick='goFirst()'>
@@ -72,9 +72,9 @@
                     <input id='nextBtn' type="button" value="Next" onclick='goNext()'>
                     <input id='lastBtn' type="button" value="Last" onclick='goLast()'>
 
-                    <input id='get' type="button" value="get" onclick='getResNum()'>
+                    <input id='get' type="button" value="get" onclick='get_item()'>
                     <input type="number" id="getItem" value="">
-                    <input id='update' type="button" value="update" onclick='updateItem()'>
+                    <input id='update' type="button" value="update" onclick='update_item()'>
                     <input id='delete' type="button" value="delete">
                 </fieldset>
                 <div id="printout"></div>
@@ -179,29 +179,34 @@
                 displayPageNum();
             }
 
-            function getResNum() {
+            function get_item() {
                 let input = document.getElementById('getItem').value;
                 curr_index = input-1;
-    
+                let send_str = 'input=' + input
+                send_post(send_str, 'get_item.php', display_item); 
+            }
+// send post
+            function send_post(send_str, path, callback){
+                console.log('in send post', send_str)
                 httpRequest = new XMLHttpRequest();
                 if (!httpRequest) {
                     alert('Cannot create an XMLHTTP instance');
                     return false;
                 }
-                httpRequest.onreadystatechange = displayResNum;
-                httpRequest.open('POST', 'getResNum.php');
+                httpRequest.onreadystatechange = callback;
+                httpRequest.open('POST', path);
                 httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                httpRequest.send('input=' + input);        
+                
+                httpRequest.send(send_str);  
             }
 
-            function displayResNum(){
+            function display_item(){
                 try {
                     if (httpRequest.readyState === XMLHttpRequest.DONE) {
                         if (httpRequest.status === 200) {
                             let data = JSON.parse(httpRequest.responseText);
                             displayObj(data);
                             displayPageNum();
-                            
                         } else {
                             alert('There was a problem with the request.');
                         }
@@ -211,22 +216,39 @@
                     alert('Caught Exception: ' + e.Synopsis + ' wth is happening?');
                 }
             }
+// get curr form values and update array to send to server
+            function update_item() {
+                // movies_arr[curr_index].title = document.getElementsByName('title').value
+                // movies_arr[curr_index].year = document.getElementsByName('year').value
+                // movies_arr[curr_index].length = document.getElementsByName('length').value
+                // movies_arr[curr_index].rating = document.getElementsByName('rating').value
+                // movies_arr[curr_index].recommended = document.getElementsByName('recommended').value
+                // movies_arr[curr_index].Synopsis = document.getElementsByName('Synopsis').value
+                // myJSON = JSON.stringify(movies_arr);
+                // send_post(myJSON, 'update_item.php', test);
+                document.getElementById('movie_form').submit();
+          
+                
+            }
 
-
-            function updateItem() {
-                data[curr_index].title = document.getElementById('title').value
-                data[curr_index].year = document.getElementById('year').value
-                data[curr_index].length = document.getElementById('length').value
-                data[curr_index].rating = document.getElementById('rating').value
-                data[curr_index].recommended = document.getElementById('recommended').value
-                data[curr_index].Synopsis = document.getElementById('Synopsis').value
-                myJSON = JSON.stringify(data)
+            function test(){
+                try {
+                    if (httpRequest.readyState === XMLHttpRequest.DONE) {
+                        if (httpRequest.status === 200) {
+                            let data = JSON.parse(httpRequest.responseText);
+                            console.log('in test:       ',data);
+                        } else {
+                            alert('There was a problem with the request.');
+                        }
+                    }
+                }
+                catch (e) {
+                    alert('Caught Exception: ' + e.Synopsis + ' test error?');
+                }
 
             }
 
-
-
-    //--------------- load initial array of movies
+//--------- load initial array of movies
             function loadJSON() {
                 httpRequest = new XMLHttpRequest(); // create the object
                 if (!httpRequest) { // check if the object was properly created
@@ -259,10 +281,7 @@
                     alert('Caught Exception: ' + e.Synopsis);
                 }
             }
-
-
             loadJSON();
-
         </script>
 
 
