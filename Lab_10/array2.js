@@ -76,11 +76,11 @@ function getArrResponse() {
 
   // process obj
   function processResponse(response){
-    var str = "";
-    str += "Mean: " + response.mean + "<br>";
-    str += "STD: " + response.std + "<br>";
-    str += "Median: " + response.median + "<br>";
-    str += "Min: " + response.min + "<br>";
-    str += "Max: " + response.max + "<br>";
+    let str = "";
+    str += "Mean: " + response.mean_key + "<br>";
+    str += "STD: " + response.std_key + "<br>";
+    str += "Median: " + response.median_key + "<br>";
+    str += "Min: " + response.min_key + "<br>";
+    str += "Max: " + response.max_key + "<br>";
     document.getElementById("response").innerHTML = str;
   }

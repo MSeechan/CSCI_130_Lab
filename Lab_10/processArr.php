@@ -17,6 +17,6 @@ $medianVal = 0;
 $meanVal = array_sum($arr) / count($arr);
 $stdVal = 0;
 // Return Response str
-$response = ['min' => $minVal, 'max' => $maxVal, 'median' => $medianVal, 'mean' => $meanVal, 'std' => $stdVal];
+$response = ['min_key' => $minVal, 'max_key' => $maxVal, 'median_key' => $medianVal, 'mean_key' => $meanVal, 'std_key' => $stdVal];
 echo json_encode($response);
 ?>

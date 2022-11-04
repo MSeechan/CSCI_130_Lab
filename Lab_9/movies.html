@@ -1,21 +1,47 @@
 <!DOCTYPE html>
 <html lang="en" style="font: normal 12px Tahoma, Verdana, Arial, sans-serif">
+
 <head>
     <style>
         fieldset {
             border-radius: 10px;
         }
-        input{ border: none;}
-        #Synopsis{ height:100px; width:500px; max-height:100px; max-width:500px; min-height:100px; min-width:500px;}
-        label{font-weight: bold;}
-        input[type="button"]{background-color:rgb(22, 255, 138); border: 1px solid green; border-radius:3px;}
-        input[type="button"]:hover{background-color:rgb(13, 238, 126);}
-        textarea{border:none;}
-        :disabled{background-color: rgb(255, 255, 255);}
+
+        /* input{ border: none;} */
+        #Synopsis {
+            height: 100px;
+            width: 500px;
+            max-height: 100px;
+            max-width: 500px;
+            min-height: 100px;
+            min-width: 500px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="button"] {
+            background-color: rgb(22, 255, 138);
+            border: 1px solid green;
+            border-radius: 3px;
+        }
+
+        input[type="button"]:hover {
+            background-color: rgb(13, 238, 126);
+        }
+
+        textarea {
+            border: none;
+        }
+
+        :disabled {
+            background-color: rgb(255, 255, 255);
+        }
     </style>
 </head>
 
-<body onload="initArr()">
+<body>
     <header>
         <img src="./Studio_Ghibli_logo.svg" width="200">
         <section>
@@ -23,36 +49,47 @@
             <form>
                 <fieldset>
                     <label for="title">Title:</label>
-                    <input type="text" id="title" disabled><br>
+                    <input type="text" id="title"><br>
 
                     <label for="year">Year:</label>
-                    <input type="text" id="year" disabled><br>
+                    <input type="text" id="year"><br>
 
                     <label for="length">Length:</label>
-                    <input type="text" id="length" disabled><br>
+                    <input type="text" id="length"><br>
 
                     <label for="rating">Rating:</label>
-                    <input type="text" id="rating" disabled><br>
+                    <input type="text" id="rating"><br>
 
                     <label for="recommended">Recommended:</label>
-                    <input type="text" id="recommended" disabled><br>
+                    <input type="text" id="recommended"><br>
 
                     <label for="Synopsis">Synopsis:</label><br>
-                    <textarea id="Synopsis" disabled></textarea><br><br>
+                    <textarea id="Synopsis"></textarea><br><br>
 
                     <p id="info"></p><br>
                     <input id='firstBtn' type="button" value="First" onclick='goFirst()'>
                     <input id='prevBtn' type="button" value="Prev" onclick='goPrev()'>
                     <input id='nextBtn' type="button" value="Next" onclick='goNext()'>
                     <input id='lastBtn' type="button" value="Last" onclick='goLast()'>
-                    <input id='searchBtn' type="button" value="search">
+
+                    <input id='get' type="button" value="get" onclick='getResNum()'>
+                    <input type="number" id="getItem" value="">
+                    <input id='update' type="button" value="update" onclick='updateItem()'>
+                    <input id='delete' type="button" value="delete">
                 </fieldset>
                 <div id="printout"></div>
             </form>
         </section>
+        <footer>footer</footer>
+
+        <!------------------------------------------------------------------------------->
 
 
         <script>
+            var max;
+            var movies_arr;
+            var curr_index = 0; //curr index of displayed movie 
+            var httpRequest;
 
 
             class SGmovie {
@@ -80,7 +117,7 @@
                 var movieArr = [];
 
                 var SGmovie1 = new SGmovie("Spirited Away", 2001, "PG", "2h 5m", "10-year-old Chihiro and her parents stumble upon a seemingly abandoned amusement park. After her mother and father are turned into giant pigs, Chihiro meets the mysterious Haku, who explains that the park is a resort for supernatural beings who need a break from their time spent in the earthly realm, and that she must work there to free herself and her parents.", false);
-                var SGmovie2 = new SGmovie("Kiki's Delivery Service", 1989, "G" ,"1h 43m", "This is the story of a young witch, named Kiki who is now 13 years old. But she is still a little green and plenty headstrong, but also resourceful, imaginative, and determined. With her trusty wisp of a talking cat named Jiji by her side she's ready to take on the world, or at least the quaintly European seaside village she's chosen as her new home.", true);
+                var SGmovie2 = new SGmovie("Kiki's Delivery Service", 1989, "G", "1h 43m", "This is the story of a young witch, named Kiki who is now 13 years old. But she is still a little green and plenty headstrong, but also resourceful, imaginative, and determined. With her trusty wisp of a talking cat named Jiji by her side she's ready to take on the world, or at least the quaintly European seaside village she's chosen as her new home.", true);
                 var SGmovie3 = new SGmovie("My Neighbor Totoro", 1988, "G", "1h 26m", "Two young girls, 10-year-old Satsuki and her 4-year-old sister Mei, move into a house in the country with their father to be closer to their hospitalized mother. Satsuki and Mei discover that the nearby forest is inhabited by magical creatures called Totoros (pronounced toe-toe-ro). They soon befriend these Totoros, and have several magical adventures.", false);
                 var SGmovie4 = new SGmovie("Howl's Moving Castle", 2004, "PG", "1h 59m", "A love story between an 18-year-old girl named Sophie, cursed by a witch into an old woman's body, and a magician named Howl. Under the curse, Sophie sets out to seek her fortune, which takes her to Howl's strange moving castle. In the castle, Sophie meets Howl's fire demon, named Karishifâ. Seeing that she is under a curse, the demon makes a deal with Sophie--if she breaks the contract he is under with Howl, then Karushifâ will lift the curse that Sophie is under, and she will return to her 18-year-old shape.", true);
                 var SGmovie5 = new SGmovie("Ponyo", 2008, "G", "1h 41m", "A five-year-old boy develops a relationship with Ponyo, a young goldfish princess who longs to become a human after falling in love with him.", true);
@@ -91,10 +128,7 @@
                 movieArr[3] = SGmovie4;
                 movieArr[4] = SGmovie5;
 
-                myJSON = JSON.stringify(movieArr);
-                document.getElementById('printout').innerHTML = myJSON
-
-
+                myJSON = JSON.stringify(movieArr)
             }
 
             function displayObj(obj) {
@@ -104,51 +138,95 @@
                 document.getElementById('rating').value = obj.rating;
                 document.getElementById('Synopsis').innerText = obj.Synopsis;
                 document.getElementById('recommended').value = obj.recommended;
-                document.getElementById("printout").value = myJSON;
             }
 
             function displayPageNum() {
-                document.getElementById("info").innerHTML = "Results " + (currIndex + 1) + "/" + allMoviesArr.length;
+                document.getElementById("info").innerHTML = "Results " + (curr_index + 1) + "/" + max;
             }
 
-            var allMoviesArr;
-            var currIndex = 0; //curr index of displayed movie 
-            var httpRequest;
 
             function goNext() {
-                if (currIndex == allMoviesArr.length - 1) {
+                if (curr_index == max - 1) {
                     return;
                 }
                 else {
-                    currIndex += 1;
+                    curr_index += 1;
                     displayPageNum();
                 }
-                displayObj(allMoviesArr[currIndex]);
+                displayObj(movies_arr[curr_index]);
             }
 
             function goPrev() {
-                if (currIndex == 0) {
+                if (curr_index == 0) {
                     return;
                 }
                 else {
-                    currIndex -= 1;
+                    curr_index -= 1;
                     displayPageNum();
                 }
-                displayObj(allMoviesArr[currIndex]);
+                displayObj(movies_arr[curr_index]);
             }
 
             function goFirst() {
-                displayObj(allMoviesArr[0]);
+                curr_index = 0
+                displayObj(movies_arr[0]);
                 displayPageNum();
             }
 
             function goLast() {
-                currIndex = allMoviesArr.length - 1;
-                displayObj(allMoviesArr[currIndex]);
+                curr_index = max - 1;
+                displayObj(movies_arr[curr_index]);
                 displayPageNum();
             }
 
-            //---------------
+            function getResNum() {
+                let input = document.getElementById('getItem').value;
+                curr_index = input-1;
+    
+                httpRequest = new XMLHttpRequest();
+                if (!httpRequest) {
+                    alert('Cannot create an XMLHTTP instance');
+                    return false;
+                }
+                httpRequest.onreadystatechange = displayResNum;
+                httpRequest.open('POST', 'getResNum.php');
+                httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                httpRequest.send('input=' + input);        
+            }
+
+            function displayResNum(){
+                try {
+                    if (httpRequest.readyState === XMLHttpRequest.DONE) {
+                        if (httpRequest.status === 200) {
+                            let data = JSON.parse(httpRequest.responseText);
+                            displayObj(data);
+                            displayPageNum();
+                            
+                        } else {
+                            alert('There was a problem with the request.');
+                        }
+                    }
+                }
+                catch (e) {
+                    alert('Caught Exception: ' + e.Synopsis + ' wth is happening?');
+                }
+            }
+
+
+            function updateItem() {
+                data[curr_index].title = document.getElementById('title').value
+                data[curr_index].year = document.getElementById('year').value
+                data[curr_index].length = document.getElementById('length').value
+                data[curr_index].rating = document.getElementById('rating').value
+                data[curr_index].recommended = document.getElementById('recommended').value
+                data[curr_index].Synopsis = document.getElementById('Synopsis').value
+                myJSON = JSON.stringify(data)
+
+            }
+
+
+
+    //--------------- load initial array of movies
             function loadJSON() {
                 httpRequest = new XMLHttpRequest(); // create the object
                 if (!httpRequest) { // check if the object was properly created
@@ -156,19 +234,22 @@
                     alert('Cannot create an XMLHTTP instance');
                     return false;
                 }
-                httpRequest.onreadystatechange = alertContents; // we assign a function to the property onreadystatechange (callback function)
-                httpRequest.open('GET', 'myjson.json'); // Use a file in reference to the page where you are!
+                httpRequest.onreadystatechange = getJson; // we assign a function to the property onreadystatechange (callback function)
+                httpRequest.open('GET', 'movies.php'); // Use a file in reference to the page where you are!
                 httpRequest.send(); // GET = send with no parameter !
             }
 
-            function alertContents() {
+            var printout = document.getElementById("printout")
+
+            function getJson() {
                 try {
                     if (httpRequest.readyState === XMLHttpRequest.DONE) {
                         if (httpRequest.status === 200) {
-                            let str = httpRequest.responseText;
-                            allMoviesArr = JSON.parse(str);    // str to Obj
-                            displayObj(allMoviesArr[currIndex]);
-                            displayPageNum(currIndex);
+                            movies_arr = JSON.parse(httpRequest.responseText);    // str to Obj
+                            max = movies_arr.length;
+                            let tmp = movies_arr[0];
+                            displayObj(tmp);
+                            displayPageNum();
                         } else {
                             alert('There was a problem with the request.');
                         }
@@ -178,12 +259,14 @@
                     alert('Caught Exception: ' + e.Synopsis);
                 }
             }
+
+
             loadJSON();
 
         </script>
 
 
-        <footer>footer</footer>
+
 </body>
 
 </html>
