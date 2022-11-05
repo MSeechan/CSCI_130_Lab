@@ -8,7 +8,7 @@
         }
 
         /* input{ border: none;} */
-        #Synopsis {
+        #synopsis {
             height: 100px;
             width: 500px;
             max-height: 100px;
@@ -21,7 +21,7 @@
             font-weight: bold;
         }
 
-        input[type="button"] {
+        input[type="button"], input[type="submit"] {
             background-color: rgb(22, 255, 138);
             border: 1px solid green;
             border-radius: 3px;
@@ -48,6 +48,8 @@
             <!-- filter section-->
             <form id="movie_form" action="update_item.php" method="post">
                 <fieldset>
+                    <input type="number" name="movie_id" id="movie_id" disabled hidden>
+
                     <label for="title">Title:</label>
                     <input type="text" id="title" name="title"><br>
 
@@ -63,8 +65,8 @@
                     <label for="recommended">Recommended:</label>
                     <input type="text" id="recommended"  name="recommended"><br>
 
-                    <label for="Synopsis">Synopsis:</label><br>
-                    <textarea id="Synopsis"  name="Synopsis"></textarea><br><br>
+                    <label for="synopsis">Synopsis:</label><br>
+                    <textarea id="synopsis"  name="synopsis"></textarea><br><br>
 
                     <p id="info"></p><br>
                     <input id='firstBtn' type="button" value="First" onclick='goFirst()'>
@@ -74,7 +76,7 @@
 
                     <input id='get' type="button" value="get" onclick='get_item()'>
                     <input type="number" id="getItem" value="">
-                    <input id='update' type="button" value="update" onclick='update_item()'>
+                    <input id='update' type="submit" value="update" onclick="update_item()" >
                     <input id='delete' type="button" value="delete">
                 </fieldset>
                 <div id="printout"></div>
@@ -97,15 +99,15 @@
                 // year;
                 // length;
                 // rating;
-                // Synopsis;
+                // synopsis;
                 // recommended;
 
-                constructor(title, year, rating, length, Synopsis, recommended) {
+                constructor(title, year, rating, length, synopsis, recommended) {
                     this.title = title;
                     this.year = year;
                     this.length = length;
                     this.rating = rating;
-                    this.Synopsis = Synopsis;
+                    this.synopsis = synopsis;
                     this.recommended = recommended;
                 }
             }
@@ -113,7 +115,7 @@
 
             var myJSON;
 
-            function initArr() {
+            /* function initArr() {
                 var movieArr = [];
 
                 var SGmovie1 = new SGmovie("Spirited Away", 2001, "PG", "2h 5m", "10-year-old Chihiro and her parents stumble upon a seemingly abandoned amusement park. After her mother and father are turned into giant pigs, Chihiro meets the mysterious Haku, who explains that the park is a resort for supernatural beings who need a break from their time spent in the earthly realm, and that she must work there to free herself and her parents.", false);
@@ -129,15 +131,16 @@
                 movieArr[4] = SGmovie5;
 
                 myJSON = JSON.stringify(movieArr)
-            }
+            }*/
 
             function displayObj(obj) {
                 document.getElementById('title').value = obj.title;
                 document.getElementById('year').value = obj.year;
                 document.getElementById('length').value = obj.length;
                 document.getElementById('rating').value = obj.rating;
-                document.getElementById('Synopsis').innerText = obj.Synopsis;
+                document.getElementById('synopsis').innerText = obj.synopsis;
                 document.getElementById('recommended').value = obj.recommended;
+                document.getElementById('movie_id').value = obj.movie_id;
             }
 
             function displayPageNum() {
@@ -196,7 +199,6 @@
                 httpRequest.onreadystatechange = callback;
                 httpRequest.open('POST', path);
                 httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                
                 httpRequest.send(send_str);  
             }
 
@@ -205,6 +207,7 @@
                     if (httpRequest.readyState === XMLHttpRequest.DONE) {
                         if (httpRequest.status === 200) {
                             let data = JSON.parse(httpRequest.responseText);
+                            
                             displayObj(data);
                             displayPageNum();
                         } else {
@@ -213,21 +216,20 @@
                     }
                 }
                 catch (e) {
-                    alert('Caught Exception: ' + e.Synopsis + ' wth is happening?');
+                    alert('Caught Exception: ' + e.synopsis + ' wth is happening?');
                 }
             }
 // get curr form values and update array to send to server
             function update_item() {
-                // movies_arr[curr_index].title = document.getElementsByName('title').value
-                // movies_arr[curr_index].year = document.getElementsByName('year').value
-                // movies_arr[curr_index].length = document.getElementsByName('length').value
-                // movies_arr[curr_index].rating = document.getElementsByName('rating').value
-                // movies_arr[curr_index].recommended = document.getElementsByName('recommended').value
-                // movies_arr[curr_index].Synopsis = document.getElementsByName('Synopsis').value
+                // movies_arr[curr_index].title = curr_movie.get('title')
+                // movies_arr[curr_index].year = curr_movie.get('year')
+                // movies_arr[curr_index].length = curr_movie.get('length')
+                // movies_arr[curr_index].rating = curr_movie.get('rating')
+                // movies_arr[curr_index].recommended = curr_movie.get('recommended')
+                // movies_arr[curr_index].synopsis = curr_movie.get('synopsis')
                 // myJSON = JSON.stringify(movies_arr);
                 // send_post(myJSON, 'update_item.php', test);
-                document.getElementById('movie_form').submit();
-          
+                
                 
             }
 
@@ -243,7 +245,7 @@
                     }
                 }
                 catch (e) {
-                    alert('Caught Exception: ' + e.Synopsis + ' test error?');
+                    alert('Caught Exception: ' + e.synopsis + ' test error?');
                 }
 
             }
@@ -278,7 +280,7 @@
                     }
                 }
                 catch (e) { // Always deal with what can happen badly, client-server applications --> there is always something that can go wrong on one end of the connection
-                    alert('Caught Exception: ' + e.Synopsis);
+                    alert('Caught Exception: ' + e.synopsis);
                 }
             }
             loadJSON();
