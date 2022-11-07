@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" style="font: normal 12px Tahoma, Verdana, Arial, sans-serif">
+<head>
+    <link rel="stylesheet" href="./assets/main_page.css">
+</head>
+
+<body>
+    <header>
+        <div class="banner">
+            <div><img src="./assets/pngwing.com.png" width="200"></div>
+            <div class=text_blue><h1>DB</h1></div>
+        </div>
+    </header>
+    <table>
+        <tr>
+            <td> 
+                <form id="movie_form" action="update_item.php" method="post">
+                    <fieldset>
+                        <input id='delete' type="button" value="Delete" class=float-right>
+                        <input id='add' type="button" value="Add" class=float-right onclick="" >
+                        <input id='update' type="submit" value="Update" class=float-right onclick="update_item()" >
+                        <br>
+
+                        <label for="title">Title:</label>
+                        <input type="text" id="title" name="title"><br>
+                        <input type="number" name="movie_id" id="movie_id" hidden>
+    
+                        <label for="year">Year:</label>
+                        <input type="text" id="year"  name="year"><br>
+    
+                        <label for="length">Length:</label>
+                        <input type="text" id="length"  name="length"><br>
+    
+                        <label for="rating">Rating:</label>
+                        <input type="text" id="rating"  name="rating"><br>
+    
+                        <label for="recommended">Recommended:</label>
+                        <input type="text" id="recommended"  name="recommended"><br>
+    
+                        <label for="synopsis">Synopsis:</label><br>
+                        <textarea id="synopsis"  name="synopsis"></textarea><br><br>
+                        <!-- page number display -->
+                        <input id='get' type="button" value="Get" onclick='get_item()'>
+                        <input type="number" id="getItem" class=input_sm value="">
+                        <div id="page_num"></div>
+                        <br>
+                        <input id='firstBtn' type="button" value="First" onclick='goFirst()'>
+                        <input id='prevBtn' type="button" value="Prev" onclick='goPrev()'>
+                        <input id='nextBtn' type="button" value="Next" onclick='goNext()'>
+                        <input id='lastBtn' type="button" value="Last" onclick='goLast()'>
+                      
+                    </fieldset>
+                     <!-- <div id="printout"></div>  -->
+                </form> 
+            </td>
+            <td>
+                <img class=float-left src="./assets/spirited_away.jpg" width="50%"> </div> 
+            </td>
+        </tr>
+    </table>    
+ 
+
+
+        
+         
+        
+
+   
+
+   
+         
+<footer>footer</footer>
+
+ 
+
+    <!------------------------------------------------------------------------------->
+    <script src="get_movies.js"> </script>
+
+      
+       
+
+</body>
+
+</html>
