@@ -27,7 +27,7 @@
     // write to (filename, encoded json)
     file_put_contents('movies_data.json', json_encode($json_arr));
     // reroute to the same site after saving the updated movie data
-    header("Location: http://localhost/mysite/Lab_9/movies.html");
+    header("Location: http://localhost/mysite/db_project/movies.html");
 
     
 

@@ -51,6 +51,8 @@ function displayObj(obj) {
   document.getElementById("movie_id").value = obj.movie_id;
 }
 
+
+
 function displayPageNum() {
   document.getElementById("page_num").innerHTML =
     "Results " + (curr_index + 1) + "/" + max;
@@ -94,9 +96,33 @@ function get_item() {
   let send_str = "input=" + input;
   send_post(send_str, "get_item.php", display_item);
 }
+
+// get the current movie index and remove it by splicing the array and then send it to overwrite the json.
+function delete_item() {
+  let send_str = 'curr_index=' + curr_index;
+  send_post(send_str, "delete_item.php", test)
+}
+
+function test() {
+try {
+  if (httpRequest.readyState === XMLHttpRequest.DONE) {
+    if (httpRequest.status === 200) {
+      let data = JSON.parse(httpRequest.responseText);
+      alert(data);
+    } else {
+      alert("There was a problem with the request.");
+    }
+  }
+} catch (e) {
+  alert("Caught Exception: " + e.synopsis + " TEST ERROR");
+}
+}
+  
+
+
 // send post
 function send_post(send_str, path, callback) {
-  console.log("in send post", send_str);
+ 
   httpRequest = new XMLHttpRequest();
   if (!httpRequest) {
     alert("Cannot create an XMLHTTP instance");
@@ -108,6 +134,7 @@ function send_post(send_str, path, callback) {
     "Content-Type",
     "application/x-www-form-urlencoded"
   );
+  console.log("in send post", send_str);
   httpRequest.send(send_str);
 }
 
@@ -116,7 +143,6 @@ function display_item() {
     if (httpRequest.readyState === XMLHttpRequest.DONE) {
       if (httpRequest.status === 200) {
         let data = JSON.parse(httpRequest.responseText);
-
         displayObj(data);
         displayPageNum();
       } else {
@@ -127,32 +153,8 @@ function display_item() {
     alert("Caught Exception: " + e.synopsis + " wth is happening?");
   }
 }
-// get curr form values and update array to send to server
-function update_item() {
-  // movies_arr[curr_index].title = curr_movie.get('title')
-  // movies_arr[curr_index].year = curr_movie.get('year')
-  // movies_arr[curr_index].length = curr_movie.get('length')
-  // movies_arr[curr_index].rating = curr_movie.get('rating')
-  // movies_arr[curr_index].recommended = curr_movie.get('recommended')
-  // movies_arr[curr_index].synopsis = curr_movie.get('synopsis')
-  // myJSON = JSON.stringify(movies_arr);
-  // send_post(myJSON, 'update_item.php', test);
-}
 
-function test() {
-  try {
-    if (httpRequest.readyState === XMLHttpRequest.DONE) {
-      if (httpRequest.status === 200) {
-        let data = JSON.parse(httpRequest.responseText);
-        console.log("in test:       ", data);
-      } else {
-        alert("There was a problem with the request.");
-      }
-    }
-  } catch (e) {
-    alert("Caught Exception: " + e.synopsis + " test error?");
-  }
-}
+
 
 //--------- load initial array of movies
 function loadJSON() {
@@ -167,6 +169,8 @@ function loadJSON() {
   httpRequest.open("GET", "movies.php"); // Use a file in reference to the page where you are!
   httpRequest.send(); // GET = send with no parameter !
 }
+
+
 
 var printout = document.getElementById("printout");
 
