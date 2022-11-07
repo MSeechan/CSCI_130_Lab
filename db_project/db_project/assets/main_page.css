@@ -1,0 +1,83 @@
+body{
+    margin:0;
+    padding:0;
+    height:100%;
+    width:100%;
+}
+
+header{
+    background-color: #272727; 
+}
+
+fieldset {
+    width:50vw;
+    background-color: rgb(256,256,256,.85);
+    border:none;
+    padding:20px;
+    margin:20px;
+    border-right: 4px solid #dfdfdf;
+}
+
+#synopsis {
+    height: 100px;
+    width: 50vw;
+    padding:10px;
+} 
+
+
+label{
+    border-left:4px solid #04AA6D;
+    padding:10px;
+    font-weight: bold;
+}
+
+
+input[type="button"], input[type="submit"] {
+    background-color: rgb(22, 255, 138);
+    border: 1px solid rgb(16, 170, 16);
+    border-radius: 3px;
+    width:60px;
+}
+
+input[type="button"]:hover {
+    background-color: rgb(13, 238, 126);
+}
+
+
+textarea {
+    border: none;
+}
+
+.banner{
+    display:flex; 
+    align-items:flex-start;
+    align-items: center;
+    font-weight: bolder;
+}
+
+h1{
+    color:#96d4d4;
+    margin-bottom: 0;
+}
+
+.float-left{
+    float:left;
+
+}
+
+.float-right{
+    float:right;
+    margin-left:5px;
+}
+  
+
+.input_sm{
+    width:20px;
+}
+ 
+/* removes input up and down arrows */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

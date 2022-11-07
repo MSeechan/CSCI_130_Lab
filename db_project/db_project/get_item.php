@@ -1,4 +1,5 @@
 <?php
+
 if (isset($_POST['input'])) {
             $index = $_POST['input'];
             $json = file_get_contents('movies_data.json');
