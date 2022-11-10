@@ -16,9 +16,9 @@
             <td> 
                 <form id="movie_form" action="update_item.php" method="post">
                     <fieldset>
-                        <input id='delete' type="button" value="Delete" class=float-right onclick="delete_item()">
+                        <input id='delete' type="button" value="Delete" class=float-right>
                         <input id='add' type="button" value="Add" class=float-right onclick="" >
-                        <input id='update' type="submit" value="Update" class=float-right  >
+                        <input id='update' type="submit" value="Update" class=float-right onclick="update_item()" >
                         <br>
 
                         <label for="title">Title:</label>
@@ -71,7 +71,6 @@
          
 <footer>footer</footer>
 
- 
 
     <!------------------------------------------------------------------------------->
     <script src="get_movies.js"> </script>
