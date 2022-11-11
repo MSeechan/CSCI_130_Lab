@@ -1,6 +1,6 @@
 var max;
 var movies_arr;
-var curr_index = 0; //curr index of displayed movie
+var curr_index = 3; //curr index of displayed movie
 var httpRequest;
 
 class SGmovie {
@@ -42,6 +42,7 @@ var myJSON;
             }*/
 
 function displayObj(obj) {
+  console.log(obj);
   document.getElementById("title").value = obj.title;
   document.getElementById("year").value = obj.year;
   document.getElementById("length").value = obj.length;
@@ -124,7 +125,7 @@ function display_item() {
       }
     }
   } catch (e) {
-    alert("Caught Exception: " + e.synopsis + " wth is happening?");
+    alert("Display: Caught Exception: " + e.synopsis);
   }
 }
 // get curr form values and update array to send to server
@@ -150,7 +151,7 @@ function test() {
       }
     }
   } catch (e) {
-    alert("Caught Exception: " + e.synopsis + " test error?");
+    alert("test: Caught Exception: " + e.synopsis );
   }
 }
 
@@ -164,30 +165,29 @@ function loadJSON() {
     return false;
   }
   httpRequest.onreadystatechange = loadJSON_handler; // we assign a function to the property onreadystatechange (callback function)
-  httpRequest.open("POST", "get_mysql_data.php"); // Use a file in reference to the page where you are!
+  httpRequest.open('GET', "get_mysql_data.php"); // Use a file in reference to the page where you are!
   httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-  httpRequest.send('index='+encodeURIComponent(curr_index)); 
+  httpRequest.send(); 
+  // httpRequest.send('Index='+ encodeURIComponent(curr_index)); 
 }
 
 // var printout = document.getElementById("printout");
 
 function loadJSON_handler() {
   try {
-    console.log(httpRequest.readyState)
     if (httpRequest.readyState === XMLHttpRequest.DONE) {
       if (httpRequest.status === 200) {
-        movies_arr = JSON.parse(httpRequest.responseText); // str to Obj
-        console.log(movies_arr)
-        max = movies_arr.length;
-        let tmp = movies_arr[0];
-        displayObj(tmp);
-        displayPageNum();
+        alert(JSON.parse(httpRequest.responseText)); // json str to Obj
+        // let movies_arr = JSON.parse(httpRequest.responseText); // json str to Obj
+        // console.log(movies_arr)
+        // displayObj(tmp);
+        // displayPageNum();
       } else {
         alert("There was a problem with the request.");
       }
     }
   } catch (e) {
-    alert("Caught Exception: " + e.synopsis);
+    alert("loadjson: Caught Exception: " + e.synopsis );
   }
 }
 loadJSON();

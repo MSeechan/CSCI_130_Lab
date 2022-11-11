@@ -29,6 +29,7 @@ class Movie implements JsonSerializable{
         $this ->movie_id = strval(rand(1,6));
     }
 
+    // obj to str
     public function jsonSerialize() {
         return [
             'title' => $this->title,
@@ -41,7 +42,7 @@ class Movie implements JsonSerializable{
             ];
     }
     
-    // Std Object -> Student Object
+    // std obj -> movie Object
     public function Set($json){
         $this->title=$json['title'];
         $this->year=$json['year'];
