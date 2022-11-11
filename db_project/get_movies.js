@@ -177,10 +177,11 @@ function loadJSON_handler() {
   try {
     if (httpRequest.readyState === XMLHttpRequest.DONE) {
       if (httpRequest.status === 200) {
-        alert(JSON.parse(httpRequest.responseText)); // json str to Obj
-        // let movies_arr = JSON.parse(httpRequest.responseText); // json str to Obj
-        // console.log(movies_arr)
-        // displayObj(tmp);
+        // alert(httpRequest.responseText); // json str to Obj
+        let movies_arr = JSON.parse(httpRequest.responseText); // json str to Obj
+        console.log(movies_arr)
+        // let tmp = movies_arr[0];
+         displayObj(movies_arr);
         // displayPageNum();
       } else {
         alert("There was a problem with the request.");

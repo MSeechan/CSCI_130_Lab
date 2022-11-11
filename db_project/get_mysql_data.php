@@ -26,7 +26,6 @@ include "create_movie.php";
 	$movies_arr= Array();
 	//if row exists from query, get it and assign row's col-name 
 	if ($result->num_rows > 0) {
-		echo('result found:  ');
 		while($row = $result->fetch_assoc()) {
 		$newMovie=new Movie();
 		$newMovie->title=($row["title"]);
@@ -41,7 +40,7 @@ include "create_movie.php";
 		
 		}
 
-		$response = json_encode($movies_arr);
+		$response = json_encode($movies_arr[1]);
 		echo $response;
 	}else {
 		$bad1=[ 'bad' => 1];
