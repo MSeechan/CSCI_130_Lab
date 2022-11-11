@@ -1,8 +1,8 @@
 <?php
 include "create_movie.php";
 
-// if (isset($_POST["Index"])) {
-// 	$index =(int)$_POST["Index"];
+if (isset($_POST["Index"])) {
+	$index =(int)$_POST["Index"];
 
 	// open and load the content of the database
 	$servername = "localhost"; 
@@ -17,13 +17,12 @@ include "create_movie.php";
 	} 
 		
 	// Selection of data 
-	$sql = "SELECT title, year, length, rating, synopsis, recommended, movie_id FROM movies_tbl";
-	// -- WHERE pkey=". $index;
+	$sql = "SELECT title, year, length, rating, synopsis, recommended, movie_id FROM movies_tbl WHERE movie_id=". $index;
 	$result = $conn->query($sql);
 
    
-	$i=0;
-	$movies_arr= Array();
+	// $i=0;
+	// $movies_arr= Array();
 	//if row exists from query, get it and assign row's col-name 
 	if ($result->num_rows > 0) {
 		while($row = $result->fetch_assoc()) {
@@ -35,18 +34,18 @@ include "create_movie.php";
 		$newMovie->synopsis=$row["synopsis"];
 		$newMovie->recommended=($row["recommended"]);
 		$newMovie->movie_id=($row["movie_id"]);
-		$movies_arr[$i]=$newMovie;
-		$i+=1;
+		// $movies_arr[$i]=$newMovie;
+		// $i+=1;
 		
 		}
 
-		$response = json_encode($movies_arr[1]);
+		$response = json_encode($newMovie);
 		echo $response;
 	}else {
 		$bad1=[ 'bad' => 1];
 		echo json_encode($bad1);	
 	}
-// }
+}
 
 
     

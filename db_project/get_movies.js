@@ -1,6 +1,6 @@
-var max;
+var max=5;
 var movies_arr;
-var curr_index = 3; //curr index of displayed movie
+var curr_index = 0; //curr index of displayed movie
 var httpRequest;
 
 class SGmovie {
@@ -23,24 +23,6 @@ class SGmovie {
 
 var myJSON;
 
-/* function initArr() {
-                var movieArr = [];
-
-                var SGmovie1 = new SGmovie("Spirited Away", 2001, "PG", "2h 5m", "10-year-old Chihiro and her parents stumble upon a seemingly abandoned amusement park. After her mother and father are turned into giant pigs, Chihiro meets the mysterious Haku, who explains that the park is a resort for supernatural beings who need a break from their time spent in the earthly realm, and that she must work there to free herself and her parents.", false);
-                var SGmovie2 = new SGmovie("Kiki's Delivery Service", 1989, "G", "1h 43m", "This is the story of a young witch, named Kiki who is now 13 years old. But she is still a little green and plenty headstrong, but also resourceful, imaginative, and determined. With her trusty wisp of a talking cat named Jiji by her side she's ready to take on the world, or at least the quaintly European seaside village she's chosen as her new home.", true);
-                var SGmovie3 = new SGmovie("My Neighbor Totoro", 1988, "G", "1h 26m", "Two young girls, 10-year-old Satsuki and her 4-year-old sister Mei, move into a house in the country with their father to be closer to their hospitalized mother. Satsuki and Mei discover that the nearby forest is inhabited by magical creatures called Totoros (pronounced toe-toe-ro). They soon befriend these Totoros, and have several magical adventures.", false);
-                var SGmovie4 = new SGmovie("Howl's Moving Castle", 2004, "PG", "1h 59m", "A love story between an 18-year-old girl named Sophie, cursed by a witch into an old woman's body, and a magician named Howl. Under the curse, Sophie sets out to seek her fortune, which takes her to Howl's strange moving castle. In the castle, Sophie meets Howl's fire demon, named Karishifâ. Seeing that she is under a curse, the demon makes a deal with Sophie--if she breaks the contract he is under with Howl, then Karushifâ will lift the curse that Sophie is under, and she will return to her 18-year-old shape.", true);
-                var SGmovie5 = new SGmovie("Ponyo", 2008, "G", "1h 41m", "A five-year-old boy develops a relationship with Ponyo, a young goldfish princess who longs to become a human after falling in love with him.", true);
-
-                movieArr[0] = SGmovie1;
-                movieArr[1] = SGmovie2;
-                movieArr[2] = SGmovie3;
-                movieArr[3] = SGmovie4;
-                movieArr[4] = SGmovie5;
-
-                myJSON = JSON.stringify(movieArr)
-            }*/
-
 function displayObj(obj) {
   console.log(obj);
   document.getElementById("title").value = obj.title;
@@ -52,7 +34,7 @@ function displayObj(obj) {
   document.getElementById("movie_id").value = obj.movie_id;
 }
 
-function displayPageNum() {
+function displayPageNum(curr_index) {
   document.getElementById("page_num").innerHTML =
     "Results " + (curr_index + 1) + "/" + max;
 }
@@ -64,7 +46,8 @@ function goNext() {
     curr_index += 1;
     displayPageNum();
   }
-  displayObj(movies_arr[curr_index]);
+  // displayObj(movies_arr[curr_index]);
+  loadPHP();
 }
 
 function goPrev() {
@@ -74,7 +57,8 @@ function goPrev() {
     curr_index -= 1;
     displayPageNum();
   }
-  displayObj(movies_arr[curr_index]);
+  // displayObj(movies_arr[curr_index]);
+  loadPHP();
 }
 
 function goFirst() {
@@ -156,7 +140,7 @@ function test() {
 }
 
 //--------- load initial array of movies
-function loadJSON() {
+function loadPHP() {
   httpRequest = new XMLHttpRequest(); // create the object
   if (!httpRequest) {
     // check if the object was properly created
@@ -164,25 +148,23 @@ function loadJSON() {
     alert("Cannot create an XMLHTTP instance");
     return false;
   }
-  httpRequest.onreadystatechange = loadJSON_handler; // we assign a function to the property onreadystatechange (callback function)
-  httpRequest.open('GET', "get_mysql_data.php"); // Use a file in reference to the page where you are!
+  httpRequest.onreadystatechange = loadPHP_handler; // we assign a function to the property onreadystatechange (callback function)
+  httpRequest.open('POST', "get_mysql_data.php"); // Use a file in reference to the page where you are!
   httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-  httpRequest.send(); 
-  // httpRequest.send('Index='+ encodeURIComponent(curr_index)); 
+  httpRequest.send('Index='+ encodeURIComponent(curr_index)); 
 }
 
-// var printout = document.getElementById("printout");
-
-function loadJSON_handler() {
+// get response of single object
+function loadPHP_handler() {
   try {
     if (httpRequest.readyState === XMLHttpRequest.DONE) {
       if (httpRequest.status === 200) {
-        // alert(httpRequest.responseText); // json str to Obj
-        let movies_arr = JSON.parse(httpRequest.responseText); // json str to Obj
-        console.log(movies_arr)
-        // let tmp = movies_arr[0];
-         displayObj(movies_arr);
-        // displayPageNum();
+        alert(httpRequest.responseText); // json str to Obj
+        let movie = JSON.parse(httpRequest.responseText); // json str to Obj
+        // console.log(movies_arr)
+         displayObj(movie);
+         curr_index = parseInt(movie.movie_id);
+         displayPageNum(curr_index);
       } else {
         alert("There was a problem with the request.");
       }
@@ -191,4 +173,5 @@ function loadJSON_handler() {
     alert("loadjson: Caught Exception: " + e.synopsis );
   }
 }
-loadJSON();
+
+loadPHP();
