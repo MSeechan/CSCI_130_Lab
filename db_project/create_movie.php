@@ -1,5 +1,4 @@
 <?php
-
 function generateRandomString($length = 10) {
 	// list of characters that can be present in the string
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -10,7 +9,6 @@ function generateRandomString($length = 10) {
     }
     return $randomString;
 }
-
 
 class Movie implements JsonSerializable{
     public $title;
@@ -23,20 +21,12 @@ class Movie implements JsonSerializable{
 
     public function __construct(){
         $this->title = generateRandomString();
-        $this->year = generateRandomString();
+        $this->year = strval(rand(1980,2010));
         $this->length = generateRandomString();
-        $this->rating = generateRandomString();
+        $this->rating = strval(rand(0, 10));
         $this ->synopsis = generateRandomString();
-        $this ->recommended = generateRandomString();
-        $this ->movie_id = generateRandomString();
-        // $this->title = generateRandomString();
-        // $this->year = strval(rand(1990,2007));
-        // $this->length = generateRandomString();
-        // $this->rating =  10000+strval(rand(0,500));
-        // $this ->synopsis = generateRandomString();
-        // $this ->recommended = True;
-        // $this ->movie_id = strval(rand(1,6));
-     
+        $this ->recommended = TRUE;
+        $this ->movie_id = strval(rand(1,6));
     }
 
     public function jsonSerialize() {
@@ -52,8 +42,7 @@ class Movie implements JsonSerializable{
     }
     
     // Std Object -> Student Object
-    public function Set($json)
-    {
+    public function Set($json){
         $this->title=$json['title'];
         $this->year=$json['year'];
         $this->length=$json['length'];
@@ -61,19 +50,8 @@ class Movie implements JsonSerializable{
         $this->synopsis=$json['synopsis'];
         $this->recommended=$json['recommended'];
         $this->movie_id=$json['movie_id'];
-        
-        // //echo $s1 .'   '. $s2;
-        // $this->SetTitle($this->title);
-        // $this->SetYear($this->year);
-        // $this->SetLength($this->length);
-        // $this->SetRating($this->rating);
-        // $this->SetSynopsis($this->synopsis);
-        // $this->SetRecommended($this->recommended)
-        // $this->setMovie_id($this->movie_id);
-      
     }
 
-    
     public function Display() {
         $v=json_encode($this);
         echo $v;
@@ -82,6 +60,5 @@ class Movie implements JsonSerializable{
     public function GetString() {
         return json_encode($this);
     }
-
 }
 ?>

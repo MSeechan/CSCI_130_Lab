@@ -8,9 +8,9 @@ $index=1;
 if ($index!=-1) {
 	// open and load the content of the database
 	$servername = "localhost"; // default server name
-		$username = "mseechan"; // user name that you created
-		$password = "heIEUlFcaMTugj!K"; // password that you created
-		$dbname = "myMoviesDB";
+		$username = "root"; // user name that you created
+		$password = ""; // password that you created
+		$dbname = "db";
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
 	// Check connection

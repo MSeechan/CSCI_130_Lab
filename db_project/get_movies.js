@@ -94,6 +94,7 @@ function get_item() {
   let send_str = "input=" + input;
   send_post(send_str, "get_item.php", display_item);
 }
+
 // send post
 function send_post(send_str, path, callback) {
   console.log("in send post", send_str);
@@ -162,18 +163,21 @@ function loadJSON() {
     alert("Cannot create an XMLHTTP instance");
     return false;
   }
-  httpRequest.onreadystatechange = getJson; // we assign a function to the property onreadystatechange (callback function)
-  httpRequest.open("GET", "movies.php"); // Use a file in reference to the page where you are!
-  httpRequest.send(); // GET = send with no parameter !
+  httpRequest.onreadystatechange = loadJSON_handler; // we assign a function to the property onreadystatechange (callback function)
+  httpRequest.open("POST", "get_mysql_data.php"); // Use a file in reference to the page where you are!
+  httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  httpRequest.send('index='+encodeURIComponent(curr_index)); 
 }
 
-var printout = document.getElementById("printout");
+// var printout = document.getElementById("printout");
 
-function getJson() {
+function loadJSON_handler() {
   try {
+    console.log(httpRequest.readyState)
     if (httpRequest.readyState === XMLHttpRequest.DONE) {
       if (httpRequest.status === 200) {
         movies_arr = JSON.parse(httpRequest.responseText); // str to Obj
+        console.log(movies_arr)
         max = movies_arr.length;
         let tmp = movies_arr[0];
         displayObj(tmp);
@@ -183,7 +187,6 @@ function getJson() {
       }
     }
   } catch (e) {
-    // Always deal with what can happen badly, client-server applications --> there is always something that can go wrong on one end of the connection
     alert("Caught Exception: " + e.synopsis);
   }
 }

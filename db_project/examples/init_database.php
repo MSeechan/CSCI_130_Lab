@@ -50,6 +50,7 @@ if ($conn->connect_error) {
 	
 $sql = "CREATE TABLE Student (
 pkey INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+
 first_name  VARCHAR(30) NOT NULL,
 last_name   VARCHAR(30) NOT NULL,
 dob VARCHAR(20) NOT NULL,
@@ -68,7 +69,7 @@ if ($conn->query($sql) === TRUE) {
 }
 
 
-$stmt = $conn->prepare("INSERT INTO Student (first_name, last_name, dob,address,id,current_gpa,current_units) VALUES (?,?,?,?,?,?,?)");
+$stmt = $conn->prepare("INSERT INTO Student (first_name, last_name, dob, address, id ,current_gpa, current_units) VALUES (?,?,?,?,?,?,?)");
 if ($stmt==FALSE) {
 	echo "There is a problem with prepare <br>";
 	echo $conn->error; // Need to connect/reconnect before the prepare call otherwise it doesnt work
