@@ -15,9 +15,15 @@ if (isset($_POST["Index"])) {
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
 	} 
-		
+
+	$sql = "SELECT COUNT(*) AS Total FROM movies_tbl";
+	$result = $conn->query($sql);
+	$total = $result->fetch_assoc();
+	$total = $total["Total"];
+	
+
 	// Selection of data 
-	$sql = "SELECT title, year, length, rating, synopsis, recommended, movie_id FROM movies_tbl WHERE movie_id=". $index;
+	$sql = "SELECT title, year, length, rating, synopsis, recommended, movie_id FROM movies_tbl WHERE pkey=". $index;
 	$result = $conn->query($sql);
 
    
@@ -36,19 +42,16 @@ if (isset($_POST["Index"])) {
 		$newMovie->movie_id=($row["movie_id"]);
 		// $movies_arr[$i]=$newMovie;
 		// $i+=1;
-		
 		}
 
-		$response = json_encode($newMovie);
-		echo $response;
+		$movie = json_encode([$newMovie, $total]);
+		echo $movie;
 	}else {
 		$bad1=[ 'bad' => 1];
 		echo json_encode($bad1);	
 	}
+
+	$conn->close();
 }
 
-
-    
-   
-    
 ?>
