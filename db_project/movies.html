@@ -14,11 +14,11 @@
     <table>
         <tr>
             <td> 
-                <form id="movie_form" action="update_item.php" method="post">
+                <form id="movie_form" method="POST">
                     <fieldset>
-                        <input id='delete' type="button" value="Delete" class=float-right>
-                        <input id='add' type="button" value="Add" class=float-right onclick="" >
-                        <input id='update' type="submit" value="Update" class=float-right onclick="update_item()" >
+                        <input id='delete' type="button" value="Delete" class=float-right formaction="">
+                        <input id='add' type="submit" value="Add" class=float-right formaction="add_item.php">
+                        <input id='update' type="submit" value="Update" class=float-right formaction="" >
                         <br>
 
                         <label for="title">Title:</label>
@@ -48,7 +48,6 @@
                         <input id='prevBtn' type="button" value="Prev" onclick='goPrev()'>
                         <input id='nextBtn' type="button" value="Next" onclick='goNext()'>
                         <input id='lastBtn' type="button" value="Last" onclick='goLast()'>
-                      
                     </fieldset>
                      <!-- <div id="printout"></div>  -->
                 </form> 
@@ -59,25 +58,8 @@
         </tr>
     </table>    
  
-
-
-        
-         
-        
-
-   
-
-   
-         
 <footer>footer</footer>
-
-
     <!------------------------------------------------------------------------------->
     <script src="get_movies.js"> </script>
-
-      
-       
-
 </body>
-
 </html>

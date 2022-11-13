@@ -7,7 +7,6 @@ load_init_item();
 
 function load_init_item(){
   send_request("POST", 'Index='+ encodeURIComponent(curr_index), "get_mysql_data.php", display_item_handler);
-  
 }
 
 
@@ -107,12 +106,8 @@ function send_request(action, send_str, path, callback) {
   httpRequest.send(send_str);
 }
 
-
-
-
-// get curr form values and update array to send to server
-function update_item() {
-  return;
+function add_item() {
+  send_request("POST", "", "add_item.php", 'movies.html');
 }
 
 function test() {
