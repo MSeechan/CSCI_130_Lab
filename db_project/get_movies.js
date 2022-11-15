@@ -1,26 +1,22 @@
 
 // var movies_arr;
-var curr_index = 1; 
+var curr_index = 0; 
 var httpRequest;
+var db_obj
 
-load_init_item();
 
-function load_init_item(){
-  send_request("POST", 'Index='+ encodeURIComponent(curr_index), "get_mysql_data.php", display_item_handler);
+function load_db(){
+  send_request("POST", "array=", "get_mysql_data.php", display_obj_handler);
 }
 
-
-function display_item_handler() {
+function display_obj_handler() {
   try {
     if (httpRequest.readyState === XMLHttpRequest.DONE) {
       if (httpRequest.status === 200) {
-        let data = JSON.parse(httpRequest.responseText);
-        obj = data[0];
-        max = data[1];
-        curr_index = parseInt(obj.movie_id) ;
+        db_obj = JSON.parse(httpRequest.responseText);
+        max = parseInt(db_obj.pop())-1
+        displayObj(db_obj[curr_index]);
         displayPageNum();
-        displayObj(obj);
-        
       } else {
         alert("There was a problem with the request.");
       }
@@ -31,7 +27,6 @@ function display_item_handler() {
 }
 
 function displayObj(obj) {
-  // console.log(obj);
   document.getElementById("title").value = obj.title;
   document.getElementById("year").value = obj.year;
   document.getElementById("length").value = obj.length;
@@ -43,55 +38,55 @@ function displayObj(obj) {
 
 function displayPageNum() {
   document.getElementById("page_num").innerHTML =
-    "Results " + (curr_index+=1) + "/" + max;
+    "Results " + (curr_index+1) + "/" + (max+1);
 }
 
 function goNext() {
   if (curr_index == max) {
     return;
   } else {
-    curr_index += 1;
+    curr_index+=1;
+    displayObj(db_obj[curr_index]);
+    displayPageNum();
   }
-  let send_str ='Index='+ encodeURIComponent(curr_index)
-  send_request("POST", send_str, "get_mysql_data.php", display_item_handler) 
 }
 
 function goPrev() {
-  if (curr_index == 1) {
+  if (curr_index == 0) {
     return;
   } else {
-    curr_index -= 1;
+    curr_index-=1;
+    displayObj(db_obj[curr_index]);
+    displayPageNum();
   }
-  let send_str ='Index='+ encodeURIComponent(curr_index);
-  send_request("POST", send_str, "get_mysql_data.php", display_item_handler) 
 }
 
 function goFirst() {
-  curr_index = 1;
-  let send_str ='Index='+ encodeURIComponent(curr_index);
-  send_request("POST", send_str, "get_mysql_data.php", display_item_handler) 
+  curr_index = 0;
+  displayObj(db_obj[curr_index]);
+  displayPageNum();
 }
 
 function goLast() {
   curr_index = max;
-  let send_str ='Index='+ encodeURIComponent(curr_index);
-  send_request("POST", send_str, "get_mysql_data.php", display_item_handler) 
+  displayObj(db_obj[curr_index]);
+  displayPageNum();
 }
 
 function get_item() {
-  let input = document.getElementById("getItem").value;
-  if (input > max || input < 1){
+  let input = document.getElementById("getItem").value-1;
+  if (input > max || input < 0){
     alert("Invalid Input");
     return;
   }
-  let send_str = 'Index='+ encodeURIComponent(input);
-  send_request("POST",send_str, "get_mysql_data.php", display_item_handler);
+  curr_index = input;
+  displayObj(db_obj[curr_index]);
   displayPageNum();
 }
 
 // send post
 function send_request(action, send_str, path, callback) {
-  console.log("in send request", action ,' ',send_str);
+  console.log("request:", action ,' ',send_str);
   httpRequest = new XMLHttpRequest();
   if (!httpRequest) {
     alert("Cannot create an XMLHTTP instance");
@@ -107,7 +102,11 @@ function send_request(action, send_str, path, callback) {
 }
 
 function add_item() {
-  send_request("POST", "", "add_item.php", 'movies.html');
+  send_request("POST", "", "add_item.php", load_db);
+}
+
+function update_item(){
+
 }
 
 function test() {
@@ -125,37 +124,5 @@ function test() {
   }
 }
 
-//--------- load initial array of movies
-// function load_db_item() {
-  // httpRequest = new XMLHttpRequest(); // create the object
-  // if (!httpRequest) {
-  //   // check if the object was properly created
-  //   // issues with the browser, example: old browser
-  //   alert("Cannot create an XMLHTTP instance");
-  //   return false;
-  // }
-  // httpRequest.onreadystatechange = load_db_item_handler; // we assign a function to the property onreadystatechange (callback function)
-  // httpRequest.open('POST', "get_mysql_data.php"); // Use a file in reference to the page where you are!
-  // httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-  // httpRequest.send('Index='+ encodeURIComponent(curr_index)); 
-// }
+load_db();
 
-/* get response of single object
-function load_db_item_handler() {
-  try {
-    if (httpRequest.readyState === XMLHttpRequest.DONE) {
-      if (httpRequest.status === 200) {
-        // alert(httpRequest.responseText); // json str to Obj
-        let movie = JSON.parse(httpRequest.responseText); // json str to Obj
-         displayObj(movie);
-         displayPageNum();
-      } else {
-        alert("There was a problem with the request.");
-      }
-    }
-  } catch (e) {
-    alert("loadjson: Caught Exception: " + e.synopsis);
-  }
-}*/
-
-// load_db_item();

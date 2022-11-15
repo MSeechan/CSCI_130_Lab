@@ -1,5 +1,5 @@
 <?php
-include "create_movie.php";
+include "create_movie_class.php";
 $servername = "localhost"; // default server name
 $username = "mseechan"; // user name that you created
 $password = "heIEUlFcaMTugj!K"; // password that you created
@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 } 
 echo "Connected successfully <br>";
 
-// Create the database
+//Create the database
 // $sql = "CREATE DATABASE ". $dbname;
 // if ($conn->query($sql) === TRUE) {
 //     echo "Database ". $dbname ." created successfully<br>";
@@ -38,15 +38,14 @@ if ($conn->connect_error) {
 
 //create str to create table w/col headers
 $sql = "CREATE TABLE movies_tbl (
-pkey INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+pkey INT(6) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
 title  VARCHAR(30) NOT NULL,
 year   INT(4) NOT NULL,
 length   VARCHAR(30) NOT NULL,
 rating  FLOAT(2,1) NOT NULL,
 synopsis VARCHAR(30) NOT NULL,
-recommended TINYINT NOT NULL,
-movie_id INT(10) NOT NULL
-)";
+recommended TINYINT NOT NULL)";
+
 
 // confirm table creation
 if ($conn->query($sql) === TRUE) {
@@ -57,13 +56,14 @@ if ($conn->query($sql) === TRUE) {
 
 
 // create column headers
-$stmt = $conn->prepare("INSERT INTO movies_tbl (title, year, length, rating, synopsis, recommended, movie_id) VALUES (?,?,?,?,?,?,?)");
+$stmt = $conn->prepare("INSERT INTO movies_tbl (title, year, length, rating, synopsis, recommended) VALUES (?,?,?,?,?,?)");
+// $stmt = $conn->prepare("INSERT INTO movies_tbl (title, year, length, rating, synopsis, recommended, movie_id) VALUES (?,?,?,?,?,?,?)");
 if ($stmt==FALSE) {
 	echo "There is a problem with prepare <br>";
 	echo $conn->error; // Need to connect/reconnect before the prepare call otherwise it doesnt work
 }
 // bind parameters
-$stmt->bind_param("sisdsbi", $title, $year, $length, $rating, $synopsis, $recommended, $movie_id);
+$stmt->bind_param("sisdsb", $title, $year, $length, $rating, $synopsis, $recommended);
 $n=5;
 for ($i=0;$i<$n;$i++) {
     $movie = new Movie();
@@ -76,7 +76,7 @@ $length = $movie->length;
 $rating = $movie->rating;
 $synopsis = $movie->synopsis;
 $recommended=$movie->recommended;
-$movie_id=$movie->movie_id;
+// $movie_id=$movie->movie_id;
 $stmt->execute();
 echo "New record ". $i ." created successfully<br>";
 }

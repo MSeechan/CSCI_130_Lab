@@ -26,7 +26,7 @@ class Movie implements JsonSerializable{
         $this->rating = strval(rand(0, 10));
         $this ->synopsis = generateRandomString();
         $this ->recommended = TRUE;
-        $this ->movie_id = strval(rand(1,6));
+        $this ->movie_id = strval(10);
     }
 
     // obj to str

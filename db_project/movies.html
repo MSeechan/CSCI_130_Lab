@@ -14,11 +14,12 @@
     <table>
         <tr>
             <td> 
+                <!-- <form id="movie_form"> -->
                 <form id="movie_form" method="POST">
                     <fieldset>
-                        <input id='delete' type="button" value="Delete" class=float-right formaction="">
+                        <input id='delete' type="submit" value="Delete" class=float-right formaction="delete_item.php">
                         <input id='add' type="submit" value="Add" class=float-right formaction="add_item.php">
-                        <input id='update' type="submit" value="Update" class=float-right formaction="" >
+                        <input id='update' type="submit" value="Update" class=float-right formaction="update_item.php" >
                         <br>
 
                         <label for="title">Title:</label>
@@ -53,8 +54,14 @@
                 </form> 
             </td>
             <td>
-                <img class=float-left src="./assets/spirited_away.jpg" width="50%"> </div> 
+                <table>
+                    <tr><td><img class=float-left src="./assets/spirited_away.jpg" width="50%"></td></tr>
+                    <tr><td><button>img</button></td></tr>
+                </table>
+                
+                
             </td>
+            
         </tr>
     </table>    
  

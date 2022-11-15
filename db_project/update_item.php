@@ -1,35 +1,32 @@
 <?php
-    // check if input was set, update to new value. if not, don't replace
-    if($_POST['title']){$set_title = $_POST['title'];};
-    if($_POST['year']){$set_year = $_POST['year'];};
-    if($_POST['rating']){$set_rating = $_POST['rating'];};
-    if($_POST['length']){$set_length = $_POST['length'];};
-    if($_POST['recommended']){$set_recommended = $_POST['recommended'];};
-    if($_POST['synopsis']){$set_synopsis = $_POST['synopsis'];};
-    $id = $_POST['movie_id']; // movie id will not change
-   
-    $recv_json = file_get_contents('movies_data.json');  
-    $json_arr = json_decode($recv_json);
-    
-    // loop through json array to find matching movie id, then update the json with new form data
-    foreach ($json_arr as $movie){
-        if($movie->movie_id == $id){
-            $movie->title = $set_title;   
-            $movie->year = $set_year;
-            $movie->length = $set_length;
-            $movie->rating = $set_rating;
-            $movie->recommended = $set_recommended;
-            $movie->synopsis = $set_synopsis; 
-            // $json_str =  $movie->title.' '.$movie->year.' '.$movie->rating.' '.$movie->length.' '.$movie->synopsis.' '.$id;  
-            // echo $json_str;        
-        }
-    }
-    // write to (filename, encoded json)
-    file_put_contents('movies_data.json', json_encode($json_arr));
-    // reroute to the same site after saving the updated movie data
+    $servername = "localhost"; 
+    $username = "mseechan"; 
+    $password = "heIEUlFcaMTugj!K"; 
+    $dbname = "movies_db";
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    } 
+
+    if (isset($_POST['title'])){$input_title = $_POST['title'];};
+    if (isset($_POST['year'])){$input_year = $_POST['year'];};
+    if (isset($_POST['rating'])){$input_rating = $_POST['rating'];};
+    if (isset($_POST['length'])){$input_length = $_POST['length'];};
+    if (isset($_POST['recommended'])){$input_rec = $_POST['recommended'];};
+    if (isset($_POST['synopsis'])){$input_synopsis = $_POST['synopsis'];};
+    if (isset($_POST['movie_id'])){$input_movie_id = $_POST['movie_id'];};
+
+    $sql = "UPDATE movies_tbl SET title ='$input_title', year='$input_year', rating='$input_rating', length='$input_length', recommended='$input_rec', synopsis='$input_synopsis' WHERE pkey = $input_movie_id";
+
+    if ($conn->query($sql) === TRUE) {
+        echo $input->title . " record updated successfully";
+      } else {
+        echo "add_item Error: " . $sql . "<br>" . $conn->error;
+      }
+    $conn->close();
+
     header("Location: http://localhost/mysite/db_project/movies.html");
-
-    
-
 
 ?>
