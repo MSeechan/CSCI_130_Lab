@@ -34,6 +34,7 @@ function displayObj(obj) {
   document.getElementById("synopsis").innerText = obj.synopsis;
   document.getElementById("recommended").value = obj.recommended;
   document.getElementById("movie_id").value = obj.movie_id;
+  document.getElementById("movie_img").src = "assets/img_"+ obj.movie_id +".jpg";
 }
 
 function displayPageNum() {
