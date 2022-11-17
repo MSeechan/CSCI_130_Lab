@@ -32,8 +32,10 @@ function displayObj(obj) {
   document.getElementById("length").value = obj.length;
   document.getElementById("rating").value = obj.rating;
   document.getElementById("synopsis").innerText = obj.synopsis;
-  document.getElementById("recommended").value = obj.recommended;
   document.getElementById("movie_id").value = obj.movie_id;
+  (obj.recommended == 1) ?  document.getElementById("rec").checked = obj.recommended: document.getElementById("not_rec").checked = obj.recommended;
+
+
   document.getElementById("movie_img").src = "assets/img_"+ obj.movie_id +".jpg";
 }
 

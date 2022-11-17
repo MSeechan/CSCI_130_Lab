@@ -39,16 +39,17 @@
                         <input type="text" id="rating"  name="rating"><br>
     
                         <label for="recommended">Recommended:</label>
-                        <input type="boolean" id="recommended"  name="recommended"><br>
+                        <input type="radio" id="rec" name="recommended"  checked>
+                        <input type="radio" id="not_rec" name="recommended"  checked><br><br>
     
                         <label for="synopsis">Synopsis:</label><br>
-                        <textarea id="synopsis"  name="synopsis"></textarea><br><br>
-                        <hr>
+                        <textarea id="synopsis"  name="synopsis"></textarea>
+                        <br><hr>
                 <!-- SORTING ------------------------------->
                          <h4>Sort</h4>
                          <input id='sort_name_btn' type="button" value="Title" onclick='sort_movies(this.value)'>
                          <input id='sort_index_btn' type="button" value="Index" onclick='sort_movies(this.value)'> 
-                         <br><br><hr>
+                         <br><hr>
                 <!-- page number display ----------------->
                         <h4>Results</h4>
                         <input id='get' type="button" value="Get" onclick='get_item()'>
