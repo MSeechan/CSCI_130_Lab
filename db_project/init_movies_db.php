@@ -15,12 +15,14 @@ if ($conn->connect_error) {
 echo "Connected successfully <br>";
 
 //Create the database
-// $sql = "CREATE DATABASE ". $dbname;
-// if ($conn->query($sql) === TRUE) {
-//     echo "Database ". $dbname ." created successfully<br>";
-// } else {
-//     echo "Error creating database: " . $conn->error ."<br>";
-// }
+/*
+$sql = "CREATE DATABASE ". $dbname;
+if ($conn->query($sql) === TRUE) {
+    echo "Database ". $dbname ." created successfully<br>";
+} else {
+    echo "Error creating database: " . $conn->error ."<br>";
+}
+*/
 
 // close the connection
 $conn->close();
@@ -35,15 +37,15 @@ if ($conn->connect_error) {
 
 
 //create str to create table w/col headers
+
 $sql = "CREATE TABLE movies_tbl (
 pkey INT(6) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
 title  VARCHAR(30) NOT NULL,
 year   INT(4) NOT NULL,
 length   VARCHAR(30) NOT NULL,
 rating  FLOAT(2,1) NOT NULL,
-synopsis VARCHAR(30) NOT NULL,
+synopsis VARCHAR(1000) NOT NULL,
 recommended TINYINT NOT NULL)";
-
 
 // confirm table creation
 if ($conn->query($sql) === TRUE) {
@@ -51,6 +53,7 @@ if ($conn->query($sql) === TRUE) {
 } else {
     echo "Error creating table: " . $conn->error ."<br>";
 }
+
 
 
 // create column headers
@@ -62,18 +65,30 @@ if ($stmt==FALSE) {
 }
 // bind parameters
 $stmt->bind_param("sisdsb", $title, $year, $length, $rating, $synopsis, $recommended);
-$n=5;
-for ($i=0;$i<$n;$i++) {
-    $movie = new Movie();
-    echo $movie->Display() .  "<br>";
+
+// load json data into table
+$json_str = file_get_contents('movies_data.json');
+$movies_arr = json_decode($json_str);
+$count = count($movies_arr);
+
+for ($i=0;$i<$count;$i++) {
     
+    // $movie = new Movie();
+    $title = $movies_arr[$i]->title;
+    $year = $movies_arr[$i]->year;
+    $length = $movies_arr[$i]->length;
+    $rating = $movies_arr[$i]->rating;
+    $synopsis =$movies_arr[$i]->synopsis;
+    $recommended=$movies_arr[$i]->recommended;
+
+
     // set parameters and execute
-    $title = $movie->title;
-    $year = $movie->year;
-    $length = $movie->length;
-    $rating = $movie->rating;
-    $synopsis = $movie->synopsis;
-    $recommended=$movie->recommended;
+    // $title = $movie->title;
+    // $year = $movie->year;
+    // $length = $movie->length;
+    // $rating = $movie->rating;
+    // $synopsis = $movie->synopsis;
+    // $recommended=$movie->recommended;
     // $movie_id=$movie->movie_id;
     $stmt->execute();
     echo "New record ". $i ." created successfully<br>";

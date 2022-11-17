@@ -27,12 +27,12 @@
     "movie_id": 3
   },
   {
-    "title": "ponyo",
+    "title": "howl's",
     "year": "1988",
     "length": "Z9CQ8COSvl",
     "rating": "8.0",
     "synopsis": "lZcW6a1kGk",
-    "recommended": null,
+    "recommended": false,
     "movie_id": 4
   },
   {
@@ -41,7 +41,7 @@
     "length": "1h 41m",
     "rating": "G",
     "synopsis": "A five-year-old boy develops a relationship with Ponyo, a young goldfish princess who longs to become a human after falling in love with him.",
-    "recommended": "true",
+    "recommended": true,
     "movie_id": 5
   }
 ]
