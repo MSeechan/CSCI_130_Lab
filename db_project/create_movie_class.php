@@ -18,6 +18,7 @@ class Movie implements JsonSerializable{
     public $synopsis;
     public $recommended;
     public $movie_id;
+    public $img_path;
 
 
     public function __construct(){
@@ -28,6 +29,7 @@ class Movie implements JsonSerializable{
         $this ->synopsis = generateRandomString();
         $this ->recommended = TRUE;
         $this ->movie_id = strval(10);
+        $this ->img_path = strval(100);
     }
     // public function __construct($title, $year, $length, $rating, $synopsis, $recommended){
     //     $this->title = $title;
@@ -48,7 +50,8 @@ class Movie implements JsonSerializable{
             'rating' => $this->rating,
             'synopsis' => $this->synopsis,
             'recommended' => $this->recommended,
-            'movie_id' => $this->movie_id
+            'movie_id' => $this->movie_id,
+            'img_path' => $this->img_path
             ];
     }
     
@@ -61,6 +64,7 @@ class Movie implements JsonSerializable{
         $this->synopsis=$json['synopsis'];
         $this->recommended=$json['recommended'];
         $this->movie_id=$json['movie_id'];
+        $this->img_path=$json['img_path'];
     }
 
     public function Display() {

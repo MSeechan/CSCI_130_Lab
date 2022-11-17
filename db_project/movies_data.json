@@ -6,7 +6,8 @@
     "rating": "PG",
     "synopsis": "10-year-old Chihiro and her parents stumble upon a seemingly abandoned amusement park. After her mother and father are turned into giant pigs, Chihiro meets the mysterious Haku, who explains that the park is a resort for supernatural beings who need a break from their time spent in the earthly realm, and that she must work there to free herself and her parents.",
     "recommended": "false",
-    "movie_id": 1
+    "movie_id": 1,
+    "img_path": ""
   },
   {
     "title": "Kiki's Delivery Service",
@@ -15,7 +16,8 @@
     "rating": "G",
     "synopsis": "This is the story of a young witch, named Kiki who is now 13 years old. But she is still a little green and plenty headstrong, but also resourceful, imaginative, and determined. With her trusty wisp of a talking cat named Jiji by her smovie_ide she's ready to take on the world, or at least the quaintly European seasmovie_ide village she's chosen as her new home.",
     "recommended": true,
-    "movie_id": 2
+    "movie_id": 2,
+    "img_path": ""
   },
   {
     "title": "My Neighbor Totoro",
@@ -24,7 +26,8 @@
     "rating": "G",
     "synopsis": "Two young girls, 10-year-old Satsuki and her 4-year-old sister Mei, move into a house in the country with their father to be closer to their hospitalized mother. Satsuki and Mei discover that the nearby forest is inhabited by magical creatures called Totoros (pronounced toe-toe-ro). They soon befriend these Totoros, and have several magical adventures.",
     "recommended": false,
-    "movie_id": 3
+    "movie_id": 3,
+    "img_path": ""
   },
   {
     "title": "howl's",
@@ -33,7 +36,8 @@
     "rating": "8.0",
     "synopsis": "lZcW6a1kGk",
     "recommended": false,
-    "movie_id": 4
+    "movie_id": 4,
+    "img_path": ""
   },
   {
     "title": "Ponyo",
@@ -42,6 +46,7 @@
     "rating": "G",
     "synopsis": "A five-year-old boy develops a relationship with Ponyo, a young goldfish princess who longs to become a human after falling in love with him.",
     "recommended": true,
-    "movie_id": 5
+    "movie_id": 5,
+    "img_path": ""
   }
 ]

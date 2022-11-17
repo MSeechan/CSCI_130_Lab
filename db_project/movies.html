@@ -64,13 +64,22 @@
                 <!-- <div id="printout"></div>  -->
             </td>
             <td>
-                <fieldset>
-                <input type="button" value="Choose File">
-                <input type="button" value="Upload"><br>
-                <img class=float-left id=movie_img src="" width="50%">
-                </fieldset>
+                
+                 <!-- <input type="button" value="Choose File" form action=""> -->
+                        <!-- <input type="submit" value="Upload"><br> -->
+                        <img class=float-left id=movie_img src="" width="50%">
             </td>
             </form> 
+
+            <form action="uploadfile.php" method="post" enctype="multipart/form-data">
+            <!-- <form  method="POST" enctype="multipart/form-data"> -->
+                <p>Select an image to upload:</p>
+                <ul>
+                <li><input type="number" name="index" value=></li>
+                <li><input type="file" name="fileup" id="fileup"></li>
+                <li><input type="submit" value='idk' name="img_up"></li>
+                </ul>
+            </form>
         </tr>
     </table>    
  

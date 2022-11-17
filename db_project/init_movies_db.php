@@ -45,7 +45,9 @@ year   INT(4) NOT NULL,
 length   VARCHAR(30) NOT NULL,
 rating  FLOAT(2,1) NOT NULL,
 synopsis VARCHAR(1000) NOT NULL,
-recommended TINYINT NOT NULL)";
+recommended TINYINT NOT NULL,
+img_path VARCHAR(100) NOT NULL
+)";
 
 // confirm table creation
 if ($conn->query($sql) === TRUE) {
@@ -57,14 +59,14 @@ if ($conn->query($sql) === TRUE) {
 
 
 // create column headers
-$stmt = $conn->prepare("INSERT INTO movies_tbl (title, year, length, rating, synopsis, recommended) VALUES (?,?,?,?,?,?)");
+$stmt = $conn->prepare("INSERT INTO movies_tbl (title, year, length, rating, synopsis, recommended, img_path) VALUES (?,?,?,?,?,?,?)");
 // $stmt = $conn->prepare("INSERT INTO movies_tbl (title, year, length, rating, synopsis, recommended, movie_id) VALUES (?,?,?,?,?,?,?)");
 if ($stmt==FALSE) {
 	echo "There is a problem with prepare <br>";
 	echo $conn->error; // Need to connect/reconnect before the prepare call otherwise it doesnt work
 }
 // bind parameters
-$stmt->bind_param("sisdsb", $title, $year, $length, $rating, $synopsis, $recommended);
+$stmt->bind_param("sisdsbs", $title, $year, $length, $rating, $synopsis, $recommended, $img_path);
 
 // load json data into table
 $json_str = file_get_contents('movies_data.json');
@@ -80,6 +82,7 @@ for ($i=0;$i<$count;$i++) {
     $rating = $movies_arr[$i]->rating;
     $synopsis =$movies_arr[$i]->synopsis;
     $recommended=$movies_arr[$i]->recommended;
+    $img_path=$movies_arr[$i]->img_path;
 
 
     // set parameters and execute

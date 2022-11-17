@@ -19,7 +19,7 @@ if (isset($_POST["Index"])) {
 
 
 	// Selection of data 
-	$sql = "SELECT pkey, title, year, length, rating, synopsis, recommended FROM movies_tbl WHERE pkey=". $index;
+	$sql = "SELECT pkey, title, year, length, rating, synopsis, recommended, img_path FROM movies_tbl WHERE pkey=". $index;
 	// $sql = "SELECT title, year, length, rating, synopsis, recommended, movie_id FROM movies_tbl WHERE pkey=". $index;
 	$result = $conn->query($sql);
 
@@ -35,6 +35,7 @@ if (isset($_POST["Index"])) {
 		$newMovie->rating=($row["rating"]);
 		$newMovie->synopsis=$row["synopsis"];
 		$newMovie->recommended=($row["recommended"]);
+		$newMovie->img_path=($row["img_path"]);
 		}
 
 		$movie = json_encode([$newMovie]);
@@ -54,7 +55,7 @@ if (isset($_POST["array"])) {
 	$total = $total["Total"];
 	
 	// Selection of data 
-	$sql = "SELECT pkey, title, year, length, rating, synopsis, recommended FROM movies_tbl";
+	$sql = "SELECT pkey, title, year, length, rating, synopsis, recommended, img_path FROM movies_tbl";
 	$result = $conn->query($sql);
 
    
@@ -71,6 +72,7 @@ if (isset($_POST["array"])) {
 		$newMovie->rating=($row["rating"]);
 		$newMovie->synopsis=$row["synopsis"];
 		$newMovie->recommended=($row["recommended"]);
+		$newMovie->img_path=($row["img_path"]);
 		$movies_arr[$i]=$newMovie;
 		$i+=1;
 		}
