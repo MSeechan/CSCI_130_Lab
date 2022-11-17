@@ -84,7 +84,7 @@ function get_item() {
   displayPageNum();
 }
 
-// send post
+// generalized send post
 function send_request(action, send_str, path, callback) {
   console.log("request:", action ,' ',send_str);
   httpRequest = new XMLHttpRequest();
@@ -101,13 +101,14 @@ function send_request(action, send_str, path, callback) {
   httpRequest.send(send_str);
 }
 
-function add_item() {
+function add_movie() {
   send_request("POST", "", "add_item.php", load_db);
 }
 
-function update_item(){
-
+function sort_movies(sort_criteria) {
+  send_request("POST", sort_criteria, "sort_movies.php", display_obj_handler);
 }
+
 
 function test() {
   try {

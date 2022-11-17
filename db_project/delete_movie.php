@@ -17,9 +17,9 @@
     if ($conn->query($sql) === TRUE) {
         echo "Record deleted successfully";
       } else {
-        echo "add_item Error: " . $sql . "<br>" . $conn->error;
+        echo "delete movie Error: " . $sql . "<br>" . $conn->error;
       }
     $conn->close();
 
-    header("Location: http://localhost/mysite/db_project/movies.html");
+    header("Location:./movies.html");
 ?>

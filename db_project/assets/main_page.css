@@ -11,11 +11,11 @@ header{
 
 fieldset {
     width:50vw;
-    background-color: rgb(256,256,256,.85);
+    background-color: rgb(255, 255, 255);
     border:none;
     padding:20px;
-    margin:20px;
-    border-right: 4px solid #dfdfdf;
+ 
+    border-right: 5px solid #dfdfdf;
 }
 
 #synopsis {
@@ -24,28 +24,31 @@ fieldset {
     padding:10px;
 } 
 
-
 label{
     border-left:4px solid #04AA6D;
-    padding:10px;
+    margin-bottom: 10px;
+    padding: 0px 1px 0px 3px; 
     font-weight: bold;
+    width: 100px;
+    text-align: left;
 }
 
+td{
+    vertical-align: top;
+}
 
 input[type="button"], input[type="submit"] {
-    background-color: rgb(22, 255, 138);
-    border: 1px solid rgb(16, 170, 16);
-    border-radius: 3px;
-    width:60px;
-}
-
-input[type="button"]:hover {
     background-color: rgb(13, 238, 126);
+    border: none;
+    border-radius: 3px;
+    margin-bottom: 5px;;
+    min-width:60px;
+    height:25px;
 }
 
 
-textarea {
-    border: none;
+input[type="button"]:hover, input[type="submit"]:hover {
+    background-color:  rgb(0, 199, 106);
 }
 
 .banner{
@@ -62,14 +65,12 @@ h1{
 
 .float-left{
     float:left;
-
 }
 
 .float-right{
     float:right;
     margin-left:5px;
 }
-  
 
 .input_sm{
     width:20px;
@@ -78,6 +79,5 @@ h1{
 /* removes input up and down arrows */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
   margin: 0;
 }

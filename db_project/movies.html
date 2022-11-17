@@ -13,21 +13,24 @@
     </header>
     <table>
         <tr>
+            <form id="movie_form" method="POST">
             <td> 
                 <!-- <form id="movie_form"> -->
-                <form id="movie_form" method="POST">
+                
                     <fieldset>
-                        <input id='delete' type="submit" value="Delete" class=float-right formaction="delete_item.php">
-                        <input id='add' type="submit" value="Add" class=float-right formaction="add_item.php">
-                        <input id='update' type="submit" value="Update" class=float-right formaction="update_item.php" >
+                        <input id='delete' type="submit" value="Delete" class=float-right formaction="delete_movie.php">
+                        <input id='add' type="submit" value="Add" class=float-right formaction="add_movie.php">
+                        <input id='update' type="submit" value="Update" class=float-right formaction="update_movie.php" >
                         <br>
 
                         <label for="title">Title:</label>
                         <input type="text" id="title" name="title"><br>
-                        <input type="number" name="movie_id" id="movie_id" hidden>
+
+                        <label for="title">Movie_Id:</label>
+                        <input type="number" name="movie_id" id="movie_id" ><br>
     
                         <label for="year">Year:</label>
-                        <input type="text" id="year"  name="year"><br>
+                        <input type="number" id="year"  name="year"><br>
     
                         <label for="length">Length:</label>
                         <input type="text" id="length"  name="length"><br>
@@ -36,11 +39,18 @@
                         <input type="text" id="rating"  name="rating"><br>
     
                         <label for="recommended">Recommended:</label>
-                        <input type="text" id="recommended"  name="recommended"><br>
+                        <input type="boolean" id="recommended"  name="recommended"><br>
     
                         <label for="synopsis">Synopsis:</label><br>
                         <textarea id="synopsis"  name="synopsis"></textarea><br><br>
-                        <!-- page number display -->
+                        <hr>
+                <!-- SORTING ------------------------------->
+                         <h4>Sort</h4>
+                         <input id='sort_name_btn' type="button" value="Title" onclick='sort_movies(this.value)'>
+                         <input id='sort_index_btn' type="button" value="Index" onclick='sort_movies(this.value)'> 
+                         <br><br><hr>
+                <!-- page number display ----------------->
+                        <h4>Results</h4>
                         <input id='get' type="button" value="Get" onclick='get_item()'>
                         <input type="number" id="getItem" class=input_sm value="">
                         <div id="page_num"></div>
@@ -50,18 +60,19 @@
                         <input id='nextBtn' type="button" value="Next" onclick='goNext()'>
                         <input id='lastBtn' type="button" value="Last" onclick='goLast()'>
                     </fieldset>
-                     <!-- <div id="printout"></div>  -->
-                </form> 
+                <!-- <div id="printout"></div>  -->
+           
             </td>
             <td>
-                <table>
-                    <tr><td><img class=float-left src="./assets/spirited_away.jpg" width="50%"></td></tr>
-                    <tr><td><button>img</button></td></tr>
-                </table>
-                
-                
+          
+                    <fieldset>
+                    <input type="button" value="Choose File">
+                    <input type="button" value="Upload"><br>
+                    <img class=float-left src="" width="50%">
+                    </fieldset>
+          
             </td>
-            
+            </form> 
         </tr>
     </table>    
  

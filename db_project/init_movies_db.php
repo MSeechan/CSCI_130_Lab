@@ -26,8 +26,6 @@ echo "Connected successfully <br>";
 $conn->close();
 
 
-
-
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
@@ -69,16 +67,16 @@ for ($i=0;$i<$n;$i++) {
     $movie = new Movie();
     echo $movie->Display() .  "<br>";
     
-// set parameters and execute
-$title = $movie->title;
-$year = $movie->year;
-$length = $movie->length;
-$rating = $movie->rating;
-$synopsis = $movie->synopsis;
-$recommended=$movie->recommended;
-// $movie_id=$movie->movie_id;
-$stmt->execute();
-echo "New record ". $i ." created successfully<br>";
+    // set parameters and execute
+    $title = $movie->title;
+    $year = $movie->year;
+    $length = $movie->length;
+    $rating = $movie->rating;
+    $synopsis = $movie->synopsis;
+    $recommended=$movie->recommended;
+    // $movie_id=$movie->movie_id;
+    $stmt->execute();
+    echo "New record ". $i ." created successfully<br>";
 }
 
 $stmt->close();

@@ -21,9 +21,9 @@ class Movie implements JsonSerializable{
 
     public function __construct(){
         $this->title = generateRandomString();
-        $this->year = strval(rand(1980,2010));
+        $this->year = INT(rand(1980,2010));
         $this->length = generateRandomString();
-        $this->rating = strval(rand(0, 10));
+        $this->rating = INT(rand(0, 10));
         $this ->synopsis = generateRandomString();
         $this ->recommended = TRUE;
         $this ->movie_id = strval(10);

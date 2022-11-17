@@ -27,6 +27,7 @@
       }
     $conn->close();
 
-    header("Location: http://localhost/mysite/db_project/movies.html");
+    // header("Location: http://localhost/mysite/db_project/movies.html");
+    header("Location: ./movies.html");
 
 ?>
