@@ -103,15 +103,12 @@ function send_request(action, send_str, path, callback) {
   httpRequest.send(send_str);
 }
 
-function add_movie() {
-  send_request("POST", "", "add_item.php", load_db);
-}
+// function add_movie() {
+//   send_request("POST", "", "add_item.php", load_db);
+// }
 
 function sort_movies(sort_criteria) {
   send_request("POST", sort_criteria, "sort_movies.php", display_obj_handler);
-}
-function upload_img() {
-  send_request("POST", curr_index+1, "uploadfile.php", test);
 }
 
 
