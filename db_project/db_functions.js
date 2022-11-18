@@ -15,7 +15,6 @@ function display_obj_handler() {
       if (httpRequest.status === 200) {
         db_obj = JSON.parse(httpRequest.responseText);
         max = parseInt(db_obj.pop())-1;
-        console.log('max:',max)
         displayObj(db_obj[curr_index]);
         displayPageNum();
       } else {
