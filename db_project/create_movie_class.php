@@ -31,15 +31,6 @@ class Movie implements JsonSerializable{
         $this ->movie_id = strval(10);
         $this ->img_path = strval(100);
     }
-    // public function __construct($title, $year, $length, $rating, $synopsis, $recommended){
-    //     $this->title = $title;
-    //     $this->year = $year;
-    //     $this->length = $length;
-    //     $this->rating = $rating;
-    //     $this->synopsis = $synopsis;
-    //     $this->recommended = $recommended;
-    //     $this->movie_id = 0;
-    // }
 
     // obj to str
     public function jsonSerialize() {

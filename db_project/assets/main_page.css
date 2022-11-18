@@ -79,5 +79,6 @@ h1{
 /* removes input up and down arrows */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }

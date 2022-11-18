@@ -1,14 +1,16 @@
 <?php
-    $servername = "localhost"; 
-    $username = "mseechan"; 
-    $password = "heIEUlFcaMTugj!K"; 
-    $dbname = "movies_db";
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    } 
+
+    // $servername = "localhost"; 
+    // $username = "mseechan"; 
+    // $password = "heIEUlFcaMTugj!K"; 
+    // $dbname = "movies_db";
+    // // Create connection
+    // $conn = new mysqli($servername, $username, $password, $dbname);
+    // // Check connection
+    // if ($conn->connect_error) {
+    //     die("Connection failed: " . $conn->connect_error);
+    // }
+    include "connect_db.php";
 
     if (isset($_POST['movie_id'])){$input_movie_id = $_POST['movie_id'];};
 

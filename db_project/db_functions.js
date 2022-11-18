@@ -14,7 +14,8 @@ function display_obj_handler() {
     if (httpRequest.readyState === XMLHttpRequest.DONE) {
       if (httpRequest.status === 200) {
         db_obj = JSON.parse(httpRequest.responseText);
-        max = parseInt(db_obj.pop())-1
+        max = parseInt(db_obj.pop())-1;
+        console.log('max:',max)
         displayObj(db_obj[curr_index]);
         displayPageNum();
       } else {
@@ -34,7 +35,6 @@ function displayObj(obj) {
   document.getElementById("synopsis").innerText = obj.synopsis;
   document.getElementById("movie_id").value = obj.movie_id;
   (obj.recommended == 1) ?  document.getElementById("rec").checked = obj.recommended: document.getElementById("not_rec").checked = obj.recommended;
-  console.log( obj.img_path)
   document.getElementById("movie_img").src = obj.img_path;
 }
 
@@ -111,7 +111,6 @@ function sort_movies(sort_criteria) {
   send_request("POST", sort_criteria, "sort_movies.php", display_obj_handler);
 }
 function upload_img() {
-  alert(curr_index+1);
   send_request("POST", curr_index+1, "uploadfile.php", test);
 }
 
