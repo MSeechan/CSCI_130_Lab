@@ -1,18 +1,24 @@
 <?php
 include "create_movie_class.php";
-include "connect_db.php";
-
 /* Create the database and movies_tbl. The table's column header types will be set 
 and the fields will be populated using data from the json from previous labs. */
+$db_params = parse_ini_file("db_credentials.ini");
+define('DB_SERVER',  $db_params['server']);
+define('DB_USERNAME',  $db_params['username']);
+define('DB_PASSWORD',  $db_params['password']);
 
-$sql = "CREATE DATABASE ". $dbname;
+$conn = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD);
+$db_name="movies_db";
+$sql = "CREATE DATABASE ".$db_name;
 if ($conn->query($sql) === TRUE) {
-    echo "Database ". $dbname ." created successfully<br>";
+    echo "Database ". $db_name ." created successfully<br>";
 } else {
     echo "Error creating database: " . $conn->error ."<br>";
 }
-// close the connection
 $conn->close();
+
+//open connection again with the newly created db
+$conn = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, $db_name);
 
 // set table header types
 $sql = "CREATE TABLE movies_tbl (
