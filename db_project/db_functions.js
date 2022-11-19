@@ -33,7 +33,7 @@ function displayObj(obj) {
   //ternary to set radio buttons
   obj.recommended == 1
     ? (document.getElementById("rec").checked = true)
-    : (document.getElementById("not_rec").checked = false);
+    : (document.getElementById("not_rec").checked = true);
   document.getElementById("movie_img").src = obj.img_path;
 }
 

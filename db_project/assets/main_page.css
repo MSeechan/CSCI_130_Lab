@@ -5,8 +5,21 @@ body {
   width: 100%;
 }
 
-header {
+.banner {
+  display: flex;
+  align-items: flex-start;
+  align-items: center;
+  font-weight: bolder;
   background-color: #272727;
+}
+
+footer {
+  color: #999999;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  margin-left: 5px;
 }
 
 fieldset {
@@ -22,7 +35,7 @@ fieldset {
 }
 
 label {
-  border-left: 8px solid #04aa6d;
+  border-left: 8px solid #d9eee1;
   margin-bottom: 10px;
   padding: 0px 1px 0px 3px;
   font-weight: bold;
@@ -30,8 +43,7 @@ label {
   text-align: left;
 }
 
-td,
-footer {
+td {
   vertical-align: top;
   padding: 10px;
 }
@@ -43,13 +55,22 @@ textarea {
 input[type="button"],
 input[type="submit"],
 button {
-  background-color: rgb(13, 238, 126);
+  /* background-color: rgb(13, 238, 126); */
+
+  background-color: #96d4d4;
   border: none;
   border-radius: 10px;
   margin-bottom: 5px;
   min-width: 60px;
   height: 25px;
   transition: background-color 0.5s ease;
+}
+
+input[type="button"]:hover:enabled,
+input[type="submit"]:hover:enabled {
+  /* background-color: rgb(0, 199, 106); */
+  background-color: #d9eee1;
+  transition: background-color 0.25s ease;
 }
 
 input[type="text"],
@@ -71,32 +92,19 @@ input:disabled:hover {
 }
 
 #delete:enabled:hover {
-  background-color: rgb(255, 62, 62);
+  background-color: #ffc0c7;
 }
 
 #edit {
-  background-color: rgb(255, 251, 0);
+  background-color: #fff4a3;
   border: 2px solid gold;
-  margin-right: 20px;
+  margin-right: 10px;
   color: brown;
 }
 
 #edit:hover {
   background-color: gold;
   transition: background-color 0.5s ease;
-}
-
-input[type="button"]:hover:enabled,
-input[type="submit"]:hover:enabled {
-  background-color: rgb(0, 199, 106);
-  transition: background-color 0.25s ease;
-}
-
-.banner {
-  display: flex;
-  align-items: flex-start;
-  align-items: center;
-  font-weight: bolder;
 }
 
 h1 {
