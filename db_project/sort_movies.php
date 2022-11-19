@@ -6,11 +6,13 @@
     $result = $conn->query($sql);
     $total = $result->fetch_assoc();
     $total = $total["Total"];
-
+    
+    // sort by movie title
     if (isset($_POST['Title'])){
         $sql = "SELECT pkey, title, year, length, rating, synopsis, recommended, img_path FROM movies_tbl ORDER BY title ASC";
     
     }
+    // sort by pkey/index
     if (isset($_POST['Index'])){
         $sql = "SELECT pkey, title, year, length, rating, synopsis, recommended, img_path FROM movies_tbl ORDER BY movies_tbl.pkey ASC";
     }

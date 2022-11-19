@@ -2,7 +2,6 @@
 $target_dir = "assets/"; // you must create this directory in the folder where you have the PHP file
 $target_file = $target_dir . basename($_FILES["img_path"]["name"]);
 
-
 echo "<p>Upload information</p><ul>";
 echo  "<li>Target folder for the upload :". $target_file . "</li>";
 echo  "<li>File name :". basename($_FILES["img_path"]["name"]) . "</li>";

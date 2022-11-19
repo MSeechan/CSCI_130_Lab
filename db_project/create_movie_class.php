@@ -21,7 +21,6 @@ class Movie implements JsonSerializable{
     public $movie_id;
     public $img_path;
 
-
     public function __construct(){
         $this->title = generateRandomString();
         $this->year = strval(rand(1980,2010));

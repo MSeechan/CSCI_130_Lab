@@ -30,13 +30,13 @@ label {
   text-align: left;
 }
 
-td, footer {
+td,
+footer {
   vertical-align: top;
-  padding:10px;
+  padding: 10px;
 }
- 
 
-textarea{
+textarea {
   font-family: Tahoma, Verdana, Arial, sans-serif;
 }
 
@@ -52,40 +52,42 @@ button {
   transition: background-color 0.5s ease;
 }
 
-input[type="text"],input[type="number"]{
-    margin-bottom: 3px;
-    border-radius: 3px;
-    border: 1px solid gray;
+input[type="text"],
+input[type="number"] {
+  margin-bottom: 3px;
+  border-radius: 3px;
+  border: 1px solid gray;
 }
 
-input:disabled, input:disabled:hover{
+input:disabled,
+input:disabled:hover {
   background-color: #eeeeee;
   transition: background-color 0.5s ease;
   border: 1px solid rgb(255, 255, 255);
 }
 
-#delete:enabled{
-    background-color: rgb(255, 130, 130);
+#delete:enabled {
+  background-color: rgb(255, 130, 130);
 }
 
-#delete:enabled:hover{
-    background-color: rgb(255, 62, 62);
+#delete:enabled:hover {
+  background-color: rgb(255, 62, 62);
 }
 
-#edit{
-    background-color: rgb(255, 251, 0);
-    border:2px solid gold;
-    margin-right:20px;
-    color:brown;
+#edit {
+  background-color: rgb(255, 251, 0);
+  border: 2px solid gold;
+  margin-right: 20px;
+  color: brown;
 }
 
-#edit:hover{
-    background-color: gold;
-    transition: background-color 0.5s ease;
+#edit:hover {
+  background-color: gold;
+  transition: background-color 0.5s ease;
 }
 
 input[type="button"]:hover:enabled,
-input[type="submit"]:hover:enabled{
+input[type="submit"]:hover:enabled {
   background-color: rgb(0, 199, 106);
   transition: background-color 0.25s ease;
 }
@@ -98,15 +100,15 @@ input[type="submit"]:hover:enabled{
 }
 
 h1 {
-  font-size:50px;
+  font-size: 50px;
   color: #96d4d4;
   margin-bottom: 0;
 }
-h4{
-  display:inline;
+h4 {
+  display: inline;
 }
-hr{
-    border-top: 3px solid  #ececec;;
+hr {
+  border-top: 3px solid #ececec;
 }
 
 .float-left {

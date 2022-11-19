@@ -5,14 +5,14 @@ include "connect_db.php";
 /* Create the database and movies_tbl. The table's column header types will be set 
 and the fields will be populated using data from the json from previous labs. */
 
-// $sql = "CREATE DATABASE ". $dbname;
-// if ($conn->query($sql) === TRUE) {
-//     echo "Database ". $dbname ." created successfully<br>";
-// } else {
-//     echo "Error creating database: " . $conn->error ."<br>";
-// }
-// // close the connection
-// $conn->close();
+$sql = "CREATE DATABASE ". $dbname;
+if ($conn->query($sql) === TRUE) {
+    echo "Database ". $dbname ." created successfully<br>";
+} else {
+    echo "Error creating database: " . $conn->error ."<br>";
+}
+// close the connection
+$conn->close();
 
 // set table header types
 $sql = "CREATE TABLE movies_tbl (

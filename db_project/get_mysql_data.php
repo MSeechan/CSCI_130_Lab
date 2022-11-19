@@ -2,18 +2,6 @@
 include "create_movie_class.php";
 include "connect_db.php";
 
-// open and load the content of the database
-// $servername = "localhost"; 
-// $username = "mseechan"; 
-// $password = "heIEUlFcaMTugj!K"; 
-// $dbname = "movies_db";
-// // Create connection
-// $conn = new mysqli($servername, $username, $password, $dbname);
-// // Check connection
-// if ($conn->connect_error) {
-// 	die("Connection failed: " . $conn->connect_error);
-// } 
-
 // get single movie from db 
 if (isset($_POST["Index"])) {
 	$index =(int)$_POST["Index"];
@@ -44,7 +32,7 @@ if (isset($_POST["Index"])) {
 	}
 }
 
-// get entire db of movies
+// get entire tbl of movies
 if (isset($_POST["array"])) {
 
 	$sql = "SELECT COUNT(*) AS Total FROM movies_tbl;";
