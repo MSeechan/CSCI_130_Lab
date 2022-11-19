@@ -1,84 +1,119 @@
-body{
-    margin:0;
-    padding:0;
-    height:100%;
-    width:100%;
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
 }
 
-header{
-    background-color: #272727; 
+header {
+  background-color: #272727;
 }
 
 fieldset {
-    width:50vw;
-    background-color: rgb(255, 255, 255);
-    border:none;
-    padding:20px;
- 
-    border-right: 5px solid #dfdfdf;
+  width: 50vw;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  padding: 20px;
 }
 
 #synopsis {
-    height: 100px;
-    width: 50vw;
-    padding:10px;
-} 
-
-label{
-    border-left:4px solid #04AA6D;
-    margin-bottom: 10px;
-    padding: 0px 1px 0px 3px; 
-    font-weight: bold;
-    width: 100px;
-    text-align: left;
+  height: 100px;
+  width: 50vw;
+  padding: 10px;
 }
 
-td{
-    vertical-align: top;
+label {
+  border-left: 8px solid #04aa6d;
+  margin-bottom: 10px;
+  padding: 0px 1px 0px 3px;
+  font-weight: bold;
+  width: 100px;
+  text-align: left;
 }
 
-input[type="button"], input[type="submit"] {
-    background-color: rgb(13, 238, 126);
-    border: none;
-    border-radius: 3px;
-    margin-bottom: 5px;;
-    min-width:60px;
-    height:25px;
+td {
+  vertical-align: top;
 }
 
-
-input[type="button"]:hover, input[type="submit"]:hover {
-    background-color:  rgb(0, 199, 106);
+input[type="button"],
+input[type="submit"] {
+  background-color: rgb(13, 238, 126);
+  border: none;
+  border-radius: 3px;
+  margin-bottom: 5px;
+  min-width: 60px;
+  height: 25px;
+  transition: background-color 0.5s ease;
 }
 
-.banner{
-    display:flex; 
-    align-items:flex-start;
-    align-items: center;
-    font-weight: bolder;
+input[type="text"],input[type="number"]{
+    margin-bottom: 3px;
 }
 
-h1{
-    color:#96d4d4;
-    margin-bottom: 0;
+#delete:enabled{
+    background-color: rgb(255, 130, 130);
+}
+#delete:hover{
+    background-color: rgb(255, 62, 62);
 }
 
-.float-left{
-    float:left;
+#edit{
+    background-color: rgb(255, 251, 0);
+    border:2px solid gold;
+    margin-right:20px;
+    color:brown;
+}
+#edit:hover{
+    background-color: gold;
 }
 
-.float-right{
-    float:right;
-    margin-left:5px;
+#img_up:hover{
+    transition: opacity .2s linear 1s; 
 }
 
-.input_sm{
-    width:20px;
+input:disabled, input:disabled:hover{
+  background-color: #eeeeee;
+  transition: background-color 0.5s ease;
 }
- 
+
+input[type="button"]:hover:enabled,
+input[type="submit"]:hover:enabled{
+  background-color: rgb(0, 199, 106);
+  transition: background-color 0.25s ease;
+}
+
+.banner {
+  display: flex;
+  align-items: flex-start;
+  align-items: center;
+  font-weight: bolder;
+}
+
+h1 {
+  color: #96d4d4;
+  margin-bottom: 0;
+}
+
+hr{
+    border-top: 3px solid  #ececec;;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+  margin-left: 5px;
+}
+
+.input_sm {
+  width: 20px;
+}
+
 /* removes input up and down arrows */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }

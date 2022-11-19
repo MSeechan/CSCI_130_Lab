@@ -20,9 +20,9 @@ pkey INT(6) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
 title  VARCHAR(30) NOT NULL,
 year   INT(4) NOT NULL,
 length   VARCHAR(30) NOT NULL,
-rating  FLOAT(2,1) NOT NULL,
+rating  VARCHAR(5) NOT NULL,
 synopsis VARCHAR(1000) NOT NULL,
-recommended TINYINT NOT NULL,
+recommended TINYINT(1) NOT NULL,
 img_path VARCHAR(100)
 )";
 
@@ -40,7 +40,7 @@ if ($stmt==FALSE) {
 	echo $conn->error; // Need to connect/reconnect before the prepare call otherwise it doesnt work
 }
 // bind parameters
-$stmt->bind_param("sisdsbs", $title, $year, $length, $rating, $synopsis, $recommended, $img_path);
+$stmt->bind_param("sisssis", $title, $year, $length, $rating, $synopsis, $recommended, $img_path);
 
 // load json data into table
 $json_str = file_get_contents('movies_data.json');
@@ -53,7 +53,7 @@ for ($i=0;$i<$count;$i++) {
     $length = $movies_arr[$i]->length;
     $rating = $movies_arr[$i]->rating;
     $synopsis =$movies_arr[$i]->synopsis;
-    $recommended=$movies_arr[$i]->recommended;
+    $recommended = $movies_arr[$i]->recommended;
     $img_path=$movies_arr[$i]->img_path;
     $stmt->execute();
     echo "New record ". $i ." created successfully<br>";

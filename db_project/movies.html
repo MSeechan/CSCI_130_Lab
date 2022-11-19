@@ -14,14 +14,12 @@
     <table>
         <tr>      
             <td> 
+            <input id='edit' type="button" value="Edit" class="float-right" onclick="toggle_edit()">
                 <form id="movie_form" method="POST"  enctype="multipart/form-data">
-          
-                <!-- <form id="movie_form"> -->
-                
                     <fieldset>
-                        <input id='delete' type="submit" value="Delete" class=float-right formaction="delete_movie.php">
-                        <input id='add' type="submit" value="Add" class=float-right formaction="add_movie.php">
-                        <input id='update' type="submit" value="Update" class=float-right formaction="update_movie.php">
+                        <input id='delete' type="submit" value="Delete" class="float-right red" formaction="delete_movie.php">
+                        <input id='update' type="submit" value="Update" class="float-right" formaction="update_movie.php">
+                        <input id='add' type="submit" value="Add" class="float-right" formaction="add_movie.php">
 
                         <label for="title">Title:</label>
                         <input type="text" id="title" name="title"><br>
@@ -39,18 +37,21 @@
                         <input type="text" id="rating"  name="rating"><br>
     
                         <label for="recommended">Recommended:</label>
-                        Yes<input type="radio" name="recommended"  id="rec">
-                        No<input type="radio" name="recommended"  id="not_rec"><br><br>
+                        Yes<input type="radio" name="recommended"  value=1>
+                        No<input type="radio" name="recommended"  value=0><br><br>
     
                         <label for="synopsis">Synopsis:</label><br>
                         <textarea id="synopsis"  name="synopsis"></textarea>
                         <input id="img_up" type="file" name="img_path">
-                        <br><br><hr>
+                     
+                    </fieldset>
+                </form>    
                 <!-- SORTING ------------------------------->
-                         <h4>Sort</h4>
-                         <input id='sort_name_btn' type="button" value="Title" onclick='sort_movies(this.value)'>
-                         <input id='sort_index_btn' type="button" value="Index" onclick='sort_movies(this.value)'> 
-                         <br><hr>
+                        <hr> 
+                        <h4>Sort</h4>
+                        <input id='sort_name_btn' type="button" value="Title" onclick='sort_movies(this.value)'>
+                        <input id='sort_index_btn' type="button" value="Index" onclick='sort_movies(this.value)'> 
+                        <br><hr>
                 <!-- Page number display ----------------->
                         <h4 id="page_num" name="index"></h4>
                         <input id='get' type="button" value="Get" onclick='get_item()'>
@@ -59,8 +60,7 @@
                         <input id='prevBtn' type="button" value="Prev" onclick='goPrev()'>
                         <input id='nextBtn' type="button" value="Next" onclick='goNext()'>
                         <input id='lastBtn' type="button" value="Last" onclick='goLast()'>
-                    </fieldset>
-                </form>    
+                 
             </td>
             <!-- image display -->
             <td> <img class=float-left id=movie_img src="" width="300px"> </td>

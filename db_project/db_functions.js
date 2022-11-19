@@ -31,7 +31,7 @@ function displayObj(obj) {
   document.getElementById("year").value = obj.year;
   document.getElementById("length").value = obj.length;
   document.getElementById("rating").value = obj.rating;
-  document.getElementById("synopsis").innerText = obj.synopsis;
+  document.getElementById("synopsis").value = obj.synopsis;
   document.getElementById("movie_id").value = obj.movie_id;
   (obj.recommended == 1) ?  document.getElementById("rec").checked = obj.recommended: document.getElementById("not_rec").checked = obj.recommended;
   document.getElementById("movie_img").src = obj.img_path;
@@ -102,14 +102,17 @@ function send_request(action, send_str, path, callback) {
   httpRequest.send(send_str);
 }
 
-// function add_movie() {
-//   send_request("POST", "", "add_item.php", load_db);
-// }
-
 function sort_movies(sort_criteria) {
   send_request("POST", sort_criteria, "sort_movies.php", display_obj_handler);
 }
 
+function toggle_edit(){
+  let form = document.getElementById("movie_form");
+  let elements = form.elements;
+  for (let i = 0, len = elements.length; i < len; i++) {
+  (elements[i].disabled == true) ? elements[i].disabled = false:elements[i].disabled = true;
+  }
+}
 
 function test() {
   try {
@@ -127,4 +130,5 @@ function test() {
 }
 
 load_db();
+toggle_edit();
 

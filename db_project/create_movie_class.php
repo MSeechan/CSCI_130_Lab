@@ -11,6 +11,7 @@ function generateRandomString($length = 10) {
 }
 
 class Movie implements JsonSerializable{
+    // the movie id is set to the pkey from mysql
     public $title;
     public $year;
     public $length;
@@ -25,9 +26,9 @@ class Movie implements JsonSerializable{
         $this->title = generateRandomString();
         $this->year = strval(rand(1980,2010));
         $this->length = generateRandomString();
-        $this->rating = strval(rand(0, 10));
+        $this->rating =  generateRandomString();
         $this ->synopsis = generateRandomString();
-        $this ->recommended = TRUE;
+        $this ->recommended = 1;
         $this ->movie_id = strval(10);
         $this ->img_path = strval(100);
     }
