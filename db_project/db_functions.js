@@ -33,7 +33,7 @@ function displayObj(obj) {
   document.getElementById("rating").value = obj.rating;
   document.getElementById("synopsis").value = obj.synopsis;
   document.getElementById("movie_id").value = obj.movie_id;
-  (obj.recommended == 1) ?  document.getElementById("rec").checked = obj.recommended: document.getElementById("not_rec").checked = obj.recommended;
+  (obj.recommended == 1) ?  document.getElementById("rec").checked = true: document.getElementById("not_rec").checked = false;
   document.getElementById("movie_img").src = obj.img_path;
 }
 

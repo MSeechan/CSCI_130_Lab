@@ -2,8 +2,8 @@
 <html lang="en" style="font: normal 12px Tahoma, Verdana, Arial, sans-serif">
 <head>
     <link rel="stylesheet" href="./assets/main_page.css">
+    <title>SGDB</title>
 </head>
-
 <body>
     <header>
         <div class="banner">
@@ -14,7 +14,7 @@
     <table>
         <tr>      
             <td> 
-            <input id='edit' type="button" value="Edit" class="float-right" onclick="toggle_edit()">
+            <button id='edit' class="float-right" onclick="toggle_edit()"> Edit <img src='assets/edit.svg' alt='edit icon' width="15px"> </button>
                 <form id="movie_form" method="POST"  enctype="multipart/form-data">
                     <fieldset>
                         <input id='delete' type="submit" value="Delete" class="float-right red" formaction="delete_movie.php">
@@ -37,8 +37,8 @@
                         <input type="text" id="rating"  name="rating"><br>
     
                         <label for="recommended">Recommended:</label>
-                        Yes<input type="radio" name="recommended"  value=1>
-                        No<input type="radio" name="recommended"  value=0><br><br>
+                        Yes<input type="radio" name="recommended"  id="rec" value=1>
+                        No<input type="radio" name="recommended"  id="not_rec" value=0><br><br>
     
                         <label for="synopsis">Synopsis:</label><br>
                         <textarea id="synopsis"  name="synopsis"></textarea>
@@ -56,19 +56,18 @@
                         <h4 id="page_num" name="index"></h4>
                         <input id='get' type="button" value="Get" onclick='get_item()'>
                         <input type="number" id="getItem" class=input_sm value="">
+                        <br>
                         <input id='firstBtn' type="button" value="First" onclick='goFirst()'>
                         <input id='prevBtn' type="button" value="Prev" onclick='goPrev()'>
                         <input id='nextBtn' type="button" value="Next" onclick='goNext()'>
                         <input id='lastBtn' type="button" value="Last" onclick='goLast()'>
-                 
             </td>
             <!-- image display -->
             <td> <img class=float-left id=movie_img src="" width="300px"> </td>
         </tr>
-  
     </table>    
  
-<footer>footer</footer>
+<footer><sub>CSCI 130 Intro to Web Dev</sub></footer>
     <!------------------------------------------------------------------------------->
     <script src="db_functions.js"> </script>
 </body>

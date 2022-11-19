@@ -13,7 +13,6 @@ fieldset {
   width: 50vw;
   background-color: rgb(255, 255, 255);
   border: none;
-  padding: 20px;
 }
 
 #synopsis {
@@ -31,15 +30,22 @@ label {
   text-align: left;
 }
 
-td {
+td, footer {
   vertical-align: top;
+  padding:10px;
+}
+ 
+
+textarea{
+  font-family: Tahoma, Verdana, Arial, sans-serif;
 }
 
 input[type="button"],
-input[type="submit"] {
+input[type="submit"],
+button {
   background-color: rgb(13, 238, 126);
   border: none;
-  border-radius: 3px;
+  border-radius: 10px;
   margin-bottom: 5px;
   min-width: 60px;
   height: 25px;
@@ -48,12 +54,21 @@ input[type="submit"] {
 
 input[type="text"],input[type="number"]{
     margin-bottom: 3px;
+    border-radius: 3px;
+    border: 1px solid gray;
+}
+
+input:disabled, input:disabled:hover{
+  background-color: #eeeeee;
+  transition: background-color 0.5s ease;
+  border: 1px solid rgb(255, 255, 255);
 }
 
 #delete:enabled{
     background-color: rgb(255, 130, 130);
 }
-#delete:hover{
+
+#delete:enabled:hover{
     background-color: rgb(255, 62, 62);
 }
 
@@ -63,17 +78,10 @@ input[type="text"],input[type="number"]{
     margin-right:20px;
     color:brown;
 }
+
 #edit:hover{
     background-color: gold;
-}
-
-#img_up:hover{
-    transition: opacity .2s linear 1s; 
-}
-
-input:disabled, input:disabled:hover{
-  background-color: #eeeeee;
-  transition: background-color 0.5s ease;
+    transition: background-color 0.5s ease;
 }
 
 input[type="button"]:hover:enabled,
@@ -90,10 +98,13 @@ input[type="submit"]:hover:enabled{
 }
 
 h1 {
+  font-size:50px;
   color: #96d4d4;
   margin-bottom: 0;
 }
-
+h4{
+  display:inline;
+}
 hr{
     border-top: 3px solid  #ececec;;
 }

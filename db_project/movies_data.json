@@ -13,7 +13,7 @@
     "year": 1989,
     "length": "1h 43m",
     "rating": "G",
-    "synopsis": "This is the story of a young witch, named Kiki who is now 13 years old. But she is still a little green and plenty headstrong, but also resourceful, imaginative, and determined. With her trusty wisp of a talking cat named Jiji by her smovie_ide she's ready to take on the world, or at least the quaintly European seasmovie_ide village she's chosen as her new home.",
+    "synopsis": "This is the story of a young witch, named Kiki who is now 13 years old. But she is still a little green and plenty headstrong, but also resourceful, imaginative, and determined. With her trusty wisp of a talking cat named Jiji by her smovie_ide she's ready to take on the world, or at least the quaintly European seaside village she's chosen as her new home.",
     "recommended": true,
     "img_path": "assets/img_2.jpg"
   },
@@ -28,10 +28,10 @@
   },
   {
     "title": "Howl's Moving Castle",
-    "year": "1988",
-    "length": "Z9CQ8COSvl",
-    "rating": "G",
-    "synopsis": "lZcW6a1kGk",
+    "year": "2004",
+    "length": "1h 59m",
+    "rating": "PG",
+    "synopsis": "When an unconfident young woman is cursed with an old body by a spiteful witch, her only chance of breaking the spell lies with a self-indulgent yet insecure young wizard and his companions in his legged, walking castle.",
     "recommended": true,
     "img_path": "assets/img_4.jpg"
   },
@@ -39,7 +39,7 @@
     "title": "Ponyo",
     "year": "2008",
     "length": "1h 41m",
-    "rating": "M",
+    "rating": "G",
     "synopsis": "A five-year-old boy develops a relationship with Ponyo, a young goldfish princess who longs to become a human after falling in love with him.",
     "recommended": false,
     "img_path": "assets/img_5.jpg"

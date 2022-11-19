@@ -14,7 +14,6 @@ $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 // Verify if the image file is an actual image or a fake image
 if(isset($_POST["submit"])) {
   
-
     $check = getimagesize($_FILES["img_path"]["tmp_name"]);
     if($check !== false) {
         $message = "<li>File is an image of type - " . $check["mime"] . ".</li>";
