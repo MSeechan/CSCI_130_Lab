@@ -7,25 +7,25 @@ function load_db() {
 }
 
 function init_db(){
-  send_request("POST", "init_db=", "init_movies_db.php", "refresh");
+  db_post("init_db=", "init_movies_db.php");
 }
 
 function drop_db(){
-  send_request("POST", "drop_db=", "drop_movies_db.php", "refresh");
+  db_post("drop_db=", "drop_movies_db.php");
 }
 
-function refresh(){
-  try {
-    if (httpRequest.readyState === XMLHttpRequest.DONE) {
-      if (httpRequest.status === 200) {
-        
-      } else {
-        alert("There was a problem with the request.");
-      }
-    }
-  } catch (e) {
-    alert("Caught Exception: " + e.synopsis);
+function db_post(send, path){
+  httpRequest = new XMLHttpRequest();
+  if (!httpRequest) {
+    alert("Cannot create an XMLHTTP instance");
+    return false;
   }
+  httpRequest.open("POST", path);
+  httpRequest.setRequestHeader(
+    "Content-Type",
+    "application/x-www-form-urlencoded"
+  );
+  httpRequest.send(send);
 }
 
 
@@ -113,7 +113,6 @@ function get_item() {
 
 // generalized request function for post and get
 function send_request(action, send_str, path, callback) {
-  console.log("request:", action, " ", send_str);
   httpRequest = new XMLHttpRequest();
   if (!httpRequest) {
     alert("Cannot create an XMLHTTP instance");

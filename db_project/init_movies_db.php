@@ -70,8 +70,6 @@ if(isset($_POST["init_db"])){
     $stmt->close();
 
     // close the connection
-    $conn->close();
-}
-
-
+    $conn->close();  
+}  
 ?>
