@@ -21,13 +21,15 @@
  <!-- Buttons to create db with table and button to drop db -->
           <input id="init_db" type="button" value="Init DB" class="float-right" onclick="init_db()">
           <input id="drop_db" type="button" value="Drop DB" class="float-right" onclick="drop_db()">
+          
             
 <!-- main movie display form  -->
           <form id="movie_form" method="POST" enctype="multipart/form-data">
             <fieldset>
-              <input id="delete" type="submit" value="Delete" class="float-right red" formaction="delete_movie.php"/>
-              <input id="update"type="submit" value="Update" class="float-right" formaction="update_movie.php"/>
-              <input id="add"type="submit" value="Add" class="float-right" formaction="add_movie.php"/>
+              <input id="delete" type="submit" value="Delete" class="float-right red form-btn" formaction="delete_movie.php"/>
+              <input id="update" type="submit" value="Update" class="float-right form-btn" formaction="update_movie.php"/>
+              <input id="add" type="submit" value="Add" class="float-right form-btn" formaction="add_movie.php"/>
+              <input type="reset" value="Clear" class="float-right form-btn">
 
               <label for="title">Title:</label>
               <input type="text" id="title" name="title" /><br />

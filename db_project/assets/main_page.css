@@ -57,10 +57,8 @@ textarea {
 }
 
 input[type="button"],
-input[type="submit"],
+.form-btn,
 button {
-  /* background-color: rgb(13, 238, 126); */
-
   background-color: #96d4d4;
   border: none;
   border-radius: 10px;
@@ -71,8 +69,8 @@ button {
 }
 
 input[type="button"]:hover:enabled,
+.form-btn:hover:enabled,
 input[type="submit"]:hover:enabled {
-  /* background-color: rgb(0, 199, 106); */
   background-color: #d9eee1;
   transition: background-color 0.25s ease;
 }
