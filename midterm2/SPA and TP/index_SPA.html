@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Web Programming - CSci 130</title>
+</head>
+<body>
+<!-- Basic form: -->
+<section>
+<h1>Input form</h1>
+<p><label>Number: <input type="text" id="item"/> </label></p>
+<p id="myinputarray"></p>
+<p><input  type="button" id="bt01" type="button" onclick="Add()" value="Add Number"></p>
+<p><input  type="button" id="bt02" type="button" onclick="Reset()" value="Reset Array"></p>
+<p><input  type="button" id="bt03" type="button" onclick="RandArray()" value="Random Array"></p>
+<p><input  type="button" id="bt04" type="button" onclick="SendPOST()" value="Send - POST"></p>
+<p><input  type="button" id="bt05" type="button" onclick="SendGET()" value="Send - GET"></p>
+</section>
+
+<section>
+<table id="inputtable">
+<!-- This part will display the table -->
+</table>
+<section>
+
+
+<section>
+<h1>Results</h1>
+<p id='result'> 
+<!-- This part will contain the response sent by the server -->
+</p>
+</section>
+
+<script>
+
+	var x=new Array(); // the array where we store values
+	var httpRequest; // needed for AJAX to communicate with the server side
+
+    // Display the different elements that we have in the array
+	function Display() {
+		let str="";
+		for (let i=0;i<x.length;i++)
+			str+=x[i] + ",";
+		document.getElementById('myinputarray').innerHTML=str;
+		
+		str="";
+		var table=document.getElementById('inputtable');
+		for (let i=0;i<x.length;i++)
+		{
+		    strname='v'+i;
+			str+='<tr><td><input type="text" id="' + strname 
+			                            + '" name="' + strname  
+                                        + '" value="' + x[i] + '" </td></tr>';
+		}
+		table.innerHTML=str;		
+	}
+	
+	// Add an element in the array
+	function Add() {
+		x.push(document.getElementById('item').value);
+		Display();
+	}
+  
+    // Reset the content of the array
+	function Reset() {
+		x=new Array();
+		Display();
+	}
+	  
+	// Send the array to the server to be processed with POST
+	function SendPOST() {
+		var myJSON=JSON.stringify(x); // Array -> String
+		// alert(myJSON); // verify that what you send is correct
+		makeRequestPOST('processnumbers.php',myJSON);		
+	}
+	
+	// Send the array to the server to be processed with GET
+	function SendGET() {
+		var myJSON=JSON.stringify(x); // Array -> String
+		makeRequestGET('processnumbers.php',myJSON);		
+	}
+	
+	// Create a array of size 10 with random values
+	function RandArray() {
+		x=[];
+		for (let i=0;i<10;i++)
+			x[i]=Math.floor(Math.random()*100);
+		Display();
+	}
+	  
+	// Display the response from the request
+	// The response is an object
+	function DisplayRequest(response) {	
+	  let str='Average:' +  response.average + '<br>';
+	  str+='Median:' +  response.median + '<br>';
+	  str+='StandardDeviation:' + response.standarddeviation + '<br>';
+	  str+='Maximum:' + response.max + '<br>';
+	  str+='Minimum:' + response.min + '<br>';
+	  str+='Prime Numbers:' + response.prime;
+	  // Update the content in the place where the results should be displayed
+	  document.getElementById('result').innerHTML=str;
+	}
+  
+    // Event for sending str with a POST to url
+	function makeRequestPOST(url,str) {
+		httpRequest = new XMLHttpRequest(); // create the object
+		if (!httpRequest) { 
+		  alert('Cannot create an XMLHTTP instance');
+		  return false;
+		}
+		httpRequest.onreadystatechange = GetPHPResults;  // assign the callback function
+		httpRequest.open('POST',url);  
+		httpRequest.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+		httpRequest.send('myarray='+ str); // send the variable myarray with value set defined by str
+	}
+	
+	// Event for sending str with a GET to url
+	function makeRequestGET(url,str) {
+		httpRequest = new XMLHttpRequest(); // create the object
+		if (!httpRequest) { 
+		  alert('Cannot create an XMLHTTP instance');
+		  return false;
+		}
+		httpRequest.onreadystatechange = GetPHPResults;  // assign the callback function
+		// Modification of the URL so it embeds information to be retrieve by URL
+		httpRequest.open('GET',url + '?myarray=' + str);  
+		httpRequest.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+		httpRequest.send(); // GET -> nothing in the send
+	}
+  
+	function GetPHPResults() {
+	  try {
+		if (httpRequest.readyState === XMLHttpRequest.DONE) {
+		  if (httpRequest.status === 200) { 
+		        // If you have problems, 
+				// do an alert of the response to see that what you expect as a response is fine
+				// alert(httpRequest.responseText);
+				var response = JSON.parse(httpRequest.responseText); // String -> Object/Array
+				DisplayRequest(response); // display the value of property computedString from the JSON array/object
+		  } 
+		  else {
+			alert('There was a problem with the request.');
+		  }
+		}
+	  }
+	  catch( e ) { 
+		alert('...Caught Exception: ' + e.description);
+	  }
+	}
+  
+</script>
+</body>
+</html>

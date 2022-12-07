@@ -18,6 +18,11 @@
           <button id="edit" class="float-right" onclick="toggle_edit()">
             Edit <img src="assets/edit.svg" alt="edit icon" width="15px" />
           </button>
+ <!-- Buttons to create db with table and button to drop db -->
+          <input id="init_db" type="button" value="Init DB" class="float-right" onclick="init_db()">
+          <input id="drop_db" type="button" value="Drop DB" class="float-right" onclick="drop_db()">
+            
+<!-- main movie display form  -->
           <form id="movie_form" method="POST" enctype="multipart/form-data">
             <fieldset>
               <input id="delete" type="submit" value="Delete" class="float-right red" formaction="delete_movie.php"/>
@@ -48,7 +53,7 @@
               <input id="img_up" type="file" name="img_path" />
             </fieldset>
           </form>
- <!-- SORTING ------------------------------->
+<!-- SORTING ------------------------------->
           <hr />
           <h4>Sort</h4>
           <input id="sort_name_btn"type="button" value="Title" onclick="sort_movies(this.value)"
@@ -71,7 +76,7 @@
         <td class="center"><img id="movie_img" src="" width="300px" /></td>
       </tr>
     </table>
-
+<!-- Footer -->
     <footer><sub>Malee Seechan  CSCI 130 Intro to Web Dev  DB Project</sub></footer>
     <!------------------------------------------------------------------------------->
     <script src="db_functions.js"></script>

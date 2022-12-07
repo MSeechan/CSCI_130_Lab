@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head></head>
+  <body>
+    <table>
+      <tr>
+        <td>
+          <input id="edit_btn" type="button" value="Edit" onclick="toggle_edit()"/>
+          <form id="page_form" method="POST" enctype="multipart/form-data">
+            <fieldset>
+           
+              <input id="delete" type="submit" value="Delete" formaction="delete_record.php"/>
+              <input id="update"type="submit" value="Update"  formaction="update_record.php"/>
+              <input id="add"type="submit" value="Add"  formaction="add_record.php"/>
+              <br />
+              <label for="id">record_Id:</label>
+              <input type="number" id="id" name="id"/><br />
+
+              <label for="col1">col1:</label>
+              <input type="text" id="col1" name="col1" /><br />
+
+              <label for="col2">col2:</label>
+              <input type="number" id="col2" name="col2" /><br />
+
+              <label for="col3">col3:</label>
+              <input type="text" id="col3" name="col3" /><br />
+
+            </fieldset>
+          </form>
+          <div id="jdisplay"></div>
+          <!-- SORTING ------------------------------->
+          
+          Sort:
+          <input id="sort_col1_btn" type="button" value="col1" onclick="sort_record(this.value)"/>
+          <input id="sort_id_btn" type="button" value="id" onclick="sort_record(this.value)"/>
+          <br />
+          
+          <!-- Page number display ----------------->
+          <h4 id="record_num" name="id"></h4>
+          <input id="get" type="button" value="Get" onclick="get_item()" />
+          <input type="number" id="getItem" class="input_sm" value="" />
+          <br />
+          <input id="firstBtn" type="button" value="First"onclick="goFirst()"/>
+          <input id="prevBtn" type="button" value="Prev" onclick="goPrev()" />
+          <input id="nextBtn" type="button" value="Next" onclick="goNext()" />
+          <input id="lastBtn" type="button" value="Last" onclick="goLast()" />
+        </td>
+      </tr>
+    </table>
+
+    <!------------------------------------------------------------------------------->
+    <script src="db_js_fun.js"></script>
+  </body>
+</html>

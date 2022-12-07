@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var xhr;
+        var request = "";
+
+        function Post(){
+            let val = (document.getElementById("input").value)
+            fd = new FormData()
+            fd.append("val", val)
+            xhr = new XMLHttpRequest()
+            xhr.open("POST", "fact.php")
+            request = "post";  //for display later
+            xhr.onreadystatechange = parseResponse;
+            xhr.send(fd)  //send the form w/val
+        }
+
+        function Get(){
+            let val = (document.getElementById("input").value)
+            let params = "?val="+val; // build attachment
+            xhr = new XMLHttpRequest()
+            xhr.open("GET", "fact.php" + params)  //build GET url w/val
+            request = "get";  //for display later
+            xhr.onreadystatechange = parseResponse;
+            xhr.send()
+        }
+
+        function GetArray(){
+            let val = (document.getElementById("input").value)
+            let params = "?arr=set&val="+val;
+            xhr = new XMLHttpRequest()
+            xhr.open("GET", "fact.php" + params)
+            request = "get_arr";
+            xhr.onreadystatechange = parseResponse;
+            xhr.send()
+        }
+
+        function parseResponse(){
+            if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200){
+                res = xhr.response;
+                console.log(xhr.response);
+                document.getElementById("response_" + request).innerHTML = res;
+            }
+        }
+
+    </script>
+    <label for="input">Input</label>
+    <input type="number" id="input" name="input">
+
+    <button onclick="Post()">Get Factorial w POST</button>
+    <button onclick="Get()">Get Factorial w GET</button>
+    <button onclick="GetArray()">Get Factorial Array</button>
+
+    <section id="response_sect">
+        <label>Response GET: </label>
+        <span id="response_get"></span>
+        <br>
+        <label>Response POST</label>
+        <span id="response_post"></span>
+        <br>
+        <label>GET Array</label>
+        <div id="response_get_arr"></div>
+    </section>
+
+</body>
+</html>

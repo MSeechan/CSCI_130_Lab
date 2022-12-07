@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head></head>
+  <body>
+    <table>
+      <tr>
+        <td>
+    
+          <form id="page_form" method="POST" enctype="multipart/form-data">
+            <fieldset>
+           
+              <br />
+              <label for="id">record_Id:</label>
+              <input type="number" id="id" name="id"/><br />
+
+              <label for="Livingspace">Livingspace:</label>
+              <input type="text" id="LivingSpace" name="LivingSpace" /><br />
+
+              <label for="Beds">Beds:</label>
+              <input type="number" id="Beds" name="Beds" /><br />
+
+              <label for="Baths">Baths:</label>
+              <input type="text" id="Baths" name="Baths" /><br />
+
+              <label for="Zip">Zip:</label>
+              <input type="text" id="Zip" name="Zip" /><br />
+
+            </fieldset>
+          </form>
+          <!-- SORTING ------------------------------->
+          <table id="mytbl">
+            <tr>
+            <td>index</td>
+            <td>livingspacer</td>
+            <td>beds</td>
+            <td>bath</td>
+            <td>zip</td></tr>
+          </table>
+          
+          <!-- Page number display ----------------->
+          <h4 id="record_num" name="id"></h4>
+          <input id="get" type="button" value="Get" onclick="get_item()" />
+          <input type="number" id="getItem" class="input_sm" value="" />
+          <br />
+          <input id="firstBtn" type="button" value="First"onclick="goFirst()"/>
+          <input id="prevBtn" type="button" value="Prev" onclick="goPrev()" />
+          <input id="nextBtn" type="button" value="Next" onclick="goNext()" />
+          <input id="lastBtn" type="button" value="Last" onclick="goLast()" />
+        </td>
+      </tr>
+    </table>
+
+    <!------------------------------------------------------------------------------->
+    <script src="db_js_fun.js"></script>
+  </body>
+</html>
