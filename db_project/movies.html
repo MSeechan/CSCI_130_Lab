@@ -14,6 +14,7 @@
     <table>
       <tr>
         <td>
+<!-- Edit toggle sits outside of the form and toggles form edit enable/disable -->
           <button id="edit" class="float-right" onclick="toggle_edit()">
             Edit <img src="assets/edit.svg" alt="edit icon" width="15px" />
           </button>
@@ -26,7 +27,7 @@
               <label for="title">Title:</label>
               <input type="text" id="title" name="title" /><br />
 
-              <label for="title">Movie_Id:</label>
+              <label for="movie_id">Movie_Id:</label>
               <input type="number" name="movie_id" id="movie_id" /><br />
 
               <label for="year">Year:</label>
@@ -47,7 +48,7 @@
               <input id="img_up" type="file" name="img_path" />
             </fieldset>
           </form>
-          <!-- SORTING ------------------------------->
+ <!-- SORTING ------------------------------->
           <hr />
           <h4>Sort</h4>
           <input id="sort_name_btn"type="button" value="Title" onclick="sort_movies(this.value)"
@@ -56,7 +57,7 @@
           />
           <br />
           <hr />
-          <!-- Page number display ----------------->
+<!-- Navigation ----------------->
           <h4 id="page_num" name="index"></h4>
           <input id="get" type="button" value="Get" onclick="get_item()" />
           <input type="number" id="getItem" class="input_sm" value="" />
@@ -66,8 +67,8 @@
           <input id="nextBtn" type="button" value="Next" onclick="goNext()" />
           <input id="lastBtn" type="button" value="Last" onclick="goLast()" />
         </td>
-        <!-- image display -->
-        <td><img class="float-left" id="movie_img" src="" width="300px" /></td>
+<!-- image display -->
+        <td class="center"><img id="movie_img" src="" width="300px" /></td>
       </tr>
     </table>
 
